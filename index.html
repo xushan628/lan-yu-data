@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>蓝鲸 · 综合工作台</title>
+<style>
+:root{
+  --ink:#F7F6F3;
+  --side:#FFFFFF;
+  --panel:#FFFFFF;
+  --panel2:#F3F1EC;
+  --line:#E8E4DC;
+  --line2:#D7D2C8;
+  --text:#17161B;
+  --dim:#6B6874;
+  --dim2:#9A96A1;
+  --accent:#4F46E5;
+  --accent2:#FF6B35;
+  --blue:#4F46E5;
+  --green:#047857;
+  --gold:#A16207;
+  --red:#BE123C;
+  --violet:#7C3AED;
+  --input:#FFFFFF;
+  --shadow:0 1px 2px rgba(23,22,27,.045), 0 10px 30px -18px rgba(23,22,27,.18);
+  --shadow-lg:0 1px 2px rgba(23,22,27,.05), 0 24px 60px -28px rgba(23,22,27,.28);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink); color:var(--text); font-size:14px; line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"kern" 1,"liga" 1;
+  overflow:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(720px 420px at 12% -8%, rgba(79,70,229,.10), transparent 62%),
+    radial-gradient(680px 400px at 92% -6%, rgba(255,107,53,.09), transparent 62%),
+    radial-gradient(900px 600px at 50% 110%, rgba(4,120,87,.05), transparent 65%);
+}
+a{color:inherit}
+::selection{background:rgba(79,70,229,.16)}
+
+/* ================= 布局 ================= */
+.app{display:flex; height:100vh; overflow:hidden; position:relative; z-index:1}
+
+/* 侧栏 */
+.side{
+  width:246px; flex:0 0 246px; background:var(--side); border-right:1px solid var(--line);
+  display:flex; flex-direction:column; z-index:40; transition:transform .24s cubic-bezier(.4,0,.2,1);
+  box-shadow:1px 0 0 rgba(23,22,27,.02);
+}
+.sbrand{padding:20px 20px 16px}
+.sbrand .t{
+  font-size:17px; font-weight:800; letter-spacing:-.3px; line-height:1.25;
+  background:linear-gradient(96deg,#17161B 0%,#4F46E5 78%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.sbrand .t em{font-style:normal}
+.sbrand .s{font-size:11px; color:var(--dim2); margin-top:3px; letter-spacing:.8px}
+.snav{flex:1; overflow-y:auto; padding:4px 12px 24px; scrollbar-width:thin}
+.snav::-webkit-scrollbar{width:6px}
+.snav::-webkit-scrollbar-thumb{background:#E2DED6; border-radius:3px}
+.sgroup{margin-top:16px}
+.sgroup:first-child{margin-top:2px}
+.sglabel{
+  font-size:10px; color:var(--dim2); letter-spacing:1.2px; padding:6px 10px 7px;
+  font-weight:700; text-transform:uppercase;
+}
+.sitem{
+  display:flex; align-items:center; gap:10px; padding:8px 11px; border-radius:9px; cursor:pointer;
+  color:var(--dim); font-size:13px; border:none; background:none; width:100%; text-align:left;
+  font-family:inherit; transition:background .14s,color .14s; line-height:1.35; position:relative;
+}
+.sitem:hover{background:#F1EFEA; color:var(--text)}
+.sitem.on{background:rgba(79,70,229,.09); color:var(--accent); font-weight:650}
+.sitem.on::before{
+  content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
+  width:3px; height:16px; border-radius:0 3px 3px 0; background:var(--accent);
+}
+.sitem .ico{width:16px; text-align:center; font-size:12px; flex:0 0 16px; opacity:.55}
+.sitem.on .ico{opacity:1}
+.sfoot{padding:13px 18px; border-top:1px solid var(--line); font-size:11px; color:var(--dim2); line-height:1.6}
+.sfoot .dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:#10B981; margin-right:6px}
+
+/* 主区 */
+.main{flex:1; display:flex; flex-direction:column; min-width:0}
+.chead{
+  height:58px; flex:0 0 58px; display:flex; align-items:center; gap:14px; padding:0 26px;
+  border-bottom:1px solid var(--line); background:rgba(23,22,27,.82);
+  backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4);
+}
+.burger{
+  display:none; background:#fff; border:1px solid var(--line); color:var(--text);
+  width:34px; height:34px; border-radius:9px; cursor:pointer; font-size:15px; font-family:inherit
+}
+.crumb{font-size:13px; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.crumb b{color:var(--text); font-weight:650}
+.chead .right{margin-left:auto; display:flex; align-items:center; gap:13px; font-size:11.5px; color:var(--dim2)}
+.view{flex:1; overflow-y:auto; padding:30px 30px 100px; scroll-behavior:smooth}
+.view::-webkit-scrollbar{width:10px}
+.view::-webkit-scrollbar-thumb{background:#DDD8CF; border-radius:6px; border:3px solid var(--ink)}
+.view::-webkit-scrollbar-track{background:transparent}
+.inner{max-width:1200px; margin:0 auto}
+
+/* ================= 排版 ================= */
+h1{font-size:26px; font-weight:800; letter-spacing:-.7px; line-height:1.32}
+h1 small{display:block; font-size:13px; color:var(--dim); font-weight:400; letter-spacing:0; margin-top:7px; line-height:1.75}
+h2{font-size:18px; font-weight:750; margin:0 0 4px; letter-spacing:-.3px}
+h3{
+  font-size:13px; font-weight:700; margin:30px 0 13px; display:flex; align-items:center; gap:9px;
+  color:var(--dim); letter-spacing:.6px; text-transform:uppercase;
+}
+h3::before{content:""; width:16px; height:2px; background:var(--accent); border-radius:2px; opacity:.85}
+h4{font-size:13.5px; font-weight:700; margin-bottom:7px; letter-spacing:-.1px}
+p{color:#3B3943}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px;
+  background:#F1EFEA; padding:1px 5px; border-radius:5px; color:#4A3FB8}
+
+/* 卡片 */
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px; box-shadow:var(--shadow);
+}
+.grid{display:grid; gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.note{font-size:12px; color:var(--dim); line-height:1.78}
+.note b{color:var(--text)}
+.tag{display:inline-block; font-size:10.5px; padding:2.5px 9px; border-radius:6px; font-weight:650; letter-spacing:.3px}
+.mono{font-variant-numeric:tabular-nums}
+
+/* 按钮 */
+.btn{
+  background:#fff; border:1px solid var(--line2); color:var(--text); border-radius:9px;
+  padding:8px 14px; font-size:12.5px; cursor:pointer; font-family:inherit; transition:.15s;
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap; font-weight:550;
+  box-shadow:0 1px 2px rgba(23,22,27,.04);
+}
+.btn:hover{border-color:#BEB8AC; background:#FCFBF9; transform:translateY(-1px)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff; box-shadow:0 4px 14px -6px rgba(79,70,229,.6)}
+.btn.primary:hover{background:#4338CA}
+.btn.ghost{background:transparent; box-shadow:none}
+.btn.sm{padding:5px 11px; font-size:11.5px}
+.inp{
+  background:#fff; border:1px solid var(--line2); border-radius:9px; color:var(--text);
+  padding:8px 12px; font-size:12.5px; font-family:inherit; outline:none; transition:.15s
+}
+.inp:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,70,229,.12)}
+select.inp{cursor:pointer}
+.chips{display:flex; gap:8px; flex-wrap:wrap; margin:16px 0 18px}
+.chip{
+  background:#fff; border:1px solid var(--line2); color:var(--dim); border-radius:99px;
+  padding:5.5px 14px; font-size:12px; cursor:pointer; font-family:inherit; transition:.14s; font-weight:550
+}
+.chip:hover{border-color:#BEB8AC; color:var(--text)}
+.chip.on{background:var(--text); color:#fff; border-color:var(--text); box-shadow:0 4px 12px -6px rgba(23,22,27,.5)}
+
+/* KPI */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:13px; margin-bottom:18px}
+.kpi{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:15px 17px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.kpi::after{
+  content:""; position:absolute; right:-30px; top:-30px; width:80px; height:80px; border-radius:50%;
+  background:radial-gradient(circle,rgba(79,70,229,.07),transparent 70%);
+}
+.kpi .lb{font-size:10.5px; color:var(--dim2); letter-spacing:.7px; font-weight:600}
+.kpi .vl{font-size:25px; font-weight:800; margin-top:5px; letter-spacing:-.2px; font-variant-numeric:tabular-nums; line-height:1.15}
+.kpi .sub{font-size:11px; color:var(--dim); margin-top:3px}
+
+/* 表格 */
+.tbl{width:100%; border-collapse:collapse; font-size:12.5px}
+.tbl th{
+  text-align:left; color:var(--dim); font-size:10.5px; letter-spacing:.6px; padding:11px 12px;
+  border-bottom:1px solid var(--line); background:#FBFAF7; white-space:nowrap; font-weight:700;
+  text-transform:uppercase;
+}
+.tbl td{padding:11px 12px; border-bottom:1px solid #F1EEE8; color:#3B3943; vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr{transition:background .12s}
+.tbl tbody tr:hover{background:#FBFAF7}
+.tbl td b{color:var(--text)}
+.tblwrap{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--panel); box-shadow:var(--shadow)}
+.tblwrap .tbl{margin:0}
+
+ul.dot{list-style:none; margin:6px 0}
+ul.dot li{position:relative; padding-left:16px; margin-bottom:8px; font-size:12.5px; color:#3B3943; line-height:1.7}
+ul.dot li::before{content:""; position:absolute; left:2px; top:9px; width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:.55}
+
+/* 要闻 */
+.news{
+  display:flex; gap:18px; padding:20px; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--panel); margin-bottom:13px; position:relative; overflow:hidden;
+  box-shadow:var(--shadow); transition:transform .16s, box-shadow .16s;
+}
+.news:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+.news::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2))}
+.news .rank{flex:0 0 40px; font-size:27px; font-weight:800; color:#E4E0D8; line-height:1.1; letter-spacing:-1px}
+.news .b{flex:1; min-width:0}
+.news h4{font-size:15px; line-height:1.55; margin-bottom:10px; font-weight:700}
+.news h4 a{text-decoration:none; border-bottom:1px solid var(--line2)}
+.news h4 a:hover{color:var(--accent); border-color:var(--accent)}
+.why{margin-top:10px; padding:11px 14px; background:rgba(79,70,229,.055);
+  border-left:2px solid var(--accent); border-radius:0 8px 8px 0; font-size:13px; color:#3B3943}
+.why b{color:var(--accent)}
+.act{margin-top:8px; padding:11px 14px; background:rgba(4,120,87,.055);
+  border-left:2px solid var(--green); border-radius:0 8px 8px 0; font-size:13px; color:#3B3943}
+.act b{color:var(--green)}
+.src{font-size:11px; color:var(--dim2); margin-top:9px}
+.src a{color:var(--dim); text-decoration:none; border-bottom:1px dotted var(--line2)}
+.src a:hover{color:var(--accent)}
+
+/* 提示框 */
+.warn{background:#FFFBEB; border:1px solid #FDE68A; border-radius:var(--radius); padding:15px 17px;
+  font-size:12.5px; color:#713F12; line-height:1.75}
+.warn b{color:#A16207}
+.gap{background:#FFF1F2; border:1px solid #FECDD3; border-radius:var(--radius); padding:15px 17px;
+  font-size:12.5px; color:#881337; line-height:1.75}
+.gap b{color:#BE123C}
+.ok{background:#ECFDF5; border:1px solid #A7F3D0; border-radius:var(--radius); padding:15px 17px;
+  font-size:12.5px; color:#064E3B; line-height:1.75}
+.ok b{color:var(--green)}
+
+/* 架构 */
+.arch{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+@media(max-width:900px){.arch{grid-template-columns:repeat(2,1fr)}}
+.alayer{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+.alayer .n{font-size:10px; color:var(--accent); letter-spacing:1.2px; font-weight:800; text-transform:uppercase}
+.alayer .t2{font-size:14px; font-weight:750; margin:6px 0 7px; letter-spacing:-.2px}
+.alayer .d{font-size:11.5px; color:var(--dim); line-height:1.65}
+
+/* 小部件 */
+.bar{height:7px; background:#F0EDE7; border-radius:5px; overflow:hidden}
+.bar i{display:block; height:100%; border-radius:5px; transition:width .4s}
+.kv{display:flex; justify-content:space-between; gap:14px; padding:8px 0; border-bottom:1px dashed #EDEAE3; font-size:12.5px}
+.kv:last-child{border:none}
+.kv span:first-child{color:var(--dim)}
+.kv span:last-child{font-weight:600; font-variant-numeric:tabular-nums; text-align:right}
+.pill{display:inline-block; font-size:10.5px; padding:2.5px 9px; border-radius:99px;
+  border:1px solid var(--line2); color:var(--dim); margin:0 5px 5px 0; background:#FCFBF9}
+
+/* 计算器 */
+.calcrow{display:flex; align-items:center; gap:11px; padding:9px 0; border-bottom:1px dashed #EDEAE3}
+.calcrow:last-child{border:none}
+.calcrow label{flex:1; color:#3B3943; font-size:12.5px}
+.calcrow .hint{display:block; font-size:10.5px; color:var(--dim2); margin-top:2px}
+.calcrow input[type=number],.calcrow input[type=text],.calcrow select{
+  width:96px; background:#fff; border:1px solid var(--line2); border-radius:7px;
+  color:var(--text); padding:6px 9px; font-size:12.5px; text-align:right; font-family:inherit; outline:none
+}
+.calcrow input:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.calcrow select{text-align:left; width:160px}
+.calcrow .unit{color:var(--dim2); font-size:11px; width:24px}
+input[type=range]{
+  -webkit-appearance:none; height:5px; border-radius:3px; background:#E8E4DC; outline:none; flex:1; min-width:80px
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; width:15px; height:15px; border-radius:50%; background:#fff;
+  border:3px solid var(--accent); cursor:pointer; box-shadow:0 2px 6px rgba(79,70,229,.32)
+}
+.bigv{font-size:31px; font-weight:800; letter-spacing:-1.4px; font-variant-numeric:tabular-nums}
+
+/* 开关条 */
+.toast{
+  position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(18px); z-index:200;
+  background:#17161B; color:#fff; padding:11px 20px; border-radius:11px; font-size:12.5px;
+  opacity:0; pointer-events:none; transition:.26s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 12px 32px -10px rgba(23,22,27,.55);
+}
+.toast.on{opacity:1; transform:translateX(-50%)}
+.scrim{display:none; position:fixed; inset:0; background:rgba(23,22,27,.4); z-index:35; backdrop-filter:blur(2px)}
+
+@media(max-width:900px){
+  .side{position:fixed; left:0; top:0; bottom:0; transform:translateX(-100%); box-shadow:var(--shadow-lg)}
+  .side.open{transform:none}
+  .burger{display:block}
+  .scrim.on{display:block}
+  .view{padding:20px 16px 80px}
+  .chead{padding:0 15px}
+  h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="sbrand">
+      <div class="t"><em>蓝鲸</em> · 综合工作台</div>
+      <div class="s">六大模块 · 数据驱动</div>
+    </div>
+    <nav class="snav" id="snav"></nav>
+    <div class="sfoot">
+      <span class="dot" id="sDot"></span><span id="sTxt">数据已加载</span>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="chead">
+      <button class="burger" id="burger">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="right">
+        <span id="hDate"></span>
+        <span style="color:#E4E0D8">|</span>
+        <span id="hUpd"></span>
+      </div>
+    </header>
+    <div class="view" id="view"></div>
+  </div>
+</div>
+<div class="scrim" id="scrim"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== data/core.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 数据层
+ * 所有内容集中在这里。每日 08:00 由定时任务重写本文件。
+ * 口径：能公开验证的写来源；拿不到平台内部数据的，明确标 gap，不填估算。
+ */
+window.CORE = {
+
+  meta: {
+    date: '2026-11-10',
+    dateLabel: '2026年11月10日 周二',
+    edition: '第 001 期',
+    updated: '17:30',
+    sources: 'IT之家 / 淘客Show / 妙手跨境 / 界面新闻'
+  },
+
+  /* ========== 导航结构（分类层） ========== */
+  nav: [
+    { g:'总览', items:[
+      { k:'overview', n:'工作台总览', ico:'◈' },
+      { k:'arch', n:'架构与方法', ico:'▤' }
+    ]},
+    { g:'每日情报', items:[
+      { k:'news', n:'今日要闻 5 条', ico:'▸' },
+      { k:'news-rule', n:'过滤规则与信源', ico:'▸' }
+    ]},
+    { g:'跨境电商', items:[
+      { k:'cross-score', n:'选品打分器', ico:'▸' },
+      { k:'cross-amz', n:'亚马逊选品榜', ico:'▸' },
+      { k:'cross-test', n:'选品测试台', ico:'▸' },
+      { k:'cross-an', n:'选品分析', ico:'▸' },
+      { k:'cross-param', n:'模型参数', ico:'▸' },
+      { k:'cross-plat', n:'平台规则库', ico:'▸' },
+      { k:'cross-cat', n:'可复制类目库', ico:'▸' },
+      { k:'cross-src', n:'数据源矩阵', ico:'▸' }
+    ]},
+    { g:'AI 工具', items:[
+      { k:'ai-tools', n:'工具库', ico:'▸' },
+      { k:'ai-tips', n:'今日技巧', ico:'▸' },
+      { k:'ai-flow', n:'工作流', ico:'▸' }
+    ]},
+    { g:'开源模型', items:[
+      { k:'oss-lib', n:'模型库', ico:'▸' },
+      { k:'oss-calc', n:'显存计算器', ico:'▸' },
+      { k:'oss-use', n:'能干什么', ico:'▸' }
+    ]},
+    { g:'抖音变现', items:[
+      { k:'dy-track', n:'七条赛道', ico:'▸' },
+      { k:'dy-calc', n:'收益估算', ico:'▸' },
+      { k:'dy-rank', n:'日榜数据', ico:'▸' }
+    ]},
+    { g:'CSP 行业', items:[
+      { k:'csp-data', n:'赛道数据', ico:'▸' },
+      { k:'csp-sim', n:'佣金结构模拟', ico:'▸' },
+      { k:'csp-top10r', n:'前 10 榜单', ico:'▸' }
+    ]},
+    { g:'系统', items:[
+      { k:'data', n:'数据中枢', ico:'▸' },
+      { k:'about', n:'更新机制', ico:'▸' }
+    ]}
+  ],
+
+  /* ========== 总览 ========== */
+  summary: {
+    headline: '今天两个信号最值钱：抖音联盟佣金率是淘宝的两倍，存储涨价正在传导到整机。',
+    three: [
+      { t:'先把「换平台」算一遍', d:'同样一笔 GMV，抖音联盟佣金 6%+ 是淘宝 3% 的两倍。把你的收入结构按平台拆开，看迁 20% 的 GMV 过去能多赚多少——去 CSP 模块的佣金模拟器直接算。', go:'csp-sim', tag:'CSP' },
+      { t:'刚需电子产品尽早下单', d:'10 月集成电路出口同比 +137.1%、台积电营收 +59.7%，存储涨价在往整机传导。要换电脑、加内存条的，别等降价。', go:'news', tag:'消费' },
+      { t:'拿一个真品跑一次选品打分', d:'别只看方法论。找一个你手上真实的品，填重量和长宽高，看计费重是不是比实重高很多——这一步能筛掉一半你以为赚钱的品。', go:'cross-score', tag:'跨境' }
+    ]
+  },
+
+  /* ========== 每日要闻 ========== */
+  news: [
+    {
+      tag:'民生', tc:'gold',
+      title:'2027 年放假安排出炉：调休减少，史上最长 9 天春节假期即将回归',
+      url:'https://www.ithome.com/1/022/902.htm', source:'IT之家 · 周榜（国务院办公厅例行发布）',
+      why:'这是今年少数会同时影响你「怎么请假、去哪玩、什么时候买东西」的通知。调休减少意味着连续小长假变少，但春节一次给到 9 天——服务业排班、跨境物流停发窗口、电商大促节奏，全要按新日历重排。',
+      action:'现在就把 2027 年春节和十一的行程占位；做店铺的把「春节停发→节后补货」窗口按 9 天假期倒推；做内容的把春节选题提前 6 周排。'
+    },
+    {
+      tag:'消费', tc:'accent',
+      title:'中国 10 月集成电路出口 395.94 亿美元、同比 +137.1%；台积电 10 月营收 5868.9 亿新台币、+59.7%',
+      url:'https://www.ithome.com/1/024/711.htm', source:'IT之家（海关总署 / 台积电月度数据）',
+      why:'两个数字指向同一件事：存储和芯片正在涨价周期里。它会沿「晶圆→内存→整机」一路传导，最后落在你换手机、加内存条、买笔记本的价格上。今年「再等等会降价」大概率是反的。',
+      action:'刚需的 SSD、内存条、笔记本尽早下单；做 3C 配件/整机的别用去年成本表报价，采购价按周更新。'
+    },
+    {
+      tag:'AI', tc:'blue',
+      title:'Anthropic 发布 Claude Fable / Mythos 5.2：编程能力超 GPT-6 Astra，API 调用费下降 20%',
+      url:'https://www.ithome.com/1/024/573.htm', source:'IT之家 · 同日 1/024/796、1/024/849',
+      why:'能力和价格同时变：写脚本、做小工具、批量处理 Excel 的门槛又降一档，API 降 20% 直接压低「自己做个自动化工具」的成本。那些你嫌麻烦的重复劳动，现在真能外包给模型。',
+      action:'挑一件你每周重复做的事，今天用一次跑通；年付会员先别续，这周各家会跟价。'
+    },
+    {
+      tag:'开源', tc:'green',
+      title:'美团开源 LongCat-2.5：总参数 1.6 万亿，支持百万上下文',
+      url:'https://www.ithome.com/1/024/556.htm', source:'IT之家 · 11-09',
+      why:'百万上下文 + 开源权重 = 「把一整年的行业报告、合同、聊天记录丢进去提问」变成你可以自己部署的事，数据不出内网。做跨境、做 CSP 的，历史订单和达人沟通记录终于能被一次性消化。',
+      action:'有服务器的先用 vLLM 拉起来试长文档问答；没有的先用云 API 验证效果，再决定要不要本地化。'
+    },
+    {
+      tag:'电商', tc:'red',
+      title:'京东入局短剧带货：内测「京东追剧福利社」，剧中同款可直接买',
+      url:'https://www.ithome.com/1/024/729.htm', source:'IT之家 · 11-10',
+      why:'短剧从「投流赚分账」变成「内容+货架」闭环，多了一个分发出口。有漫剧/短剧 CPS 盘子的多一个结算渠道；做服饰、家居、小家电的，「剧同款」是可提前布局的选品位。',
+      action:'盯京东联盟的短剧佣金政策（新入口，早期补贴通常最厚）；内容侧先囤「剧情可自然植入」的品。'
+    }
+  ],
+
+  newsFiltered: [
+    { n:'英伟达黄仁勋个人丑闻与股价波动', r:'人物八卦，对普通人的操作价值为零（真正该看的芯片数据已单列）' },
+    { n:'各类 11.11 预售、直降、国补清单', r:'纯促销信息，属噪音' },
+    { n:'三星 S27 / 荣耀 Magic9 / Razr Flex 等机型曝光', r:'传闻，未落地，无法行动' },
+    { n:'同一事件的多家媒体重复报道', r:'只保留信息量最大的那一版' }
+  ],
+
+  newsSources: [
+    { n:'IT之家 实时信息流', t:'新闻聚合', s:'ok', d:'今日可抓，17:30 仍在更新' },
+    { n:'淘客Show / 老米CPS', t:'淘客一线样本', s:'ok', d:'10-22 样本访谈' },
+    { n:'妙手跨境学院', t:'平台规则拆解', s:'ok', d:'11-10 更新' },
+    { n:'界面新闻', t:'行业分析', s:'ok', d:'外卖大战复盘' },
+    { n:'搜索引擎 API', t:'通用检索', s:'warn', d:'今日余额不足，已降级为直抓页面' },
+    { n:'蝉妈妈 / 飞瓜 / 新抖', t:'抖音榜单', s:'no', d:'无账号，需接入' },
+    { n:'淘宝联盟 / 京粉 / 精选联盟', t:'CPS 后台', s:'no', d:'无账号，需接入' }
+  ],
+
+  /* ========== 跨境电商 ========== */
+  cross: {
+    platforms: [
+      { name:'Temu', mode:'全托管 / 半托管', gate:'企业资质；全托 1 家、半托最多 3 家',
+        rate:'全托 5–11%，半托 8–15%',
+        change:'美区自然流量按 7:3 倾斜半托管（6 月底完成全站切换）；欧盟 7 月取消 150 欧以下关税豁免，每件加 3 欧 + 约 20% VAT，欧洲本土仓发货占比目标 80%',
+        fit:'轻小件、有稳定货源、能自己算清履约成本' },
+      { name:'美客多', mode:'跨境店 / 本土店 · 半托管', gate:'半托管需单店年流水 30 万美金+',
+        rate:'按类目浮动，服饰美妆偏高',
+        change:'Q3 GMV 228.18 亿美元（+38%），巴西固定汇率 GMV +36%、销量 +45%；巴西 Lei 15.502 让 50 美元以下联邦进口税归零，但 17% ICMS 仍在',
+        fit:'拉美方向、客单价压 50 美元以下标品' },
+      { name:'Ozon', mode:'FBO / FBS / realFBS', gate:'俄罗斯市场；中国卖家从不足 1 万涨到超 20 万',
+        rate:'FBS 100 卢布内 20%、101–300 卢布 26%',
+        change:'佣金年内三次上调，300 卢布以上普遍 +5–6 个点；大件取消免费仓储（0.04 卢布/升/天）；289 号联邦法 10-01 起无证商品直接隐藏',
+        fit:'有合规文件渠道、能控体积重、不走远东远端线路' },
+      { name:'TikTok Shop', mode:'跨境 POP / 达人分销', gate:'新锐商家计划，单商最高 100 万美元权益',
+        rate:'类目差异大，服饰美妆最高',
+        change:'美区上半年直播购物同比翻倍以上；趋势生命周期压到 6–10 周，赚钱窗口第 2–4 周，爆品峰值窗口约 11 天',
+        fit:'有内容能力、跟品快、能压测款成本' },
+      { name:'Shopee', mode:'跨境店 / 本土店', gate:'东南亚；2026 罚分体系收紧',
+        rate:'FHR 优选/商城门槛 75%',
+        change:'DTS 重定并拆两层自动取消（02-11）；FHR 纳入罚分（05-11）；LSR 阈值 10%→15%',
+        fit:'东南亚、现货铺货、能盯住货代交接链路' },
+      { name:'Amazon', mode:'精品 / DTC', gate:'资金与合规门槛最高，回本周期最长',
+        rate:'专业卖家佣金约 15%（不含 FBA）',
+        change:'官方主推「需求挖金」二步法；欧盟税改后直邮成本整体抬升，纯低价直发模型失效',
+        fit:'有品牌意识、想做长期资产' }
+    ],
+
+    categories: [
+      { name:'宠物用品', price:'15–25 美元', ret:'约 3–5%', why:'欧洲宠物家庭渗透率超 45%，竞争密度还不算大，退货率低——目前性价比最高的新手切入点', fit:'Temu 半托 / Ozon' },
+      { name:'轻型家居工具', price:'低单价', ret:'<3%', why:'螺丝刀套装、卷尺这类，客单价低、退货率极低，全托半托都稳，适合先跑通流程', fit:'Temu 全托' },
+      { name:'桌面收纳 / 橱柜隔板', price:'10 美元左右', ret:'3–5%', why:'全年有需求、不挑季节，体积小，美区欧区都能卖，最典型的「可复制铺货款」', fit:'Temu / Shopee' },
+      { name:'美妆工具（微创新）', price:'5–15 美元', ret:'5–8%', why:'化妆刷加防尘盖、美甲工具套装化，改一点外观就跳出同款池，核价通过率高得多', fit:'Temu / TikTok' },
+      { name:'手机 / 3C 配件', price:'10–20 美元', ret:'8–12%', why:'加冷感垫的支架、带磁吸的壳，功能一眼看懂。但退货率偏高，必须做实拍与兼容性说明', fit:'Temu / 美客多' },
+      { name:'拉美开学季文具套装', price:'<15 美元', ret:'低', why:'墨西哥/巴西开学季主力是中小学生，套装比单卖好卖；西语本土化是转化生死线', fit:'美客多' }
+    ],
+
+    path: [
+      { w:'第 1 周 · 定赛道', do:'从自己供应链出发圈 2–3 个方向，先做排除法：同款堆满、单价被压到地板的类目直接跳过', check:'剩 2 个方向，每个能说出「我的成本优势在哪」' },
+      { w:'第 2 周 · 数据验证', do:'看销量趋势、上架时间、价格带三样；只信数据，不信感觉', check:'每个方向挑出 5 个候选品，能说出竞品上架时间' },
+      { w:'第 3 周 · 小批测款', do:'首单 30–50 件，7 天观察；全托走 JIT 预售，零库存风险', check:'拿到真实的搜索量、点击率、转化率' },
+      { w:'第 4 周 · 算账决策', do:'把仓储、头程、尾程、佣金、VAT、退货全摊进去算毛利率', check:'≥20% 放量或迁半托；<20% 果断换品' }
+    ],
+
+    aiStack: [
+      { stage:'选品数据', tool:'妙手ERP（Temu 热销 / Ozon 热销 / TikTok 四榜）', note:'Temu 单店 20 元/月；Ozon 热销含在会员版，单店约 160 元/年' },
+      { stage:'AI 选品 Agent', tool:'大淘客 AI 3.0', note:'按类目/价格带/关键词建计划，每天自动筛 Top100 货源' },
+      { stage:'商品图素材', tool:'豆包 Seedream 5.5 / 即梦 / 可灵', note:'白底图→场景图/模特图，详情页成本砍掉一大半' },
+      { stage:'Listing 翻译', tool:'Claude 5.2 / 豆包', note:'标题嵌热搜词 + 按站点语言重写，别机翻直出' },
+      { stage:'定价对账', tool:'净收益模式定价模板', note:'只设目标收益，系统反算含佣金运费的售价' },
+      { stage:'达人分销', tool:'AI 邀约信 + 批量私信', note:'TikTok 达人建联半小时跑完一轮' }
+    ],
+    sources:'妙手跨境学院 11-10；美客多 2026Q3 财报口径；Ozon 卖家后台费率公告与 289 号联邦法；TikTok Shop 亿邦整理；Shopee 卖家中心公告'
+  },
+
+  /* ========== AI 工具 ========== */
+  ai: {
+    cats: ['全部','写作','编程','图像','视频','音频','Agent','检索'],
+    tools: [
+      { n:'Claude 5.2（Fable/Mythos）', side:'abroad', cat:'编程', price:'付费', level:2, use:'写脚本、改代码、读长文档；今天刚发，API 降 20%' },
+      { n:'ChatGPT', side:'abroad', cat:'写作', price:'免费+付费', level:1, use:'通用问答、写邮件、翻译，最稳的日常入口' },
+      { n:'Gemini', side:'abroad', cat:'写作', price:'免费+付费', level:1, use:'今天上线记忆摘要，适合当长期助理用' },
+      { n:'Cursor', side:'abroad', cat:'编程', price:'免费+付费', level:2, use:'AI 编程 IDE，非程序员改小工具的门槛最低入口' },
+      { n:'Claude Code', side:'abroad', cat:'编程', price:'付费', level:3, use:'命令行 Agent，能自己读仓库改代码（注意凭据安全）' },
+      { n:'n8n', side:'abroad', cat:'Agent', price:'开源免费', level:3, use:'开源自动化编排，串「抓数据→模型处理→推送」' },
+      { n:'Perplexity', side:'abroad', cat:'检索', price:'免费+付费', level:1, use:'带来源的检索问答，做行业调研省时间' },
+      { n:'ElevenLabs', side:'abroad', cat:'音频', price:'付费', level:1, use:'配音，做不露脸视频的主力' },
+      { n:'HeyGen', side:'abroad', cat:'视频', price:'付费', level:2, use:'数字人口播，多语言同步' },
+      { n:'Midjourney', side:'abroad', cat:'图像', price:'付费', level:2, use:'风格化出图，电商主图与氛围图' },
+      { n:'豆包（Seedream 5.5）', side:'cn', cat:'图像', price:'免费+付费', level:1, use:'今天升级图片设计能力，电商主图/场景图最好用的国产之一' },
+      { n:'即梦', side:'cn', cat:'图像', price:'免费+付费', level:1, use:'图片与视频生成，出图快' },
+      { n:'可灵', side:'cn', cat:'视频', price:'免费+付费', level:2, use:'视频生成，短剧素材、产品动图' },
+      { n:'剪映', side:'cn', cat:'视频', price:'免费+付费', level:1, use:'自动字幕、数字人、一键成片，短视频工业化的地基' },
+      { n:'通义千问', side:'cn', cat:'写作', price:'免费+付费', level:1, use:'国行 Apple 智能支撑方之一，长文与表格处理稳' },
+      { n:'Kimi', side:'cn', cat:'检索', price:'免费', level:1, use:'长上下文阅读，几十页 PDF 丢进去问最省事' },
+      { n:'DeepSeek', side:'cn', cat:'编程', price:'免费+API低价', level:2, use:'推理与代码，API 便宜到可以批量跑' },
+      { n:'扣子 Coze', side:'cn', cat:'Agent', price:'免费+付费', level:2, use:'不写代码搭 Bot 和工作流，把能力串成产品' },
+      { n:'智谱 GLM', side:'cn', cat:'Agent', price:'免费+付费', level:2, use:'中文语感和工具调用稳定，做 Agent 常用' },
+      { n:'讯飞听见', side:'cn', cat:'音频', price:'付费', level:1, use:'转写与会议记录，中文准确率高' }
+    ],
+    tips: [
+      { t:'别再把 API Key 写进代码', d:'今天官方在修一个 bug：Claude Code 会把密码写进项目文件，GitHub 上已发现 2539 个真实凭据。花 10 分钟做三件事——Key 全部走环境变量、.gitignore 排除配置、提交前跑一次密钥扫描。教训通用，不只 Claude Code。' },
+      { t:'定期清理 AI 的「记忆」', d:'Gemini 上线记忆摘要后，你能查看、编辑、删除它记住的信息。旧偏好会污染输出——三个月前让它「写得活泼点」，现在做正式报告还是那个腔调。每月清一次，比反复纠正省事。' },
+      { t:'商品图用 Seedream 5.5 走两步', d:'先出白底正视图定结构，再把这张图丢回去做场景/模特延展。一步到位常常变形，两步走一致性高得多，跨境电商主图直接能用。' }
+    ],
+    flows: [
+      { t:'选品 → 上架全链路', d:'选品工具导出候选 → LLM 按站点语言重写标题（嵌热搜词）→ 违禁词检测 → 批量发布 → 利润明细回流验证。核心是「标题不要机翻」。', cost:'单店上新从半天压到 1 小时' },
+      { t:'一条素材多平台分发', d:'剪映自动字幕出主版本 → 数字人做口播变体 → 按平台比例批量裁切 → 统一改封面文案。同一内容投抖音、视频号、TikTok。', cost:'一条素材铺 3 个平台，约 40 分钟' },
+      { t:'报告自动化（本工作台同款）', d:'n8n/Coze 定时抓信源 → LLM 按固定模板摘要 → 生成数据文件 → 飞书/企微推送。人只看结论，不看原始流。', cost:'一次搭好，每天自动跑' },
+      { t:'本地知识库问答', d:'把行业报告、平台规则、竞品笔记切块入库 → 向量检索 + 开源模型 → 问「Temu 欧洲站今年改了哪几条规则」直接给出处。', cost:'搭一次 2 小时，之后随问' }
+    ]
+  },
+
+  /* ========== 开源模型 ========== */
+  oss: {
+    models: [
+      { n:'LongCat-2.5', org:'美团', params:'1.6T MoE', ctx:'100 万', license:'开源', note:'今天发布。大参数 + 长上下文，适合私有化处理超长材料' },
+      { n:'DeepSeek-V3 / R 系列', org:'深度求索', params:'671B MoE', ctx:'128K', license:'开源', note:'性价比之王，API 极便宜，批量跑文案和数据清洗首选' },
+      { n:'Qwen3 系列', org:'阿里', params:'0.6B–235B', ctx:'128K–1M', license:'Apache 2.0', note:'尺寸最全，从手机端到服务器都能找到合适档位' },
+      { n:'GLM-4.6', org:'智谱', params:'355B', ctx:'128K', license:'开源', note:'中文语感和工具调用稳定，做 Agent 常用' },
+      { n:'Kimi K2 / K3', org:'月之暗面', params:'1T MoE', ctx:'256K', license:'开源', note:'长上下文强项，读长文档、整库检索' },
+      { n:'Llama 4', org:'Meta', params:'17B–400B', ctx:'10M', license:'社区许可', note:'海外生态最成熟，教程和工具链最多' },
+      { n:'Mistral 系列', org:'Mistral', params:'7B–123B', ctx:'128K', license:'Apache 2.0', note:'小尺寸效率高，边缘部署友好' },
+      { n:'Gemma 3', org:'Google', params:'1B–27B', ctx:'128K', license:'Gemma 许可', note:'单卡可跑，上手门槛最低的入门选择' }
+    ],
+    today: [
+      { title:'美团开源 LongCat-2.5：1.6 万亿参数、百万上下文', url:'https://www.ithome.com/1/024/556.htm',
+        d:'总参数 1.6T 的 MoE 架构，上下文拉到百万级。意义不在跑分，在于你可以把整年数据喂进去而不用上传给第三方。',
+        use:'先想清楚：你手上有没有「一整个语料库」级别的材料？跨境的历史订单与竞品笔记、CSP 的达人沟通记录、法务的合同库——有的话这才是它值钱的地方，而不是拿它聊天。' },
+      { title:'蚂蚁灵波开源 LingBot-Touch 触觉基础模型', url:'https://www.ithome.com/1/024/701.htm',
+        d:'给通用机器人「接入手感」的触觉基础模型。离日常应用还远，但它是机器人从「看」到「摸」的关键一环。',
+        use:'普通读者知道有这么回事就行，今年不用行动。做硬件的关注它的数据采集口径——触觉数据集的格式往往比模型本身更有复用价值。' }
+    ],
+    hw: [
+      { size:'7B（Q4）', vram:'6–8 GB', note:'消费级显卡 / 16G 内存笔记本能跑，Ollama 一条命令' },
+      { size:'14B（Q4）', vram:'12–16 GB', note:'RTX 4060Ti 16G 这一档的甜点位' },
+      { size:'32B（Q4）', vram:'约 24 GB', note:'RTX 3090/4090 单卡，效果开始「能当生产力」' },
+      { size:'70B（Q4）', vram:'48 GB+', note:'双卡或 Mac Studio 大内存；再往上建议上云' },
+      { size:'MoE 大模型（1.6T）', vram:'多卡 / 云', note:'个人不要碰本地部署，用云 API；重点是验证「百万上下文对你有没有用」' }
+    ],
+    plays: [
+      { t:'本地知识库：整年资料变可问答', d:'行业报告、平台规则、竞品笔记切块入库，用开源模型 + 向量检索。问「Temu 欧洲站今年改了哪几条规则」能直接给出处。数据不出内网，这是最大价值。' },
+      { t:'批量内容生产：一次跑 200 条', d:'用便宜的 API（DeepSeek 一类）批量生成标题、评论回复、短视频脚本，再用规则过滤。核心不是模型多强，是「便宜到可以浪费」。' },
+      { t:'私有化客服：数据不外传', d:'客户对话、订单信息属敏感数据。本地部署 7B–14B 量化模型接 FAQ 与工单分类，效果够用，合规最安全。' }
+    ],
+    sources:'IT之家 AI 频道 11-09 / 11-10；参数与能力以官方发布口径为准'
+  },
+
+  /* ========== 抖音变现 ========== */
+  douyin: {
+    tracks: [
+      { name:'情感语录', level:'最易起量', money:'商品卡佣金、星图、私域引流',
+        gate:'0 粉可发，纯素材剪辑号，1 人可批量做 5–10 个号',
+        formula:'一句扎心文案 + 统一字幕模板 + 情绪 BGM + 3–8 秒循环素材。爆的从来不是文案，是「这句说的就是我」',
+        risk:'同质化极严重，平台对纯搬运和矩阵号有专项治理；佣金单价低，必须靠量摊',
+        today:'找 20 条同类高赞文案，拆出共同句式（第二人称 + 绝对化 + 反差），套你的模板批量做 5 条' },
+      { name:'不露脸', level:'可持续', money:'中视频计划、带货佣金、知识付费、接单剪辑',
+        gate:'只要有一技之长：剪辑、做饭、修东西、养宠、开箱',
+        formula:'第一视角 + 环境音（不配旁白）+ 结果前置。前 2 秒必须出现「成品」，否则划走',
+        risk:'同赛道撞题材极快，比拼更新频率和拍摄角度差异化',
+        today:'定一个「你的手能做的事」，拍一条 15 秒只拍手和结果的视频，不加字幕试完播率' },
+      { name:'打赏 / 直播', level:'门槛中', money:'礼物打赏、连麦 PK、粉丝团、直播间小黄车',
+        gate:'需稳定开播能力与镜头感；冷启动靠固定时段 + 固定人设',
+        formula:'固定开播时间 + 可重复的互动钩子（唱歌、答题、连麦）+ 礼物门槛话术分层',
+        risk:'极度吃人效，停播就掉流量；收入波动大，不适合当唯一收入',
+        today:'先连播 7 天同一时段，只练三句：进场欢迎、停留话术、礼物感谢' },
+      { name:'拆书 / 知识', level:'最稳的长线', money:'图书带货佣金、知识付费、私域社群、课程分销',
+        gate:'需要真读完并有结构化输出能力，1 本书可拆 10–20 条',
+        formula:'3 秒抛出「反常识结论」→ 讲一个书中案例 → 给一个今天能用的方法 → 评论区埋钩子',
+        risk:'版权与「洗稿」争议；纯念书没人看，必须加个人经验和落地步骤',
+        today:'选一本你读过的书，用「一个反常识 + 一个案例 + 一个动作」写 3 条脚本，先不拍' },
+      { name:'服饰推荐', level:'转化最高', money:'商品卡佣金、店铺分销、直播带货',
+        gate:'需要稳定货源或选款能力，最好自己上身',
+        formula:'身材痛点 + 上身对比（前后/多套）+ 明确尺码建议 + 价格锚点。卖的是「我也能这样穿」',
+        risk:'退货率 25–45%，尺码差评直接拖垮体验分；必须给双标尺码表和实拍色号',
+        today:'拍一组「同一个人穿 3 套」的对比视频，标题写清身高体重和尺码' },
+      { name:'历史类', level:'流量稳', money:'中视频、图书带货、文旅/文创合作、知识付费',
+        gate:'内容门槛最高（要真懂），但竞争相对小、粉丝黏性强',
+        formula:'一个现代人关心的切口（钱、权、婚恋、职场）+ 一段史实 + 一句「换成今天就是……」的落点',
+        risk:'史实错误会被专业观众当场拆穿；纯讲故事不落现代语境则没流量',
+        today:'选一个今天的热点情绪，找一段能对应的历史，写成 60 秒脚本，落点回到今天' },
+      { name:'抖音小店', level:'最重资产', money:'自营商品差价、无货源代发差价、达人分销佣金',
+        gate:'需保证金与资质；无货源要处理品控售后，容易踩违规',
+        formula:'选品（低决策成本+高毛利）→ 商品卡自然流 → 达人分销放大 → 自播承接',
+        risk:'无货源模式被持续收紧，体验分和发货时效是生死线；新手最容易死在库存和售后',
+        today:'先别开店。用精选联盟挂别人的品试 3 天，验证你有没有选品和出单能力' }
+    ],
+    gap: {
+      why:'「各赛道每天点赞/浏览量前 5 的视频」属平台内部数据，公开页面拿不到稳定日榜。要么用第三方数据服务（蝉妈妈、飞瓜、新抖），要么走抖音开放平台授权接口。',
+      how:'给我任意一个账号的导出权限，我把字段对进工作台，从明天 08:00 起就是真榜单。或者你先手动导 Excel 到 data/inbox/，我写脚本读它。',
+      fields:[
+        '赛道（情感语录/不露脸/打赏/拆书/服饰/历史/小店）',
+        '排名 1–5 + 昨日排名变化',
+        '视频标题 + 作者（可点击回原视频）',
+        '点赞 / 播放 / 涨粉（三个数一起看：高播放低点赞=标题党）',
+        '挂车品类与佣金率（判断到底赚不赚钱）',
+        '结构拆解（前 3 秒钩子 / 时长 / 字幕 / BGM / 评论区引导）',
+        '可复制度评分（是否需要真人出镜、是否需要货源、单条制作时长）'
+      ]
+    }
+  },
+
+  /* ========== CSP ========== */
+  csp: {
+    insight:'现在 CPS 的胜负手不在「拉新规模」，在「你带的是哪个平台的货」。同样一笔 GMV：淘宝联盟平均佣金率约 3%，抖音联盟在 6% 以上——两倍。所以头部淘客的佣金结构正从「淘宝一家独大」变成「淘宝+抖音双引擎」，外卖成了第三条增量线。新人如果还用传统返利差价模式进场，飞轮基本转不起来。',
+    sample: [
+      { n:'A 公司', mix:'淘宝 40% · 抖音 30% · 京东 10% · 外卖 10%', trend:'增长；抖音佣金流水已快追上淘宝' },
+      { n:'B 公司', mix:'淘宝 >50% · 京东 20–25% · 抖音 <10%', trend:'稳中有升，结构最传统' },
+      { n:'C 公司', mix:'淘宝 40% · 抖音 35% · 京东 12%', trend:'重点转向外卖，预计做到大盘 10%' }
+    ],
+    tracks: [
+      { name:'淘客 / 淘宝联盟', who:'返利、社群、导购、内容淘客', rate:'平均约 3%', size:'仍是最大基本盘，占比在被稀释',
+        nw:'三家样本今年都没大规模持续拉新。头部靠存量用户当「固定资产」收租，新人靠投流拉新几乎回不了本',
+        strategy:'别拼返利比例（透明且必输），改拼「场景」：把返利嵌进具体用途（母婴清单、宿舍好物、年货），做窄做深',
+        action:'盘一遍你现有用户去年买得最多的 3 个类目，把返利链接做成一份「类目清单」而不是群发' },
+      { name:'京东联盟 / 京粉', who:'家电、3C、日用、PLUS 会员推广', rate:'类目差异大，活动期有佣金膨胀', size:'样本中占 10–25%，稳定第二位',
+        nw:'靠大促节点集中放量：有「佣金膨胀 50%」、最高 80 万奖励这类活动，属于「攒一波集中打」的节奏',
+        strategy:'把京粉当「大促弹药」而不是日常流水：平时养内容与私域，节点集中转化家电数码这些高客单类目',
+        action:'现在就把 11.11 京享红包、佣金膨胀规则抄进排期表，倒排内容发布日' },
+      { name:'抖音联盟', who:'短视频挂车、直播分销、达人带货', rate:'6%+（淘宝的 2 倍以上）', size:'已成部分返利型淘客的第二大佣金来源',
+        nw:'增长主要来自两处：投流获客（用户来源决定消费结构）+ 高佣金品类',
+        strategy:'同样 GMV 在这里佣金翻倍，所以「内容+挂车」性价比高于「纯导购链接」。做内容的优先级高于做返利工具',
+        action:'选 1 个高佣类目（美妆、家居、食品），今天发 1 条带挂车的短视频，先验证内容能力' },
+      { name:'外卖 CPS', who:'美团/淘宝闪购/京东外卖的推广分佣', rate:'按单分佣，金额小但频次极高', size:'瑞银 2026-02：美团 5900 万单/日、淘宝闪购 4900 万、京东 800 万 → 份额 51%/42%/7%',
+        nw:'京东外卖从 2025Q2 高点约 31% 回落到 7%，战略从「抢份额」转为「减亏」；补贴战在监管约束下退坡',
+        strategy:'外卖是「高频低成本触达」的入口，不是利润中心。用它做私域沉淀和日活，靠电商 CPS 变现更现实',
+        action:'算一笔账：你的用户每月点几次外卖？≥8 次值得做，≤3 次别浪费人力' },
+      { name:'漫剧 / 短剧 CPS', who:'短剧分账、漫剧分销、剧场投流', rate:'分账制，爆款与扑街差距极大', size:'今日未取到可信的市场规模与分账口径，不做估算',
+        nw:'今天唯一的确定信号：京东内测「追剧福利社」，剧中同款可直接买——短剧开始接货架电商',
+        strategy:'先看渠道再投入：京东联盟的短剧佣金政策是目前最值得盯的新变量，早期补贴通常最厚',
+        action:'去京东联盟后台搜「短剧」相关类目，看有没有开放招商' },
+      { name:'抖音电商 / 小店', who:'自营店铺、商品卡、达人分销', rate:'类目佣金 1–30%，服饰美妆最高', size:'参考信号：京东京喜三周年累计成交用户 6.28 亿，一二线占比近三成',
+        nw:'平台持续收紧无货源与矩阵号；体验分、发货时效成为生死线',
+        strategy:'新手用「精选联盟挂别人的品」验证能力，别一上来就压保证金开店',
+        action:'选 1 个你熟悉的类目，挂 3 个品跑 3 天，只看有没有自然出单' }
+    ],
+    loop: [
+      { t:'拉新', d:'先算渠道成本：投流 CPA、私域裂变激励、达人分销分成、自然内容时间成本。四种成本结构完全不同，别混着算' },
+      { t:'成交', d:'佣金收入 = GMV × 佣金率。要同时盯两个变量：GMV 占比和佣金率。只盯 GMV 会做出「很热闹但不赚钱」的盘' },
+      { t:'策略', d:'核心动作是「换结构」：把高 GMV 低佣金（淘宝 3%）的一部分迁到中 GMV 高佣金（抖音 6%+）的渠道，总收入可能不降反升' },
+      { t:'落地', d:'新渠道一律 7 天小额测试：定预算上限、素材数量、回本线（ROI ≥ 1.2 才继续），跑不出来就砍' },
+      { t:'复盘', d:'次日看 ROI 与 CAC，第 7 天看留存。只看当天 ROI 会误杀慢热渠道，只看留存会容忍长期亏损' }
+    ],
+    top10:'「每个赛道前 10」需要具体到账号/商品/达人维度，这些数据只在联盟后台（淘宝联盟、京粉、精选联盟）和第三方监测（蝉妈妈、飞瓜、点点数据）里。公开渠道能拿到的是行业口径、平台财报、一线样本访谈。想要真前 10，给我一个后台导出权限，或你导 Excel 到 data/inbox/，我写解析脚本。',
+    sources:'淘客Show《三家淘客公司的基本盘》2026-10-22（老米CPS 授权，一线访谈样本）；界面新闻《外卖大战一周年，京东学会了不再 All in》（瑞银 2026-02 追踪）；IT之家 京东京喜三周年、京东追剧福利社'
+  }
+};
+
+</script>
+<script>
+/* ==================== data/ranks.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 榜数据层
+ *
+ * 抖音日榜：本轮已接入真实数据（TikHub 抖音视频热榜 API，近 24 小时，按赛道关键词过滤）。
+ * CSP 前 10：仍待接入（联盟后台权限）。
+ *
+ * 每日更新方式：定时任务调 MCP 抓 → 写 JSON → python tools/ranks_from_json.py
+ */
+window.RANKS = {
+  empty: false,
+
+  douyin: {
+    date: '2026-11-10',
+    source: 'TikHub 抖音视频热榜 · 近 24 小时 · 按赛道关键词过滤',
+    fetchedAt: '2026-11-10 20:55',
+    note: '排序为平台热度分（综合播放、互动、涨粉），不是单纯按播放量。挂车品类需另一个接口，本轮未取。',
+    tracks: [
+      {
+        track: '情感语录', keyword: '情感语录',
+        items: [
+          { rank: 1, title: '你嫁过去 让他富起来那才算你有本事！#剪映 #语录 #文案 #情感语录 #人间清醒',
+            author: '江城波仔', plays: 352910, likes: 20105, fansGain: 146, fans: 21486, likeRate: 5.7,
+            awemeId: '7704923145346298491', url: 'https://www.douyin.com/video/7704923145346298491' },
+          { rank: 2, title: '我心里有你，你心里有我，就够了#情感语录情感体验 #情感深度语录',
+            author: '@靑靑很乖呀', plays: 333205, likes: 3257, fansGain: 48, fans: 471, likeRate: 0.98,
+            awemeId: '7705927489671252042', url: 'https://www.douyin.com/video/7705927489671252042' },
+          { rank: 3, title: '先不要急着谈恋爱，先和他做朋友 多观察一段时间#人间清醒 #恋爱观 #情感语录',
+            author: '玖月。', plays: 241853, likes: 7543, fansGain: 6, fans: 929, likeRate: 3.12,
+            awemeId: '7704892886407489947', url: 'https://www.douyin.com/video/7704892886407489947' },
+          { rank: 4, title: '#情感语录 #手写文案分享',
+            author: '小雨点', plays: 85335, likes: 661, fansGain: 84, fans: 829, likeRate: 0.77,
+            awemeId: '7705777574392503538', url: 'https://www.douyin.com/video/7705777574392503538' },
+          { rank: 5, title: '“鹰击长空鲸霸海，不试怎知龙与蚯？”#蛊真人小说 #情感语录 #武庸',
+            author: '春秋蝉', plays: 365290, likes: 27427, fansGain: 296, fans: 6095, likeRate: 7.51,
+            awemeId: '7705108728752667044', url: 'https://www.douyin.com/video/7705108728752667044' }
+        ]
+      },
+      {
+        track: '拆书 / 知识', keyword: '读书',
+        items: [
+          { rank: 1, title: '走进骆驼中学，和少年们坐在一起，分享一路的经历#无腿勇士陈州 #陈州读书会 #演讲',
+            author: '双手闯天涯', plays: 6105417, likes: 151706, fansGain: 1451, fans: 1747, likeRate: 2.48,
+            awemeId: '7705639595413293211', url: 'https://www.douyin.com/video/7705639595413293211' },
+          { rank: 2, title: '#读书才会有出路 #教室唱歌',
+            author: '小阿红', plays: 4041362, likes: 71746, fansGain: 2195, fans: 82836, likeRate: 1.78,
+            awemeId: '7705265087216645861', url: 'https://www.douyin.com/video/7705265087216645861' },
+          { rank: 3, title: '望大家所遇皆良人#人间清醒语录 #书摘语录分享 #读书提升认知',
+            author: '你微笑时好美~', plays: 1813318, likes: 66027, fansGain: 137, fans: 416, likeRate: 3.64,
+            awemeId: '7705088440165424719', url: 'https://www.douyin.com/video/7705088440165424719' },
+          { rank: 4, title: '#读书才会有出路 #校园感动 #大山的孩子 #懂事的让人心疼',
+            author: '小山🎵', plays: 4582206, likes: 64923, fansGain: 6290, fans: 13530, likeRate: 1.42,
+            awemeId: '7705732879791384808', url: 'https://www.douyin.com/video/7705732879791384808' },
+          { rank: 5, title: '#读书才会有出路 #校园感动 #大山的孩子 #懂事的让人心疼',
+            author: '小山在唱歌', plays: 1901574, likes: 32376, fansGain: 3232, fans: 20212, likeRate: 1.7,
+            awemeId: '7705503228637463219', url: 'https://www.douyin.com/video/7705503228637463219' }
+        ]
+      },
+      {
+        track: '服饰推荐', keyword: '穿搭',
+        items: [
+          { rank: 1, title: '#电梯穿搭日常',
+            author: '(未命名账号)', plays: 11108044, likes: 263756, fansGain: 1351, fans: 1499, likeRate: 2.37,
+            awemeId: '7705302419744179170', url: 'https://www.douyin.com/video/7705302419744179170' },
+          { rank: 2, title: '#冬季穿搭#被窝穿搭#天气变冷 不收徒',
+            author: '猬小弟', plays: 2938907, likes: 73853, fansGain: 226, fans: 4948, likeRate: 2.51,
+            awemeId: '7705341596703295210', url: 'https://www.douyin.com/video/7705341596703295210' },
+          { rank: 3, title: '喜欢哪一套 感觉下单吧#男生穿搭分享',
+            author: '(未命名账号)', plays: 2550505, likes: 38552, fansGain: 122, fans: 172, likeRate: 1.51,
+            awemeId: '7705673816148006058', url: 'https://www.douyin.com/video/7705673816148006058' },
+          { rank: 4, title: '#狼系穿搭 #天冷了',
+            author: '纳尼', plays: 1009688, likes: 65659, fansGain: 49, fans: 96, likeRate: 6.5,
+            awemeId: '7698955958965429312', url: 'https://www.douyin.com/video/7698955958965429312' },
+          { rank: 5, title: '降温了又到了穿大衣的季节#大衣穿搭#穿搭思路分享#秋冬穿搭',
+            author: '贾贾贾', plays: 2499274, likes: 88920, fansGain: 540, fans: 6845, likeRate: 3.56,
+            awemeId: '7702761807978789050', url: 'https://www.douyin.com/video/7702761807978789050' }
+        ]
+      }
+    ],
+    pending: ['不露脸', '打赏 / 直播', '历史类', '抖音小店']
+  },
+
+  csp: {
+    date: '',
+    source: '',
+    tracks: [],
+    pending: '需要淘宝联盟 / 京粉 / 精选联盟后台导出权限。第三方 API 拿不到真实的佣金和 GMV 明细。'
+  },
+
+  imported: [
+    { at: '2026-11-10 20:55', file: 'TikHub API（3 个赛道试跑）', kind: 'douyin', rows: 15 }
+  ]
+};
+
+</script>
+<script>
+/* ==================== data/amazon.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 亚马逊选品榜数据
+ * 数据源：Amazon Best Sellers（公开页面，浏览器渲染后解析）
+ * 抓取时间：2026-11-10 21:20
+ *
+ * 注意：
+ *  1) 价格显示为人民币，是按访问 IP 定位后的 Amazon 折算价，不是美国站实际售价。
+ *  2) 标题是 Amazon 的机翻中文，原名以 ASIN 为准。
+ *  3) 部分商品卡片未加载价格（懒加载），price 为 null。
+ */
+window.AMZ = {
+  date: '2026-11-10',
+  fetchedAt: '2026-11-10 21:20',
+  source: 'Amazon Best Sellers（浏览器渲染解析）',
+  note: '价格为按 IP 定位的人民币显示价；送进打分器时按 7.2 粗略折成美元，务必用站点实际售价校正。',
+  categories: [
+    {
+      cat: '宠物用品', slug: 'pet-supplies', total: 20,
+      items: [
+        { rank:1, asin:'B0009X29WK', price:null, rating:4.3, reviews:101436, title:'Dr. Elsey\'s Ultra 无香型结块粘土猫砂 40 磅' },
+        { rank:2, asin:'B005OB3E30', price:152.55, rating:4.7, reviews:55841, title:'Purina Fancy Feast 湿猫粮 85克 24件装' },
+        { rank:3, asin:'B00MW8G62E', price:140.13, rating:4.4, reviews:220882, title:'Amazon Basics 狗狗如厕训练垫 100 片 55.88×55.88cm' },
+        { rank:4, asin:'B00BSYR7K8', price:100.07, rating:4.8, reviews:249929, title:'Earth Rated 狗狗粪便袋 补充卷 270 个' },
+        { rank:5, asin:'B00IOTB7PG', price:50.00, rating:4.8, reviews:74044, title:'Temptations 经典松脆软猫零食 16 盎司' },
+        { rank:6, asin:'B07D323MFZ', price:220.04, rating:4.9, reviews:13981, title:'INABA Churu 猫零食 可舔奶油泥 50 管' },
+        { rank:7, asin:'B089LLHMQL', price:132.12, rating:4.6, reviews:42155, title:'ARM & HAMMER 滑动铂金结块猫砂 18 磅' },
+        { rank:8, asin:'B001QCKS4O', price:497.23, rating:4.6, reviews:16566, title:'Purina Pro Plan 鸡肉米饭干狗粮 35 磅' },
+        { rank:9, asin:'B07NHL31CC', price:66.69, rating:4.6, reviews:71728, title:'Earth Rated 狗狗湿巾 100 片 无香味' },
+        { rank:10, asin:'B0018CLXTG', price:100.01, rating:4.8, reviews:83727, title:'Milk-Bone 原创饼干 大型犬零食 10 磅' },
+        { rank:11, asin:'B003P9XG68', price:33.25, rating:4.7, reviews:10285, title:'Blue Buffalo 南瓜肉桂狗饼干 16 盎司' },
+        { rank:12, asin:'B000VDR8LA', price:null, rating:4.6, reviews:53517, title:'Fresh Step Odor Shield 多猫结块猫砂 14 磅' },
+        { rank:13, asin:'B07C22NTL4', price:120.10, rating:4.6, reviews:49741, title:'HONEY CARE 公狗纸尿裤 50 只装 小号' },
+        { rank:14, asin:'B00NABTC8M', price:75.04, rating:4.8, reviews:245949, title:'Amazon Basics 狗粪袋 带分配器 300 个装' },
+        { rank:15, asin:'B09K8YYVWV', price:99.94, rating:4.7, reviews:29868, title:'Blue Buffalo 救生配方 鸡肉成犬干粮 5 磅' },
+        { rank:16, asin:'B072DTFZHL', price:186.66, rating:4.7, reviews:21256, title:'Sheba Perfect Portions 湿猫粮 2.6 盎司 24 克拉' },
+        { rank:17, asin:'B001650NNW', price:206.89, rating:4.7, reviews:50204, title:'Purina Pro Plan FortiFlora 狗用益生菌粉' },
+        { rank:18, asin:'B01EY9KQ2Y', price:517.26, rating:4.5, reviews:23917, title:'Purina Pro Plan 敏感皮肤肠胃 三文鱼干狗粮 30 磅' },
+        { rank:19, asin:'B009IOCCD2', price:326.99, rating:4.7, reviews:24036, title:'Purina ONE 羊肉大米配方 干狗粮' },
+        { rank:20, asin:'B07S2TDDCK', price:133.25, rating:4.8, reviews:22945, title:'Greenies Pill Pockets 大号狗狗零食 花生酱 15.6 盎司' }
+      ]
+    },
+    {
+      cat: '厨房用品', slug: 'kitchen', total: 20,
+      items: [
+        { rank:1, asin:'B0BZYCJK89', price:200.21, rating:4.6, reviews:145254, title:'Owala FreeSip 不锈钢水瓶 24 盎司' },
+        { rank:2, asin:'B0DF472VMZ', price:151.75, rating:4.6, reviews:16029, title:'Owala SmoothSip Slider 保温咖啡杯 12 盎司' },
+        { rank:3, asin:'B0CYJBB2JQ', price:122.77, rating:4.2, reviews:22586, title:'bella 2 片超薄烤面包机 长槽超宽' },
+        { rank:4, asin:'B09WXZWSN3', price:66.69, rating:4.7, reviews:8122, title:'秋季桌巾 赤褐色芝士布 10FT' },
+        { rank:5, asin:'B0H2FQ5FV1', price:null, rating:4.6, reviews:21319, title:'HydroJug Traveler 32 盎司 带手柄保温水瓶' },
+        { rank:6, asin:'B07YP2VH4B', price:97.67, rating:4.6, reviews:90261, title:'KitchenAid 经典多功能开罐器 黑色' },
+        { rank:7, asin:'B0GVM8N2CK', price:null, rating:4.7, reviews:2982, title:'数字肉类温度计 1-2 秒即时读取 防水' },
+        { rank:8, asin:'B0113UZJE2', price:75.57, rating:4.6, reviews:178287, title:'Etekcity 厨房电子秤 11 磅 304 不锈钢' },
+        { rank:9, asin:'B00S93EQUK', price:null, rating:4.8, reviews:93309, title:'Alpha Grillers 肉类温度计 IP67 预校准' },
+        { rank:10, asin:'B0CJZW65R3', price:124.04, rating:4.7, reviews:207412, title:'STANLEY Quencher H2.0 平底杯 1.13L 灰色' },
+        { rank:11, asin:'B07PFYT8MC', price:23.97, rating:4.8, reviews:23996, title:'Reynolds Kitchens 未漂白羊皮纸卷 45 平方英尺' },
+        { rank:12, asin:'B07PZF3QS3', price:null, rating:4.8, reviews:72993, title:'KitchenAid 多用途厨房剪刀 带护套 8.72 英寸' },
+        { rank:13, asin:'B0B6PLG6G2', price:null, rating:4.6, reviews:34193, title:'125 件 8 英寸方形空气炸锅衬垫 一次性' },
+        { rank:14, asin:'B0C6Y8NYK1', price:null, rating:4.6, reviews:29398, title:'一次性空气炸锅衬垫 未漂白羊皮纸 5-8 夸脱' },
+        { rank:15, asin:'B0FK124QCT', price:221.91, rating:4.6, reviews:14371, title:'Owala FreeSip Sway 保温水瓶 30 盎司 黑樱桃' },
+        { rank:16, asin:'B0CSZ7WBYW', price:390.48, rating:4.7, reviews:10939, title:'Ninja Air Fryer Pro 5 夸脱 4 合 1 灰色' },
+        { rank:17, asin:'B06X9NQ8GX', price:66.76, rating:4.7, reviews:120283, title:'Amazon Basics 数字厨房秤 11 磅 含电池' },
+        { rank:18, asin:'B0B56CHMSC', price:null, rating:4.4, reviews:64956, title:'Lifewit 中号午餐包 保温冷却手提袋 9 升' },
+        { rank:19, asin:'B0CP4XY9QC', price:null, rating:4.4, reviews:51283, title:'YARRAMATE 16 盎司 2 合 1 玻璃橄榄油喷雾器' },
+        { rank:20, asin:'B0CJF94M8J', price:null, rating:4.6, reviews:49807, title:'TrendPlain 470ml 玻璃橄榄油喷雾器 2 合 1' }
+      ]
+    }
+  ]
+};
+
+</script>
+<script>
+/* ==================== js/remote.js ==================== */
+/* 蓝鲸 · 综合工作台 —— GitHub 数据同步
+ *
+ * 背景：raw.githubusercontent.com 在国内访问不通，但 api.github.com 可以。
+ * 所以让页面自己去取：fetch API → base64 解码 → 存 localStorage → 覆盖数据 → 渲染。
+ *
+ * 用法：
+ *   1. 自动：页面加载时若本地已有缓存，自动套用
+ *   2. 手动：点右上角「同步数据」按钮，重新从 GitHub 拉一次
+ */
+(function(){
+  var REPO = 'xushan628/lan-yu-data';
+  var PATH = 'data/latest.json';
+  var KEY = 'gh_latest';
+  var API = 'https://api.github.com/repos/' + REPO + '/contents/' + PATH;
+
+  function decodeUTF8(b64){
+    var bin = atob(String(b64).replace(/\s/g, ''));
+    var bytes = new Uint8Array(bin.length);
+    for(var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder('utf-8').decode(bytes);
+  }
+
+  function trackItems(list){
+    return (list || []).map(function(it, i){
+      return {
+        rank: it.rank || i + 1,
+        title: it.title || '',
+        author: it.author || '',
+        plays: it.plays, likes: it.likes,
+        fansGain: it.fansGain, fans: it.fans,
+        likeRate: it.likeRate,
+        awemeId: it.awemeId, url: it.url || '',
+        price: it.price, rating: it.rating, reviews: it.reviews, asin: it.asin
+      };
+    });
+  }
+
+  function apply(d){
+    if(!d) return null;
+    var info = { date: d.generatedDate || '', at: d.generatedAt || '', tracks: 0, items: 0, cats: 0, amz: 0 };
+
+    if(d.douyin && d.douyin.tracks && d.douyin.tracks.length){
+      var tracks = d.douyin.tracks.map(function(t){
+        return { track: t.track, keyword: t.keyword || '', items: trackItems(t.items) };
+      }).filter(function(t){ return t.items.length; });
+      if(tracks.length){
+        window.RANKS = window.RANKS || {};
+        window.RANKS.empty = false;
+        window.RANKS.douyin = {
+          date: d.douyin.date || d.generatedDate || '',
+          source: (d.douyin.source || 'GitHub Actions') + ' · 经 API 同步',
+          fetchedAt: d.douyin.fetchedAt || d.generatedAt || '',
+          note: d.douyin.note || '',
+          tracks: tracks,
+          pending: d.douyin.pending || []
+        };
+        info.tracks = tracks.length;
+        info.items = tracks.reduce(function(s, t){ return s + t.items.length; }, 0);
+      }
+    }
+
+    if(d.amazon && d.amazon.categories && d.amazon.categories.length){
+      var cats = d.amazon.categories.map(function(c){
+        return {
+          cat: c.cat, slug: c.slug, total: (c.items || []).length,
+          items: trackItems(c.items)
+        };
+      }).filter(function(c){ return c.items.length; });
+      if(cats.length){
+        window.AMZ = {
+          date: d.amazon.date || d.generatedDate || '',
+          fetchedAt: d.amazon.fetchedAt || '',
+          source: (d.amazon.source || 'Amazon Best Sellers') + ' · 经 API 同步',
+          note: d.amazon.note || '',
+          categories: cats
+        };
+        info.cats = cats.length;
+        info.amz = cats.reduce(function(s, c){ return s + c.items.length; }, 0);
+      }
+    }
+    window.GH_INFO = info;
+    return info;
+  }
+
+  /* 页面加载时：用本地缓存覆盖（缓存由上次同步写入） */
+  try{
+    var cached = localStorage.getItem(KEY);
+    if(cached) apply(JSON.parse(cached));
+  }catch(e){ console.warn('[gh] 缓存读取失败', e); }
+
+  /* 打开页面后静默拉一次最新：这样「后台数据变了，页面就是新的」 */
+  function autoSync(){
+    var last = parseInt(localStorage.getItem(KEY + '_ts') || '0', 10);
+    if(Date.now() - last < 60 * 1000) return;          // 60 秒内不重复拉
+    fetch(API, { cache: 'no-store' })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(j){
+        var text = decodeUTF8(j.content || '');
+        var prev = localStorage.getItem(KEY);
+        localStorage.setItem(KEY, text);
+        localStorage.setItem(KEY + '_at', new Date().toISOString());
+        localStorage.setItem(KEY + '_ts', String(Date.now()));
+        if(prev !== text){
+          // 数据有变化：重载一次，让各模块用新数据重新渲染
+          if(sessionStorage.getItem('gh_reloaded') !== '1'){
+            sessionStorage.setItem('gh_reloaded', '1');
+            location.reload();
+            return;
+          }
+          apply(JSON.parse(text));
+        }
+      })
+      .catch(function(){ /* 静默失败，用缓存 */ });
+  }
+  if(document.readyState === 'complete') setTimeout(autoSync, 400);
+  else window.addEventListener('load', function(){ setTimeout(autoSync, 400); });
+
+  /* 手动同步 */
+  window.syncFromGitHub = function(){
+    var btns = document.querySelectorAll('[data-gh-sync]');
+    btns.forEach(function(b){ b.disabled = true; b.textContent = '同步中…'; });
+    return fetch(API, { cache: 'no-store' })
+      .then(function(r){
+        if(!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function(j){
+        var text = decodeUTF8(j.content || '');
+        var d = JSON.parse(text);
+        localStorage.setItem(KEY, text);
+        localStorage.setItem(KEY + '_at', new Date().toISOString());
+        var info = apply(d);
+        if(window.toast) window.toast('已同步：抖音 ' + info.tracks + ' 赛道 ' + info.items + ' 条 · 亚马逊 ' + info.cats + ' 类目 ' + info.amz + ' 条');
+        setTimeout(function(){ location.reload(); }, 900);
+      })
+      .catch(function(e){
+        if(window.toast) window.toast('同步失败：' + String(e.message || e).slice(0, 60));
+        btns.forEach(function(b){ b.disabled = false; b.textContent = '同步数据'; });
+      });
+  };
+
+  /* 顶部加按钮 + 数据来源提示 */
+  function mountHeader(){
+    var right = document.querySelector('.chead .right');
+    if(!right || document.querySelector('[data-gh-sync]')) return;
+    var btn = document.createElement('button');
+    btn.className = 'btn sm';
+    btn.setAttribute('data-gh-sync', '1');
+    btn.textContent = '同步数据';
+    btn.style.cssText = 'font-size:11.5px;padding:4px 11px';
+    btn.onclick = function(){ window.syncFromGitHub(); };
+    right.insertBefore(btn, right.firstChild);
+
+    var last = localStorage.getItem(KEY + '_at');
+    if(window.GH_INFO && window.GH_INFO.tracks){
+      var tip = document.createElement('span');
+      tip.style.cssText = 'font-size:10.5px;color:#047857;font-weight:600';
+      tip.textContent = 'GitHub ' + (window.GH_INFO.date || '') +
+        ' · 抖音 ' + window.GH_INFO.items + ' 条';
+      right.insertBefore(tip, right.firstChild);
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountHeader);
+  else setTimeout(mountHeader, 0);
+})();
+
+</script>
+<script>
+/* ==================== js/app.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 应用层
+ * 路由 / 侧栏 / 各模块渲染。选品打分器在 score.js 里注册。
+ */
+const C = window.CORE;
+const MODULES = {};
+const reg = (k, render, mount) => { MODULES[k] = { render, mount }; };
+const $ = s => document.querySelector(s);
+const esc = s => String(s === undefined || s === null ? '' : s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const num = v => { const n = parseFloat(v); return isFinite(n) ? n : 0; };
+const view = () => document.getElementById('view');
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 1900);
+}
+const tagColor = { gold:'rgba(161,98,7,.14)|#A16207', accent:'rgba(255,107,53,.14)|#FF8F63',
+  blue:'rgba(79,70,229,.15)|#4F46E5', green:'rgba(4,120,87,.14)|#047857',
+  red:'rgba(190,18,60,.14)|#BE123C', violet:'rgba(124,58,237,.15)|#BCA5FF' };
+function tag(txt, c){
+  const v = tagColor[c] || tagColor.blue;
+  const [bg, fg] = v.split('|');
+  return `<span class="tag" style="background:${bg};color:${fg}">${esc(txt)}</span>`;
+}
+function kpi(lb, vl, sub, color){
+  return `<div class="kpi"><div class="lb">${lb}</div>
+    <div class="vl"${color?` style="color:${color}"`:''}>${vl}</div>
+    ${sub?`<div class="sub">${sub}</div>`:''}</div>`;
+}
+
+/* ================= 侧栏与路由 ================= */
+function buildNav(){
+  const nav = document.getElementById('snav');
+  nav.innerHTML = C.nav.map(g => `
+    <div class="sgroup">
+      <div class="sglabel">${g.g}</div>
+      ${g.items.map(it => `<button class="sitem" data-k="${it.k}">
+        <span class="ico">${it.ico}</span><span>${it.n}</span></button>`).join('')}
+    </div>`).join('');
+  nav.addEventListener('click', e => {
+    const b = e.target.closest('.sitem'); if(!b) return;
+    location.hash = '#/' + b.dataset.k;
+    document.getElementById('side').classList.remove('open');
+    document.getElementById('scrim').classList.remove('on');
+  });
+}
+function findNav(k){
+  for(const g of C.nav) for(const it of g.items) if(it.k === k) return {g: g.g, it};
+  return null;
+}
+function route(){
+  const k = (location.hash || '#/overview').replace('#/', '') || 'overview';
+  const m = MODULES[k] || MODULES.overview;
+  const nav = findNav(MODULES[k] ? k : 'overview') || { g:'总览', it:{ n:'工作台总览' } };
+  document.getElementById('crumb').innerHTML = `${nav.g} <span style="color:#B8B2A6">/</span> <b>${nav.it.n}</b>`;
+  document.querySelectorAll('.sitem').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  const v = view();
+  v.innerHTML = `<div class="inner">${m.render()}</div>`;
+  v.scrollTop = 0;
+  if(m.mount) m.mount(v);
+}
+
+/* ================= 总览 ================= */
+reg('overview', () => {
+  const news = C.news.length, tracks = C.csp.tracks.length, tools = C.ai.tools.length,
+        models = C.oss.models.length, cats = C.cross.categories.length;
+  const scoreCount = window.SCORE_API ? window.SCORE_API.count() : 0;
+  return `
+  <h1>工作台总览
+    <small>${C.meta.dateLabel} · ${C.meta.edition} · ${C.meta.sources}</small></h1>
+
+  <div class="kpis" style="margin-top:18px">
+    ${kpi('今日要闻', news + ' 条', '已过滤 ' + C.newsFiltered.length + ' 类噪音')}
+    ${kpi('选品候选', scoreCount + ' 个', '点进打分器实时算', '#C2410C')}
+    ${kpi('AI 工具', tools + ' 个', '国内 + 国外')}
+    ${kpi('开源模型', models + ' 个', '含本地部署门槛')}
+    ${kpi('可复制类目', cats + ' 个', '附退货率基准')}
+    ${kpi('CSP 赛道', tracks + ' 条', '含佣金结构样本')}
+  </div>
+
+  <div style="border:1px solid rgba(79,70,229,.18);background:linear-gradient(100deg,rgba(79,70,229,.075),rgba(255,107,53,.055));border-radius:14px;padding:18px 20px;margin-bottom:18px">
+    <div class="note" style="font-size:14px;color:#2A2740;line-height:1.75">
+      <b style="color:var(--accent);letter-spacing:.3px">今日一句话 · </b>${esc(C.summary.headline)}</div>
+  </div>
+
+  <h3>今天先做这 3 件事</h3>
+  <div class="grid g3">
+    ${C.summary.three.map((x,i) => `
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:19px;font-weight:800;color:#D7D2C8">${i+1}</span>
+          ${tag(x.tag, ['accent','blue','green'][i])}
+        </div>
+        <h4>${esc(x.t)}</h4>
+        <p style="font-size:12.5px;color:#4A4753">${esc(x.d)}</p>
+        <button class="btn sm" style="margin-top:11px" data-go="${x.go}">去做 →</button>
+      </div>`).join('')}
+  </div>
+
+  <h3>六大模块现状</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>模块</th><th>底层数据</th><th>分析能力</th><th>状态</th></tr></thead><tbody>
+    <tr><td><b>每日情报</b></td><td>5 条要闻，逐条标来源与日期</td><td>动作价值排序 + 噪音过滤</td><td>${tag('可用','green')}</td></tr>
+    <tr><td><b>跨境电商</b></td><td>6 个平台规则、6 个类目基准</td><td>7 维加权打分器 + 参数可调 + 压力测试</td><td>${tag('可用','green')}</td></tr>
+    <tr><td><b>AI 工具</b></td><td>${tools} 个工具，含国内/国外与场景标签</td><td>多维筛选 + 工作流组合</td><td>${tag('可用','green')}</td></tr>
+    <tr><td><b>开源模型</b></td><td>${models} 个模型，含参数/上下文/许可</td><td>显存估算器</td><td>${tag('可用','green')}</td></tr>
+    <tr><td><b>抖音变现</b></td><td>7 条赛道拆解</td><td>收益估算器</td><td>${tag('部分','gold')} 缺日榜</td></tr>
+    <tr><td><b>CSP 行业</b></td><td>6 条赛道 + 三家样本</td><td>佣金结构模拟器</td><td>${tag('部分','gold')} 缺前 10</td></tr>
+    </tbody></table></div>
+
+  <h3>四个模块缺什么（我不编）</h3>
+  <div class="gap">
+    <b>抖音各赛道每日 Top5 视频</b>、<b>CSP 各赛道前 10</b>：这两个是平台内部数据，公开页面拿不到稳定日榜。
+    需要蝉妈妈/飞瓜/新抖账号或联盟后台导出权限。给我任意一个，我把字段对进工作台，从第二天 08:00 起就是真榜单。
+    <div style="margin-top:9px;color:#9F1239">其余模块的数据都是公开可验证的，每条都标了来源和日期。</div>
+  </div>`;
+}, v => {
+  v.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { location.hash = '#/' + b.dataset.go; });
+});
+
+/* ================= 架构与方法 ================= */
+reg('arch', () => `
+  <h1>架构与方法
+    <small>这个工作台不是一堆卡片的堆砌，是四层结构：数据 → 分类 → 分析 → 呈现。</small></h1>
+
+  <h3>四层结构</h3>
+  <div class="arch">
+    <div class="alayer"><div class="n">01 数据层</div><div class="t2">数据支持</div>
+      <div class="d">所有内容集中在 <code>data/core.js</code>，一条一条带来源和日期。改内容只改这个文件，页面自动跟着变。</div></div>
+    <div class="alayer"><div class="n">02 分类层</div><div class="t2">内容分类</div>
+      <div class="d">六大模块 + 22 个子页。每个模块内部再按「指标 / 规则 / 样本 / 缺口」分类，避免把不同性质的东西混在一起。</div></div>
+    <div class="alayer"><div class="n">03 分析层</div><div class="t2">分析大脑</div>
+      <div class="d">三个真实计算引擎：7 维选品打分、显存估算、CSP 佣金结构模拟。不是静态表格，输入变结果就变。</div></div>
+    <div class="alayer"><div class="n">04 呈现层</div><div class="t2">总结呈现</div>
+      <div class="d">总览页把跨模块的结论压成「今天先做 3 件事」，其余细节按需下钻。先给判断，再给依据。</div></div>
+  </div>
+
+  <h3>底层逻辑：为什么这样分类</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>判断标准</th><th>怎么用</th></tr></thead><tbody>
+    <tr><td><b>可执行性优先</b></td><td>每条信息必须能落成动作。写不出「今天能做什么」的，不进要闻。</td></tr>
+    <tr><td><b>可验证优先</b></td><td>每个数字标来源和日期。拿不到就说拿不到，标「待接入」，不填估算值。</td></tr>
+    <tr><td><b>跨模块交叉</b></td><td>单条信息价值有限，交叉才有洞察。比如「芯片出口 +137%」本身是宏观，但和「跨境 3C 采购成本」交叉，就变成定价策略。</td></tr>
+    <tr><td><b>结论前置</b></td><td>总览先给 3 件事，模块页再给依据。不让人从一堆数据里自己找结论。</td></tr>
+    </tbody></table></div>
+
+  <h3>三个计算引擎在算什么</h3>
+  <div class="grid g3">
+    <div class="card"><h4>① 7 维选品打分</h4>
+      <p class="note" style="margin-top:6px">综合分 =（物流分×25% + 毛利分×20% + 退货分×15% + 合规×15% + 需求×10% + 创新×10% + 补货×5%）×10</p>
+      <p class="note" style="margin-top:8px">核心在体积重：体积重 = 长×宽×高÷6，计费重取实重与体积重的较大值。抛货额外扣分。</p>
+      <button class="btn sm" style="margin-top:11px" data-go="cross-score">去试算 →</button></div>
+    <div class="card"><h4>② 显存估算</h4>
+      <p class="note" style="margin-top:6px">权重显存 ≈ 参数量(B) × 量化位 ÷ 8，再加 KV cache 与推理开销。给的是经验区间，用来判断「要不要上本地」。</p>
+      <button class="btn sm" style="margin-top:11px" data-go="oss-calc">去算 →</button></div>
+    <div class="card"><h4>③ CSP 佣金结构</h4>
+      <p class="note" style="margin-top:6px">收入 = Σ(GMV_i × 佣金率_i)。同一个 GMV 在不同平台佣金差一倍，所以「换结构」比「冲规模」见效快。</p>
+      <button class="btn sm" style="margin-top:11px" data-go="csp-sim">去算 →</button></div>
+  </div>
+
+  <h3>这个工作台自己是怎么更新的</h3>
+  <div class="ok">
+    每天 08:00 定时任务：抓信源 → 过滤噪音 → 按可执行性排序 5 条 → 重写 <code>data/core.js</code> → 页面刷新即新一期。
+    数据存在本地，不上传任何服务器。
+  </div>`, v => {
+  v.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { location.hash = '#/' + b.dataset.go; });
+});
+
+/* ================= 每日情报 ================= */
+reg('news', () => `
+  <h1>今日要闻 · 最值得普通人关注的 5 条
+    <small>筛选标准：有可执行动作 ＞ 只是热闹。已过滤人物八卦、纯促销、未落地传闻、重复报道。</small></h1>
+  <div style="margin-top:18px">
+  ${C.news.map((n,i) => `
+    <div class="news">
+      <div class="rank">${String(i+1).padStart(2,'0')}</div>
+      <div class="b">
+        <h4>${tag(n.tag, n.tc)}<a href="${n.url}" target="_blank" rel="noopener">${esc(n.title)}</a></h4>
+        <div class="why"><b>与我有什么关系 →</b> ${esc(n.why)}</div>
+        <div class="act"><b>今天能做什么 →</b> ${esc(n.action)}</div>
+        <div class="src">来源：${esc(n.source)}</div>
+      </div>
+    </div>`).join('')}
+  </div>
+  <h3>被过滤掉的</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>内容</th><th>为什么过滤</th></tr></thead><tbody>
+    ${C.newsFiltered.map(x => `<tr><td>${esc(x.n)}</td><td>${esc(x.r)}</td></tr>`).join('')}
+    </tbody></table></div>`);
+
+reg('news-rule', () => `
+  <h1>过滤规则与信源
+    <small>决定一条信息进不进要闻，靠的是规则，不是手感。</small></h1>
+
+  <h3>入选与过滤</h3>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h4 style="color:var(--green)">✓ 会进</h4><ul class="dot">
+      <li>能落到具体动作的（政策、平台规则、价格、工具发布）</li>
+      <li>会改变你成本或收入的（费率、税、汇率、佣金率）</li>
+      <li>能验证的公开数据（财报、海关、协会口径）</li>
+    </ul></div>
+    <div class="card"><h4 style="color:var(--red)">✕ 不进</h4><ul class="dot">
+      <li>人物八卦、资本花边</li>
+      <li>纯促销、直降、优惠券清单</li>
+      <li>未落地传闻（机型曝光、未官宣规划）</li>
+      <li>同一事件的多家重复报道</li>
+    </ul></div>
+  </div>
+
+  <h3>每条必须带两行</h3>
+  <div class="card"><p class="note">
+    <b>「与我有什么关系」</b>——解释影响路径，不是复述新闻。<br>
+    <b>「今天能做什么」</b>——给一个今天就能动手的动作，不是「关注一下」。<br>
+    写不出这两行的信息，说明它对你没有价值，删掉。
+  </p></div>
+
+  <h3>信源状态</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>信源</th><th>类型</th><th>状态</th><th>说明</th></tr></thead><tbody>
+    ${C.newsSources.map(s => {
+      const st = s.s === 'ok' ? tag('✅ 可用','green') : s.s === 'warn' ? tag('⚠️ 降级','gold') : tag('❌ 待接入','red');
+      return `<tr><td><b>${esc(s.n)}</b></td><td>${esc(s.t)}</td><td>${st}</td><td>${esc(s.d)}</td></tr>`;
+    }).join('')}
+    </tbody></table></div>`);
+
+/* ================= 跨境电商：平台 / 类目 ================= */
+reg('cross-plat', () => `
+  <h1>平台规则库
+    <small>2026 现行口径。选平台之前先看清楚：流量给谁、佣金多少、门槛在哪。</small></h1>
+  <div style="margin-top:18px">
+  ${C.cross.platforms.map(p => `
+    <div class="card" style="margin-bottom:11px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+        <h4 style="font-size:15px;margin:0">${esc(p.name)}
+          <span class="note" style="font-weight:400">　${esc(p.mode)}</span></h4>
+        <span class="note" style="color:var(--gold)">${esc(p.rate)}</span>
+      </div>
+      <div style="margin-top:9px"><div class="kv"><span>新手门槛</span><span style="font-weight:400">${esc(p.gate)}</span></div>
+      <div class="kv"><span>2026 关键变化</span><span style="font-weight:400;max-width:62%;text-align:right">${esc(p.change)}</span></div>
+      <div class="kv"><span>适合谁</span><span style="font-weight:400;color:#047857">${esc(p.fit)}</span></div></div>
+    </div>`).join('')}
+  </div>
+
+  <h3>新手 30 天启动路径</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>阶段</th><th>做什么</th><th>过关标准</th></tr></thead><tbody>
+    ${C.cross.path.map(p => `<tr><td><b>${esc(p.w)}</b></td><td>${esc(p.do)}</td><td>${esc(p.check)}</td></tr>`).join('')}
+    </tbody></table></div>
+
+  <h3>推荐的 AI 工具栈</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>环节</th><th>工具</th><th>说明</th></tr></thead><tbody>
+    ${C.cross.aiStack.map(s => `<tr><td><b>${esc(s.stage)}</b></td><td>${esc(s.tool)}</td><td>${esc(s.note)}</td></tr>`).join('')}
+    </tbody></table></div>
+  <div class="src">来源：${esc(C.cross.sources)}</div>`, v => {});
+
+reg('cross-cat', () => `
+  <h1>可复制类目库
+    <small>数据上容易起量、且供应链能跟上的方向。退货率是硬基准，别用行业最好值安慰自己。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+  ${C.cross.categories.map(c => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+        <h4 style="margin:0">${esc(c.name)}</h4>${tag(c.fit,'blue')}
+      </div>
+      <div style="margin-top:9px">
+        <div class="kv"><span>客单价</span><span>${esc(c.price)}</span></div>
+        <div class="kv"><span>退货率</span><span>${esc(c.ret)}</span></div>
+      </div>
+      <p class="note" style="margin-top:9px">${esc(c.why)}</p>
+      <button class="btn sm" style="margin-top:11px" data-go="cross-score">拿它去打分 →</button>
+    </div>`).join('')}
+  </div>
+  <div class="warn" style="margin-top:16px">
+    <b>用之前先做一件事：</b>把候选品的重量和长宽高实测一遍，填进打分器看「计费重」是不是比实重高很多。
+    体积重 = 长×宽×高÷6，这一步能筛掉一半你以为赚钱的品。
+  </div>`, v => {
+  v.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { location.hash = '#/' + b.dataset.go; });
+});
+
+/* ================= AI 工具库 ================= */
+const AIS = { cat:'全部', side:'all', q:'' };
+reg('ai-tools', () => {
+  const list = () => {
+    const sideName = s => s === 'abroad' ? '国外' : '国内';
+    return C.ai.tools.filter(t =>
+      (AIS.cat === '全部' || t.cat === AIS.cat) &&
+      (AIS.side === 'all' || t.side === AIS.side) &&
+      (!AIS.q || (t.n + t.use).toLowerCase().includes(AIS.q.toLowerCase()))
+    ).map(t => `
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">
+          <h4 style="margin:0;font-size:13.5px">${esc(t.n)}</h4>
+          ${tag(sideName(t.side), t.side === 'abroad' ? 'blue' : 'green')}
+        </div>
+        <div class="note" style="margin-top:7px">${esc(t.use)}</div>
+        <div style="margin-top:9px">
+          <span class="pill">${esc(t.cat)}</span>
+          <span class="pill">${esc(t.price)}</span>
+          <span class="pill">上手 ${'●'.repeat(t.level)}${'○'.repeat(3-t.level)}</span>
+        </div>
+      </div>`).join('') || `<div class="card"><div class="note">没有符合条件的工具，换个筛选试试。</div></div>`;
+  };
+  const all = C.ai.tools;
+  return `
+  <h1>AI 工具库
+    <small>${all.length} 个工具，按「场景 / 国内国外 / 上手难度」三个维度筛。上手难度：●越多越陡。</small></h1>
+  <div class="chips" id="catChips">
+    ${C.ai.cats.map(c => `<button class="chip ${AIS.cat===c?'on':''}" data-cat="${c}">${c}</button>`).join('')}
+  </div>
+  <div class="chips" style="margin-top:-6px">
+    <button class="chip ${AIS.side==='all'?'on':''}" data-side="all">全部地区</button>
+    <button class="chip ${AIS.side==='abroad'?'on':''}" data-side="abroad">国外</button>
+    <button class="chip ${AIS.side==='cn'?'on':''}" data-side="cn">国内</button>
+    <input class="inp" id="aiq" placeholder="搜工具名或用途…" style="margin-left:auto;width:210px" value="${esc(AIS.q)}">
+  </div>
+  <div class="grid g3" id="aiList">${list()}</div>`;
+
+}, v => {
+  const redraw = () => {
+    v.querySelector('#aiList').innerHTML = (() => {
+      const sideName = s => s === 'abroad' ? '国外' : '国内';
+      return C.ai.tools.filter(t =>
+        (AIS.cat === '全部' || t.cat === AIS.cat) &&
+        (AIS.side === 'all' || t.side === AIS.side) &&
+        (!AIS.q || (t.n + t.use).toLowerCase().includes(AIS.q.toLowerCase()))
+      ).map(t => `
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">
+            <h4 style="margin:0;font-size:13.5px">${esc(t.n)}</h4>
+            ${tag(sideName(t.side), t.side === 'abroad' ? 'blue' : 'green')}
+          </div>
+          <div class="note" style="margin-top:7px">${esc(t.use)}</div>
+          <div style="margin-top:9px">
+            <span class="pill">${esc(t.cat)}</span>
+            <span class="pill">${esc(t.price)}</span>
+            <span class="pill">上手 ${'●'.repeat(t.level)}${'○'.repeat(3-t.level)}</span>
+          </div>
+        </div>`).join('') || `<div class="card"><div class="note">没有符合条件的工具，换个筛选试试。</div></div>`;
+    })();
+  };
+  v.querySelectorAll('[data-cat]').forEach(b => b.onclick = () => {
+    AIS.cat = b.dataset.cat;
+    v.querySelectorAll('[data-cat]').forEach(x => x.classList.toggle('on', x === b));
+    redraw();
+  });
+  v.querySelectorAll('[data-side]').forEach(b => b.onclick = () => {
+    AIS.side = b.dataset.side;
+    v.querySelectorAll('[data-side]').forEach(x => x.classList.toggle('on', x === b));
+    redraw();
+  });
+  v.querySelector('#aiq').oninput = e => { AIS.q = e.target.value; redraw(); };
+});
+
+reg('ai-tips', () => `
+  <h1>今日技巧
+    <small>只留今天真能用上的。每条都有具体的操作，不是「多试试」。</small></h1>
+  <div style="margin-top:18px">
+  ${C.ai.tips.map((t,i) => `
+    <div class="card" style="margin-bottom:11px">
+      <div style="display:flex;gap:12px">
+        <div style="font-size:22px;font-weight:800;color:#D7D2C8;line-height:1.2">${i+1}</div>
+        <div><h4>${esc(t.t)}</h4><p class="note" style="margin-top:6px">${esc(t.d)}</p></div>
+      </div>
+    </div>`).join('')}
+  </div>
+  <div class="warn"><b>一条通用原则：</b>判断一个 AI 技巧值不值得学，就看它能不能替掉你每周重复做的事。不能的，再新奇也只是玩具。</div>`);
+
+reg('ai-flow', () => `
+  <h1>工作流
+    <small>单个工具解决不了问题，串起来才行。这四条已经是完整闭环，照着搭。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+  ${C.ai.flows.map((f,i) => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+        <h4 style="margin:0">${esc(f.t)}</h4>${tag('流程 ' + (i+1), ['blue','green','gold','violet'][i%4])}
+      </div>
+      <p class="note" style="margin-top:8px">${esc(f.d)}</p>
+      <div style="margin-top:10px;padding-top:9px;border-top:1px dashed #F0EDE7">
+        <span class="note" style="color:var(--green)">⏱ ${esc(f.cost)}</span></div>
+    </div>`).join('')}
+  </div>`);
+
+/* ================= 开源模型 ================= */
+reg('oss-lib', () => `
+  <h1>开源模型库
+    <small>${C.oss.models.length} 个现在就能下载/调用的模型。选型看三件事：参数规模、上下文、许可。</small></h1>
+  <div class="tblwrap" style="margin-top:18px"><table class="tbl">
+    <thead><tr><th>模型</th><th>出品</th><th>参数</th><th>上下文</th><th>许可</th><th>适合</th></tr></thead><tbody>
+    ${C.oss.models.map(m => `<tr>
+      <td><b>${esc(m.n)}</b></td><td>${esc(m.org)}</td><td>${esc(m.params)}</td>
+      <td>${esc(m.ctx)}</td><td>${esc(m.license)}</td><td>${esc(m.note)}</td></tr>`).join('')}
+    </tbody></table></div>
+
+  <h3>今天的发布</h3>
+  ${C.oss.today.map(t => `
+    <div class="card" style="margin-bottom:11px">
+      <h4><a href="${t.url}" target="_blank" rel="noopener" style="text-decoration:none;border-bottom:1px solid #D7D2C8">${esc(t.title)}</a></h4>
+      <p class="note" style="margin-top:7px">${esc(t.d)}</p>
+      <div class="act" style="margin-top:9px"><b>怎么用 →</b> ${esc(t.use)}</div>
+    </div>`).join('')}
+  <div class="src">来源：${esc(C.oss.sources)}</div>`, v => {});
+
+reg('oss-calc', () => `
+  <h1>显存计算器
+    <small>判断「要不要上本地部署」。给的是经验区间——真实占用还跟框架、并发、上下文有关。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <div class="calcrow"><label>模型参数量<span class="hint">7 / 14 / 32 / 70 / 671</span></label>
+        <input type="number" id="ocP" value="32" step="1"><span class="unit">B</span></div>
+      <div class="calcrow"><label>量化位宽<span class="hint">4 位 = Q4，8 位 = Q8，16 位 = 原始精度</span></label>
+        <select id="ocQ"><option value="4">4 位（Q4，最常用）</option><option value="8">8 位（Q8）</option>
+        <option value="16">16 位（FP16）</option></select></div>
+      <div class="calcrow"><label>上下文档位<span class="hint">决定的 KV cache 会额外吃显存</span></label>
+        <select id="ocC"><option value="1">短（约 4K）</option><option value="3" selected>中（约 16K）</option>
+        <option value="10">长（约 128K）</option></select></div>
+      <div class="calcrow"><label>推理开销预留<span class="hint">框架 + 激活值，一般 15–25%</span></label>
+        <input type="number" id="ocO" value="20" step="5"><span class="unit">%</span></div>
+    </div>
+    <div class="card">
+      <div class="kv"><span>权重占用</span><span id="ocW">—</span></div>
+      <div class="kv"><span>KV cache 预留（经验值）</span><span id="ocK">—</span></div>
+      <div class="kv"><span>推理开销</span><span id="ocX">—</span></div>
+      <div class="kv" style="border-top:1px solid #D7D2C8;border-bottom:none;padding-top:11px">
+        <span style="color:var(--text)"><b>合计需要</b></span>
+        <span id="ocT" class="bigv" style="font-size:24px;color:var(--accent)">—</span></div>
+      <div style="margin-top:14px"><div id="ocAdvice"></div></div>
+    </div>
+  </div>
+
+  <h3>经验档位（省得你算）</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>规模</th><th>显存</th><th>说明</th></tr></thead><tbody>
+    ${C.oss.hw.map(h => `<tr><td><b>${esc(h.size)}</b></td><td>${esc(h.vram)}</td><td>${esc(h.note)}</td></tr>`).join('')}
+    </tbody></table></div>
+  <div class="warn" style="margin-top:14px">
+    <b>别只看权重：</b>长上下文才是显存杀手。同样一个 32B 模型，4K 上下文可能 24G 够用，128K 上下文可能要 40G 以上。
+    做长文档问答前，先按「长」档位算一遍。
+  </div>`, v => {
+  const calc = () => {
+    const P = num(v.querySelector('#ocP').value);
+    const bits = num(v.querySelector('#ocQ').value);
+    const kv = num(v.querySelector('#ocC').value);
+    const ov = num(v.querySelector('#ocO').value) / 100;
+    const w = P * bits / 8;
+    const total = (w + kv) * (1 + ov);
+    v.querySelector('#ocW').textContent = w.toFixed(1) + ' GB';
+    v.querySelector('#ocK').textContent = kv.toFixed(0) + ' GB';
+    v.querySelector('#ocX').textContent = ((w + kv) * ov).toFixed(1) + ' GB';
+    v.querySelector('#ocT').textContent = total.toFixed(1) + ' GB';
+    let advice;
+    if(total <= 8) advice = `<div class="ok"><b>单张消费级卡就能跑。</b>8G 显存够用，Ollama 一条命令。</div>`;
+    else if(total <= 16) advice = `<div class="ok"><b>16G 显卡（4060Ti / 4070Ti）够。</b>本地部署的最舒服档位。</div>`;
+    else if(total <= 24) advice = `<div class="ok"><b>24G 单卡（3090 / 4090）。</b>效果开始能当生产力用。</div>`;
+    else if(total <= 48) advice = `<div class="warn"><b>需要双卡或大内存 Mac。</b>先确认你的任务值不值这个成本。</div>`;
+    else advice = `<div class="gap"><b>个人不要本地部署。</b>直接用云 API 或托管服务。真正的判断点是：百万上下文对你到底有没有用。</div>`;
+    v.querySelector('#ocAdvice').innerHTML = advice;
+  };
+  ['ocP','ocQ','ocC','ocO'].forEach(id => {
+    v.querySelector('#' + id).oninput = calc;
+    v.querySelector('#' + id).onchange = calc;
+  });
+  calc();
+});
+
+reg('oss-use', () => `
+  <h1>能干什么
+    <small>开源模型的价值不在跑分，在「数据不出内网」和「便宜到可以浪费」。</small></h1>
+  <div class="grid g3" style="margin-top:18px">
+  ${C.oss.plays.map(p => `<div class="card"><h4>${esc(p.t)}</h4>
+    <p class="note" style="margin-top:7px">${esc(p.d)}</p></div>`).join('')}
+  </div>
+
+  <h3>怎么开始（按你的硬件选）</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>你的情况</th><th>走哪条路</th></tr></thead><tbody>
+    <tr><td><b>只有笔记本，8–16G 内存</b></td><td>Ollama 拉 7B / 14B 的 Q4 量化版。别碰 32B 以上。</td></tr>
+    <tr><td><b>有 24G 显卡</b></td><td>32B Q4 + vLLM，可以当真生产力工具用。</td></tr>
+    <tr><td><b>没有显卡但想试</b></td><td>先用云 API（DeepSeek、通义）验证效果，跑通了再考虑买卡。别为了「本地」而本地。</td></tr>
+    <tr><td><b>要做长文档 / 整库问答</b></td><td>重点是上下文长度，不是模型大小。先按「长上下文」档位算显存，再决定。</td></tr>
+    </tbody></table></div>`);
+
+/* ================= 抖音 ================= */
+reg('dy-track', () => `
+  <h1>七条赛道
+    <small>每条都拆到「怎么变现 / 起号门槛 / 内容公式 / 最大的坑 / 今天做一件事」。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+  ${C.douyin.tracks.map(t => `
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px">
+        <h4 style="margin:0;font-size:15px">${esc(t.name)}</h4>${tag(t.level,'violet')}
+      </div>
+      <div class="kv"><span>怎么变现</span><span style="font-weight:400">${esc(t.money)}</span></div>
+      <div class="kv"><span>起号门槛</span><span style="font-weight:400">${esc(t.gate)}</span></div>
+      <div class="kv"><span>内容公式</span><span style="font-weight:400">${esc(t.formula)}</span></div>
+      <div class="kv"><span>最大的坑</span><span style="font-weight:400;color:#9F1239">${esc(t.risk)}</span></div>
+      <div class="kv"><span>今天做一件事</span><span style="font-weight:400;color:#047857">${esc(t.today)}</span></div>
+    </div>`).join('')}
+  </div>`);
+
+reg('dy-calc', () => `
+  <h1>收益估算
+    <small>把「播放量能不能赚钱」变成一道算术题。参数都可以按你自己的数据改。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <div class="calcrow"><label>单条视频播放量<span class="hint">新号常见 500–5000，爆款 10 万+</span></label>
+        <input type="number" id="dyV" value="5000" step="500"></div>
+      <div class="calcrow"><label>商品点击率<span class="hint">看完去点小黄车的比例，1–5% 都算正常</span></label>
+        <input type="number" id="dyC" value="2" step="0.1"><span class="unit">%</span></div>
+      <div class="calcrow"><label>点击后成交率<span class="hint">点进去真的下单，服饰偏低</span></label>
+        <input type="number" id="dyR" value="3" step="0.1"><span class="unit">%</span></div>
+      <div class="calcrow"><label>客单价</label><input type="number" id="dyP" value="59" step="1"><span class="unit">元</span></div>
+      <div class="calcrow"><label>佣金率<span class="hint">抖音联盟平均 6%+，服饰美妆更高</span></label>
+        <input type="number" id="dyM" value="15" step="1"><span class="unit">%</span></div>
+      <div class="calcrow"><label>每月发多少条</label><input type="number" id="dyN" value="30" step="1"><span class="unit">条</span></div>
+    </div>
+    <div class="card">
+      <div class="note">单条视频的成交金额</div>
+      <div class="bigv" id="dyGmv" style="color:#4F46E5">—</div>
+      <div class="kv" style="margin-top:12px"><span>单条佣金收入</span><span id="dyOne">—</span></div>
+      <div class="kv"><span>预计每月佣金</span><span id="dyMon" style="color:#047857;font-size:15px">—</span></div>
+      <div class="kv"><span>要月入 1 万需要播多少条</span><span id="dyNeed">—</span></div>
+      <div style="margin-top:14px" id="dyAdvice"></div>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:14px">
+    <b>这个模型最脆弱的一环是「点击率」。</b>播放量再高，没人点小黄车就是 0。所以真正要优化的不是播放，是前 3 秒和评论区引导。
+  </div>`, v => {
+  const calc = () => {
+    const V = num(v.querySelector('#dyV').value), Ct = num(v.querySelector('#dyC').value) / 100;
+    const R = num(v.querySelector('#dyR').value) / 100, P = num(v.querySelector('#dyP').value);
+    const M = num(v.querySelector('#dyM').value) / 100, N = num(v.querySelector('#dyN').value);
+    const clicks = V * Ct, orders = clicks * R, gmv = orders * P, one = gmv * M, mon = one * N;
+    v.querySelector('#dyGmv').textContent = '¥' + gmv.toFixed(1);
+    v.querySelector('#dyOne').textContent = '¥' + one.toFixed(1);
+    v.querySelector('#dyMon').textContent = '¥' + mon.toFixed(0);
+    v.querySelector('#dyNeed').textContent = one > 0 ? Math.ceil(10000 / one) + ' 条' : '—';
+    v.querySelector('#dyAdvice').innerHTML = mon >= 10000
+      ? `<div class="ok"><b>按这组参数能到月入过万。</b>但注意：播放量是最容易波动的变量，别按最好的一条算月收入。</div>`
+      : mon >= 3000
+      ? `<div class="warn"><b>能当副业，还不算稳。</b>要么把点击率提上去，要么提高客单价/佣金率。</div>`
+      : `<div class="gap"><b>这个组合很难赚钱。</b>先别加发布量——量大了也不会质变。回去调点击率或换更高佣金的品。</div>`;
+  };
+  ['dyV','dyC','dyR','dyP','dyM','dyN'].forEach(id => v.querySelector('#' + id).oninput = calc);
+  calc();
+});
+
+reg('dy-gap', () => `
+  <h1>榜单缺口
+    <small>这一块我没有权限，也不编数字。说清楚缺什么、怎么补。</small></h1>
+  <div class="gap" style="margin-top:18px">
+    <b>${esc(C.douyin.gap.why)}</b>
+    <div style="margin-top:9px">${esc(C.douyin.gap.how)}</div>
+  </div>
+  <h3>接入后工作台会显示这些字段</h3>
+  <div class="tblwrap"><table class="tbl"><tbody>
+    ${C.douyin.gap.fields.map(f => `<tr><td>${esc(f)}</td></tr>`).join('')}
+    </tbody></table></div>
+  <div class="ok" style="margin-top:14px">
+    <b>在拿到榜单之前，赛道卡片比榜单更有用：</b>榜单告诉你别人今天火了什么，卡片告诉你为什么火、你能不能做、今天动手第一步是什么。
+  </div>`);
+
+/* ================= CSP ================= */
+reg('csp-data', () => `
+  <h1>CSP 行业数据
+    <small>淘客 / 京粉 / 抖音联盟 / 外卖 / 短剧，按「拉新—成交—策略—落地」拆。</small></h1>
+
+  <div class="card" style="border-color:rgba(79,70,229,.3);background:rgba(79,70,229,.05);margin-top:18px">
+    <div class="note" style="font-size:13px;color:#3B3943">
+      <b style="color:#4F46E5">底层规律：</b>${esc(C.csp.insight)}</div>
+  </div>
+
+  <h3>三家头部淘客的真实盘面</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>公司</th><th>佣金流水结构</th><th>趋势</th></tr></thead><tbody>
+    ${C.csp.sample.map(s => `<tr><td><b>${esc(s.n)}</b></td><td>${esc(s.mix)}</td><td>${esc(s.trend)}</td></tr>`).join('')}
+    </tbody></table></div>
+
+  <h3>赛道逐项</h3>
+  ${C.csp.tracks.map(t => `
+    <div class="card" style="margin-bottom:11px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+        <h4 style="margin:0;font-size:15px">${esc(t.name)}</h4>
+        <span class="note" style="color:var(--gold)">${esc(t.rate)}</span>
+      </div>
+      <div class="note" style="margin-top:3px;color:var(--dim2)">${esc(t.who)}</div>
+      <div style="margin-top:9px">
+        <div class="kv"><span>体量信号</span><span style="font-weight:400">${esc(t.size)}</span></div>
+        <div class="kv"><span>拉新</span><span style="font-weight:400">${esc(t.nw)}</span></div>
+        <div class="kv"><span>今日策略</span><span style="font-weight:400">${esc(t.strategy)}</span></div>
+        <div class="kv"><span>落地动作</span><span style="font-weight:400;color:#047857">${esc(t.action)}</span></div>
+      </div>
+    </div>`).join('')}
+
+  <h3>每日运营循环</h3>
+  <div class="card"><ul class="dot" style="padding-left:0">
+    ${C.csp.loop.map((l,i) => `<li><b>${i+1}. ${esc(l.t)}</b> — ${esc(l.d)}</li>`).join('')}
+  </ul></div>
+  <div class="src">来源：${esc(C.csp.sources)}</div>`);
+
+reg('csp-sim', () => {
+  const plats = [
+    { k:'tb', n:'淘宝联盟', r:3 },
+    { k:'dy', n:'抖音联盟', r:6 },
+    { k:'jd', n:'京东联盟', r:12 },
+    { k:'wm', n:'外卖 CPS', r:2 }
+  ];
+  return `
+  <h1>佣金结构模拟
+    <small>同一笔 GMV 在不同平台佣金差一倍。这个模拟器告诉你「换结构」比「冲规模」见效快多少。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <div class="calcrow"><label>月 GMV 总额</label>
+        <input type="number" id="csGmv" value="1000000" step="50000"><span class="unit">元</span></div>
+      ${plats.map(p => `
+        <div class="calcrow"><label>${p.n} 占比<span class="hint">佣金率默认 ${p.r}%</span></label>
+          <input type="number" id="csR_${p.k}" value="0" step="5" style="width:64px"><span class="unit">%</span>
+          <input type="number" id="csM_${p.k}" value="${p.r}" step="0.5" style="width:64px"><span class="unit">%佣</span>
+        </div>`).join('')}
+      <div class="note" style="margin-top:8px">占比合计：<b id="csSum">0%</b>　（不用凑满 100%，剩下算其他渠道）</div>
+    </div>
+    <div class="card">
+      <div class="kv"><span>加权平均佣金率</span><span id="csAvg">—</span></div>
+      <div class="kv"><span>当前月佣金收入</span><span id="csNow" style="color:#047857;font-size:16px">—</span></div>
+      <div class="kv"><span>把 20% GMV 从淘宝迁到抖音</span><span id="csMove" style="color:#A16207;font-size:16px">—</span></div>
+      <div class="kv"><span>差额（一年）</span><span id="csYear">—</span></div>
+      <div style="margin-top:14px" id="csAdvice"></div>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:14px">
+    <b>注意这不是「立刻照做」：</b>抖音佣金高，但也要求你有内容能力——纯导购链接在抖音跑不动。
+    这个模拟器只算「钱」，不算「能力门槛」。
+  </div>`;
+}, v => {
+  const calc = () => {
+    const gmv = num(v.querySelector('#csGmv').value);
+    const get = k => ({ share: num(v.querySelector('#csR_' + k).value), rate: num(v.querySelector('#csM_' + k).value) });
+    const tb = get('tb'), dy = get('dy'), jd = get('jd'), wm = get('wm');
+    const sum = tb.share + dy.share + jd.share + wm.share;
+    const income = gmv * (tb.share * tb.rate + dy.share * dy.rate + jd.share * jd.rate + wm.share * wm.rate) / 10000;
+    const avgRate = sum > 0 ? (tb.share * tb.rate + dy.share * dy.rate + jd.share * jd.rate + wm.share * wm.rate) / sum : 0;
+    const mv = Math.min(20, tb.share);
+    const diff = gmv * mv * (dy.rate - tb.rate) / 10000;
+    v.querySelector('#csSum').textContent = sum + '%';
+    v.querySelector('#csAvg').textContent = avgRate.toFixed(2) + '%';
+    v.querySelector('#csNow').textContent = '¥' + Math.round(income).toLocaleString();
+    v.querySelector('#csMove').textContent = (diff >= 0 ? '+' : '') + '¥' + Math.round(diff).toLocaleString();
+    v.querySelector('#csYear').textContent = (diff >= 0 ? '+' : '') + '¥' + Math.round(diff * 12).toLocaleString();
+    v.querySelector('#csAdvice').innerHTML = diff > 0
+      ? `<div class="ok"><b>迁 20% 的 GMV，一年多 ${Math.round(diff*12).toLocaleString()} 元。</b>
+         这就是「佣金率差 3 个点」在百万级 GMV 上的真实杠杆。前提是你得能做内容。</div>`
+      : `<div class="gap"><b>当前结构下迁移没有增益。</b>先把淘宝占比填进去再试。</div>`;
+  };
+  ['csGmv','csR_tb','csR_dy','csR_jd','csR_wm','csM_tb','csM_dy','csM_jd','csM_wm'].forEach(id => {
+    v.querySelector('#' + id).oninput = calc;
+  });
+  // 预填一个典型结构
+  v.querySelector('#csR_tb').value = 40;
+  v.querySelector('#csR_dy').value = 30;
+  v.querySelector('#csR_jd').value = 15;
+  v.querySelector('#csR_wm').value = 10;
+  calc();
+});
+
+reg('csp-top10', () => `
+  <h1>前 10 缺口
+    <small>同上一条原则：拿不到就说拿不到。</small></h1>
+  <div class="gap" style="margin-top:18px"><b>${esc(C.csp.top10)}</b></div>
+  <h3>公开渠道实际能拿到什么</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>能拿到</th><th>拿不到</th></tr></thead><tbody>
+    <tr><td>平台财报口径的 GMV / 单量 / 份额</td><td>具体账号的日佣金收入</td></tr>
+    <tr><td>一线样本访谈的佣金结构占比</td><td>具体商品的佣金流水排名</td></tr>
+    <tr><td>平台公告的费率、补贴、活动规则</td><td>达人维度的带货 Top10</td></tr>
+    <tr><td>行业协会与媒体的规模估算</td><td>竞对的拉新成本与留存</td></tr>
+    </tbody></table></div>
+  <div class="ok" style="margin-top:14px">
+    <b>补法：</b>给我淘宝联盟 / 京粉 / 精选联盟任一个的后台导出权限，或你导 Excel 到 <code>data/inbox/</code>，我写解析脚本接进来。
+  </div>`);
+
+/* ================= 数据中枢 / 关于 ================= */
+reg('data', () => {
+  const s = window.SCORE_API ? window.SCORE_API.getState() : null;
+  return `
+  <h1>数据中枢
+    <small>内容数据在 <code>data/core.js</code>；你的选品数据存在浏览器本地，不上传服务器。</small></h1>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <h3 style="margin-top:0">导出 / 导入</h3>
+      <p class="note" style="margin-bottom:12px">JSON 可完整还原选品数据（含参数）；CSV 可直接丢进 Excel。</p>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="btn primary" id="expJson">导出 JSON</button>
+        <button class="btn" id="expCsv">导出 CSV</button>
+        <button class="btn" id="resetXp">恢复选品样例</button>
+      </div>
+      <textarea id="impBox" rows="6" placeholder="把导出的 JSON 粘贴到这里，然后点导入"
+        style="width:100%;background:var(--input);border:1px solid var(--line2);border-radius:9px;
+        color:var(--text);padding:11px;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace;
+        resize:vertical;outline:none;line-height:1.6"></textarea>
+      <button class="btn primary" style="margin-top:9px" id="doImp">导入并覆盖</button>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">当前状态</h3>
+      <div class="kv"><span>内容数据日期</span><span>${esc(C.meta.date)}</span></div>
+      <div class="kv"><span>期号</span><span>${esc(C.meta.edition)}</span></div>
+      <div class="kv"><span>选品候选品</span><span>${s ? s.rows.length : 0} 个</span></div>
+      <div class="kv"><span>权重合计</span><span>${s ? s.weightSum.toFixed(0) + '%' : '—'}</span></div>
+      <div class="kv"><span>本地存储</span><span style="color:${s && s.storageOK ? '#047857' : '#BE123C'}">${s && s.storageOK ? '可用' : '不可用'}</span></div>
+      <div class="kv"><span>数据大小</span><span>${s ? (JSON.stringify(s.rows).length/1024).toFixed(1) + ' KB' : '—'}</span></div>
+      <h3>模块清单</h3>
+      <div class="note">${C.nav.map(g => `<b>${g.g}</b>：${g.items.map(i => i.n).join('、')}`).join('<br>')}</div>
+    </div>
+  </div>`;
+}, v => {
+  const dl = (name, content, mime) => {
+    const blob = new Blob(['\ufeff' + content], { type: mime });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+    toast('已导出 ' + name);
+  };
+  const stamp = () => {
+    const d = new Date(), p = n => String(n).padStart(2, '0');
+    return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;
+  };
+  v.querySelector('#expJson').onclick = () => {
+    const s = window.SCORE_API ? window.SCORE_API.getState() : {};
+    dl('workbench-' + stamp() + '.json', JSON.stringify(s, null, 2), 'application/json');
+  };
+  v.querySelector('#expCsv').onclick = () => {
+    const csv = window.SCORE_API ? window.SCORE_API.toCsv() : '';
+    dl('xuanpin-' + stamp() + '.csv', csv, 'text/csv;charset=utf-8');
+  };
+  v.querySelector('#resetXp').onclick = () => {
+    if(!confirm('清空选品数据，恢复成 3 个样例？')) return;
+    window.SCORE_API && window.SCORE_API.reset();
+    route(); toast('已恢复选品样例');
+  };
+  v.querySelector('#doImp').onclick = () => {
+    const t = v.querySelector('#impBox').value.trim();
+    if(!t) return toast('先粘贴 JSON');
+    try{
+      const d = JSON.parse(t);
+      window.SCORE_API.importState(d);
+      route(); toast('已导入');
+    }catch(e){ toast('导入失败：' + e.message); }
+  };
+});
+
+reg('about', () => `
+  <h1>更新机制
+    <small>每天 08:00 自动跑。这个页面说明它抓什么、怎么过滤、以及它做不到什么。</small></h1>
+  <h3>每天 08:00 发生什么</h3>
+  <div class="card"><ul class="dot" style="padding-left:0">
+    <li><b>抓信源</b> — IT之家实时流、淘客Show、妙手跨境、界面新闻</li>
+    <li><b>过滤</b> — 剔除人物八卦、纯促销、未落地传闻、重复报道</li>
+    <li><b>排序</b> — 按「对普通人的可执行性」选 5 条，每条强制写「与我有什么关系 + 今天能做什么」</li>
+    <li><b>更新各模块</b> — 平台规则、AI 工具、开源模型、抖音赛道、CSP 数据，只写有变化的部分</li>
+    <li><b>重写数据层</b> — 生成新的 <code>data/core.js</code>，页面刷新即新一期</li>
+  </ul></div>
+
+  <h3>能做到与做不到</h3>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h4 style="color:var(--green)">能自动拿到的</h4><ul class="dot">
+      <li>新闻要闻、平台规则变化</li>
+      <li>开源模型发布动态</li>
+      <li>行业口径数据（财报、协会、媒体一手访谈）</li>
+      <li>三个计算引擎的全部实时计算</li>
+    </ul></div>
+    <div class="card"><h4 style="color:var(--red)">拿不到、需要权限的</h4><ul class="dot">
+      <li>抖音各赛道每日 Top5 视频（需蝉妈妈/飞瓜/新抖）</li>
+      <li>CSP 各赛道前 10 明细（需联盟后台）</li>
+      <li>你自己店铺的实时经营数据</li>
+    </ul></div>
+  </div>
+
+  <h3>想补哪一块</h3>
+  <div class="card"><ul class="dot" style="padding-left:0">
+    <li>有蝉妈妈/飞瓜账号 → 我教你导出哪张表、放哪个目录，工作台自动读进去换成真榜单</li>
+    <li>想接自己的店 → 给我平台和字段，做成对比看板</li>
+    <li>想换风格或加模块 → 直接说，改这个台子很快</li>
+  </ul></div>
+
+  <div class="warn" style="margin-top:14px">
+    <b>为什么不做假数据：</b>伪造的榜单会让你按错误方向备货、投流、选品，代价远比「今天缺一块数据」高。
+  </div>`);
+
+/* ================= 启动 ================= */
+function boot(){
+  document.getElementById('hDate').textContent = C.meta.dateLabel;
+  document.getElementById('hUpd').textContent = '更新 ' + C.meta.updated;
+  buildNav();
+  document.getElementById('burger').onclick = () => {
+    document.getElementById('side').classList.toggle('open');
+    document.getElementById('scrim').classList.toggle('on');
+  };
+  document.getElementById('scrim').onclick = () => {
+    document.getElementById('side').classList.remove('open');
+    document.getElementById('scrim').classList.remove('on');
+  };
+  window.addEventListener('hashchange', route);
+  route();
+}
+
+</script>
+<script>
+/* ==================== js/score.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 选品分析引擎
+ * 与 Excel 版同一套算法（已重算核对：84 / 66 / 43）。
+ * 注册三个模块：cross-score（打分器）/ cross-an（分析）/ cross-param（参数）
+ */
+(function(){
+  const LS = 'workbench_xuanpin_v2';
+  let uid = 1;
+  let storageOK = true;
+  try{ localStorage.setItem('__t','1'); localStorage.removeItem('__t'); }catch(e){ storageOK = false; }
+
+  const P0 = () => ({
+    w:{ logi:25, marg:20, ret:15, comp:15, dem:10, inno:10, sup:5 },
+    pass:70, watch:60,
+    loss:0.4, vol:6, bulk:1.5, pen:2,
+    logi:[{max:300,s:10},{max:500,s:9},{max:800,s:6},{max:1200,s:3}], logiFb:1,
+    marg:[{min:30,s:10},{min:25,s:8},{min:20,s:6},{min:15,s:3}], margFb:0,
+    ret:[{max:5,s:10},{max:8,s:8},{max:12,s:6},{max:20,s:3}], retFb:1,
+    platforms:[
+      {n:'Temu 全托管',r:8},{n:'Temu 半托管',r:10},{n:'美客多 跨境店',r:16},{n:'美客多 本土店',r:16},
+      {n:'Ozon FBS',r:26},{n:'Ozon FBO',r:20},{n:'TikTok Shop',r:18},{n:'Shopee',r:12},
+      {n:'Amazon',r:15},{n:'独立站',r:3}
+    ]
+  });
+  const wid = r => (r.id = uid++, r);
+  const samples = () => [
+    {name:'折叠宠物饮水碗（硅胶）', plat:'Temu 半托管', price:'18', wt:'180', L:'20', W:'15', H:'8',
+     cost:'5', ship:'2.8', comm:10, tax:'0', ret:'5', other:'0.6', comp:8, dem:8, inno:7, sup:9},
+    {name:'桌面抽屉分隔收纳盒 4件套', plat:'Temu 全托管', price:'12.5', wt:'420', L:'32', W:'24', H:'12',
+     cost:'3.2', ship:'2.1', comm:8, tax:'0', ret:'6', other:'0.45', comp:9, dem:9, inno:5, sup:8},
+    {name:'加厚卫衣（女款）', plat:'TikTok Shop', price:'26', wt:'520', L:'30', W:'25', H:'6',
+     cost:'9', ship:'5.2', comm:18, tax:'0', ret:'32', other:'1.8', comp:9, dem:6, inno:4, sup:6}
+  ].map(wid);
+
+  const XP = (function(){
+    try{
+      const raw = localStorage.getItem(LS);
+      if(raw){
+        const d = JSON.parse(raw);
+        if(d && d.params && Array.isArray(d.rows)){
+          d.rows.forEach(r => r.id = uid++);
+          return { params:d.params, rows:d.rows, detail:null, search:'', sortKey:'total', sortDir:-1 };
+        }
+      }
+    }catch(e){}
+    return { params:P0(), rows:samples(), detail:null, search:'', sortKey:'total', sortDir:-1 };
+  })();
+
+  let saveT = null;
+  function save(){
+    clearTimeout(saveT);
+    saveT = setTimeout(() => {
+      try{ localStorage.setItem(LS, JSON.stringify({params:XP.params, rows:XP.rows})); }catch(e){}
+    }, 350);
+  }
+
+  /* ---------- 计算引擎（与 Excel 完全一致） ---------- */
+  const isBlank = v => v === '' || v === null || v === undefined;
+  const n = v => { const x = parseFloat(v); return isFinite(x) ? x : 0; };
+  const r1 = v => Math.round(v * 10) / 10;
+
+  function calcRow(row, P, mod){
+    mod = mod || {};
+    const shipMul = mod.shipMul || 1, priceMul = mod.priceMul || 1, retAdd = mod.retAdd || 0;
+    const price = n(row.price) * priceMul, wt = n(row.wt);
+    const volw = (n(row.L) && n(row.W) && n(row.H)) ? n(row.L) * n(row.W) * n(row.H) / (P.vol || 6) : 0;
+    const bill = Math.max(wt, volw);
+
+    let gross = null, gm = null;
+    if(!isBlank(row.price) && !isBlank(row.cost) && !isBlank(row.ship)){
+      const retEff = Math.max(0, n(row.ret) + retAdd);
+      gross = price - n(row.cost) - n(row.ship) * shipMul
+            - price * n(row.comm) / 100 - price * n(row.tax) / 100
+            - n(row.other) - price * retEff / 100 * (P.loss || 0.4);
+      gm = price > 0 ? gross / price : 0;
+    }
+    let sLogi = null;
+    if(bill > 0){
+      sLogi = P.logiFb;
+      for(const t of P.logi){ if(bill <= n(t.max)){ sLogi = n(t.s); break; } }
+      if(wt > 0 && volw > wt * n(P.bulk)) sLogi = Math.max(1, sLogi - n(P.pen));
+    }
+    let sMarg = null;
+    if(gm !== null){
+      sMarg = P.margFb;
+      for(const t of P.marg){ if(gm * 100 >= n(t.min)){ sMarg = n(t.s); break; } }
+    }
+    let sRet = null;
+    if(!isBlank(row.ret)){
+      sRet = P.retFb;
+      for(const t of P.ret){ if(n(row.ret) <= n(t.max)){ sRet = n(t.s); break; } }
+    }
+    let total = null, verdict = '';
+    if(sLogi !== null && sMarg !== null && sRet !== null){
+      const W = P.w;
+      total = r1((sLogi * W.logi / 100 + sMarg * W.marg / 100 + sRet * W.ret / 100
+        + n(row.comp) * W.comp / 100 + n(row.dem) * W.dem / 100
+        + n(row.inno) * W.inno / 100 + n(row.sup) * W.sup / 100) * 10);
+      verdict = total >= P.pass ? 'y' : (total >= P.watch ? 'w' : 'n');
+    }
+    return { volw, bill, gross, gm, sLogi, sMarg, sRet, total, verdict };
+  }
+  const calcAll = mod => XP.rows.map(row => ({ row, c: calcRow(row, XP.params, mod) }));
+  const wSum = () => { const W = XP.params.w; return W.logi+W.marg+W.ret+W.comp+W.dem+W.inno+W.sup; };
+  const platRate = nm => { const p = XP.params.platforms.find(x => x.n === nm); return p ? n(p.r) : ''; };
+
+  /* ---------- 注入表格样式 ---------- */
+  document.head.insertAdjacentHTML('beforeend', `<style>
+  .xwrap{border:1px solid var(--line);border-radius:11px;background:var(--panel);overflow:auto;max-height:calc(100vh - 300px)}
+  table.xg{border-collapse:separate;border-spacing:0;font-size:12.5px;white-space:nowrap;min-width:100%}
+  table.xg th{position:sticky;top:0;z-index:3;background:#FBFAF7;color:var(--dim);font-weight:600;
+    font-size:10.5px;letter-spacing:.4px;padding:9px 7px;text-align:center;border-bottom:1px solid var(--line);
+    border-right:1px solid #F1EEE8;cursor:pointer;user-select:none;font-family:inherit}
+  table.xg th:hover{color:var(--text)}
+  table.xg th.auto{color:#8FD9BC;background:#F7F5F0}
+  table.xg tr{height:34px}
+  table.xg td{padding:0;border-bottom:1px solid #F1EEE8;border-right:1px solid #F4F1EB;text-align:center;
+    height:34px;max-height:34px;overflow:hidden}
+  table.xg tr:hover td{background:rgba(23,22,27,.022)}
+  table.xg td input{width:100%;height:34px;background:transparent;border:none;outline:none;color:var(--text);
+    font-size:12.5px;font-family:inherit;text-align:center;padding:0 4px;font-variant-numeric:tabular-nums;
+    text-overflow:ellipsis;white-space:nowrap}
+  table.xg td input:focus{background:rgba(79,70,229,.14);box-shadow:inset 0 0 0 1px var(--blue)}
+  table.xg td.txt input{text-align:left;padding-left:8px}
+  table.xg td.calc{background:#FBFAF7;color:#6B6874;font-size:12px;font-variant-numeric:tabular-nums}
+  table.xg td.calc.bad{color:var(--red)}
+  table.xg td.calc.good{color:var(--green)}
+  table.xg td.stick{position:sticky;z-index:2;background:var(--panel)}
+  table.xg th.stick{z-index:6}
+  table.xg tr:hover td.stick{background:#161C28}
+  table.xg td.nm{position:sticky;left:0;z-index:2;background:var(--panel)}
+  table.xg th.nm{z-index:6}
+  table.xg tr:hover td.nm{background:#161C28}
+  td.sc{font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
+  td.sc.y{color:#047857} td.sc.w{color:var(--gold)} td.sc.n{color:var(--red)}
+  td.vd{font-weight:700;font-size:11.5px}
+  td.vd.y{color:#047857} td.vd.w{color:var(--gold)} td.vd.n{color:var(--red)}
+  .rbtn{background:none;border:none;color:var(--dim);cursor:pointer;font-size:12px;padding:2px 5px;font-family:inherit}
+  .rbtn:hover{color:var(--blue)}
+  .rdel{background:none;border:none;color:var(--dim2);cursor:pointer;font-size:15px;padding:2px 5px;font-family:inherit}
+  .rdel:hover{color:var(--red);background:rgba(190,18,60,.12);border-radius:5px}
+  .wsum{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px 12px;border-radius:9px;
+    background:rgba(4,120,87,.07);border:1px solid rgba(4,120,87,.25);font-size:12.5px}
+  .wsum.bad{background:rgba(190,18,60,.07);border-color:rgba(190,18,60,.3)}
+  .band{width:100%;font-size:12px;border-collapse:collapse}
+  .band td{padding:4px 6px;border-bottom:1px solid #F1EEE8}
+  .band input{width:62px;background:var(--input);border:1px solid var(--line2);border-radius:5px;
+    color:var(--text);padding:3px 6px;font-size:12px;text-align:right;font-family:inherit;outline:none}
+  .prow2{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #EDEAE3}
+  .prow2:last-child{border:none}
+  .prow2 label{flex:1;color:#3B3943;font-size:12.5px}
+  .prow2 .hint{display:block;font-size:10.5px;color:var(--dim2);margin-top:1px}
+  .prow2 input[type=number],.prow2 input[type=text]{width:78px;background:var(--input);border:1px solid var(--line2);
+    border-radius:6px;color:var(--text);padding:5px 8px;font-size:12.5px;text-align:right;font-family:inherit;outline:none}
+  .prow2 .unit{color:var(--dim2);font-size:11px;width:22px}
+  .ptrow{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #F0EDE7;font-size:12.5px}
+  .ptrow span:first-child{color:var(--dim)}
+  .ptrow span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+  .dimbar{display:flex;align-items:center;gap:9px;margin:7px 0;font-size:12.5px}
+  .dimbar .dn{width:76px;color:var(--dim);flex:0 0 auto}
+  .dimbar .db{flex:1;height:7px;background:#F0EDE7;border-radius:4px;overflow:hidden}
+  .dimbar .db i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--green))}
+  .dimbar .dv{width:70px;text-align:right;font-variant-numeric:tabular-nums;color:#3B3943}
+  </style>`);
+
+  const esc2 = s => String(s === undefined || s === null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const toast = m => window.toast ? window.toast(m) : 0;
+
+  /* ---------- 表格列 ---------- */
+  const COLS = [
+    {k:'name', t:'候选品名', w:180, stick:'0'},
+    {k:'__total', t:'综合分', w:62, auto:1, stick:'180'},
+    {k:'__verdict', t:'结论', w:80, auto:1, stick:'242'},
+    {k:'plat', t:'平台', w:110},
+    {k:'price', t:'售价$', w:58},
+    {k:'wt', t:'实重g', w:56},
+    {k:'L', t:'长', w:42},
+    {k:'W', t:'宽', w:42},
+    {k:'H', t:'高', w:42},
+    {k:'__bill', t:'计费重g', w:64, auto:1},
+    {k:'cost', t:'采购$', w:56},
+    {k:'ship', t:'物流$', w:56},
+    {k:'comm', t:'佣金%', w:52},
+    {k:'tax', t:'税%', w:44},
+    {k:'ret', t:'退货%', w:52},
+    {k:'other', t:'其他$', w:56},
+    {k:'__gross', t:'毛利$', w:62, auto:1},
+    {k:'__gm', t:'毛利率', w:60, auto:1},
+    {k:'comp', t:'合规', w:42},
+    {k:'dem', t:'需求', w:42},
+    {k:'inno', t:'创新', w:42},
+    {k:'sup', t:'补货', w:42}
+  ];
+  const sortKeyOf = c => c.k === '__bill' ? 'bill' : c.k === '__gross' ? 'gross'
+    : c.k === '__gm' ? 'gm' : c.k === '__total' ? 'total' : c.k;
+
+  function rowsForDisplay(){
+    let list = calcAll();
+    const q = XP.search.trim().toLowerCase();
+    if(q) list = list.filter(x => ((x.row.name||'') + (x.row.plat||'')).toLowerCase().includes(q));
+    const k = XP.sortKey, dir = XP.sortDir;
+    const val = x => {
+      if(k === 'total') return x.c.total === null ? -1 : x.c.total;
+      if(k === 'gm') return x.c.gm === null ? -1 : x.c.gm;
+      if(k === 'bill') return x.c.bill || 0;
+      if(k === 'gross') return x.c.gross === null ? -1e9 : x.c.gross;
+      const v = x.row[k];
+      return (v === '' || v === undefined) ? -1 : (parseFloat(v) || 0);
+    };
+    list.sort((a,b) => {
+      const va = val(a), vb = val(b);
+      if(typeof va === 'string' || typeof vb === 'string') return String(va).localeCompare(String(vb),'zh') * dir;
+      return (va - vb) * dir;
+    });
+    return list;
+  }
+
+  /* ---------- 模块一：打分器 ---------- */
+  reg('cross-score', () => {
+    const all = calcAll(), done = all.filter(x => x.c.total !== null);
+    const pool = done.filter(x => x.c.verdict === 'y').length;
+    return `
+    <h1>选品打分器
+      <small>填关键数就行：重量、长宽高、成本、退货率。灰底列全部实时算。点「详情」看每一分怎么来的。</small></h1>
+    <div class="kpis" style="margin-top:16px">
+      ${kpi('候选品', all.length + ' 个', '已算完 ' + done.length)}
+      ${kpi('进测款池', pool + ' 个', done.length ? '占 ' + Math.round(pool/done.length*100) + '%' : '—', '#047857')}
+      ${kpi('平均综合分', done.length ? (done.reduce((s,x)=>s+x.c.total,0)/done.length).toFixed(1) : '—', '结论线 ' + XP.params.pass)}
+      ${kpi('权重合计', wSum().toFixed(0) + '%', Math.abs(wSum()-100)<0.5 ? '正常' : '需要调整', Math.abs(wSum()-100)<0.5 ? '#047857' : '#BE123C')}
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px">
+      <input class="inp" id="xq" placeholder="搜索品名或平台…" value="${esc2(XP.search)}" style="width:200px">
+      <button class="btn primary" id="xadd">+ 新增一行</button>
+      <button class="btn" id="xadd5">+ 5 行</button>
+      <button class="btn" id="xsort">按综合分排序</button>
+      <button class="btn ghost" data-go="cross-param">去调参数 →</button>
+    </div>
+    ${XP.detail ? detailCard(XP.detail) : ''}
+    <div class="xwrap"><table class="xg">
+      <thead><tr>${COLS.map(c => `
+        <th class="${c.auto?'auto':''} ${c.stick?'stick':''} ${c.k==='name'?'nm':''} ${XP.sortKey===sortKeyOf(c)?'sorted':''}"
+          style="min-width:${c.w}px;width:${c.w}px${c.stick?';left:'+c.stick+'px':''}" data-sort="${c.k}">
+          ${c.t}${XP.sortKey===sortKeyOf(c)?(XP.sortDir>0?' ▲':' ▼'):''}</th>`).join('')}
+        <th style="min-width:78px">操作</th></tr></thead>
+      <tbody id="xbody"></tbody>
+    </table></div>
+    <div class="note" style="margin-top:9px">表格可横向滚动，品名/综合分/结论三列锁在左边。</div>`;
+  }, v => {
+    renderBody(v);
+    const q = v.querySelector('#xq');
+    q.oninput = () => { XP.search = q.value; renderBody(v); };
+    v.querySelector('#xadd').onclick = () => { addRows(1, v); };
+    v.querySelector('#xadd5').onclick = () => { addRows(5, v); };
+    v.querySelector('#xsort').onclick = () => { XP.sortKey = 'total'; XP.sortDir = -1; renderBody(v); };
+    v.querySelectorAll('th[data-sort]').forEach(th => th.onclick = () => {
+      const k = th.dataset.sort;
+      if(XP.sortKey === k) XP.sortDir *= -1;
+      else { XP.sortKey = k; XP.sortDir = k === 'name' ? 1 : -1; }
+      location.hash = '#/cross-score'; route();
+    });
+    bindBody(v);
+  });
+
+  function bindBody(v){
+    const body = v.querySelector('#xbody');
+    if(!body) return;
+    body.oninput = e => {
+      const el = e.target;
+      if(!el.dataset.id || !el.dataset.f) return;
+      const r = XP.rows.find(x => x.id === +el.dataset.id);
+      if(!r) return;
+      if(el.dataset.f === 'plat'){
+        r.plat = el.value;
+        const rate = platRate(el.value);
+        if(rate !== ''){ r.comm = rate; }
+        const ci = el.closest('tr').querySelector('[data-f="comm"]');
+        if(ci && rate !== '') ci.value = rate;
+      }else{
+        r[el.dataset.f] = el.value;
+      }
+      refreshRow(v, r.id);
+      save();
+    };
+    body.onclick = e => {
+      const del = e.target.closest('[data-del]');
+      if(del){
+        const id = +del.dataset.del;
+        const r = XP.rows.find(x => x.id === id);
+        if(r && r.name && !confirm(`删除「${r.name}」？`)) return;
+        XP.rows = XP.rows.filter(x => x.id !== id);
+        if(XP.detail === id) XP.detail = null;
+        save(); location.hash = '#/cross-score'; route(); return;
+      }
+      const ins = e.target.closest('[data-ins]');
+      if(ins){
+        const id = +ins.dataset.ins;
+        XP.detail = (XP.detail === id) ? null : id;
+        location.hash = '#/cross-score'; route();
+      }
+    };
+  }
+
+  function renderBody(v){
+    const body = v.querySelector('#xbody');
+    if(!body) return;
+    const list = rowsForDisplay();
+    if(!list.length){
+      body.innerHTML = `<tr><td colspan="${COLS.length+1}">
+        <div style="padding:30px;text-align:center;color:var(--dim2);font-size:12.5px">
+        还没有品。点「+ 新增一行」开始。</div></td></tr>`;
+      return;
+    }
+    body.innerHTML = list.map(({row: r, c}) => {
+      const cells = COLS.map(col => {
+        const k = col.k;
+        if(k === 'name')
+          return `<td class="nm txt" style="left:0"><input data-id="${r.id}" data-f="name" value="${esc2(r.name||'')}" placeholder="品名"></td>`;
+        if(k === 'plat')
+          return `<td><input data-id="${r.id}" data-f="plat" list="pl" value="${esc2(r.plat||'')}" placeholder="选平台"></td>`;
+        if(k === '__bill') return `<td class="calc" data-c="${r.id}-bill">${c.bill?Math.round(c.bill):'—'}</td>`;
+        if(k === '__gross') return `<td class="calc${c.gross!==null&&c.gross<0?' bad':''}" data-c="${r.id}-gross">${c.gross===null?'—':'$'+c.gross.toFixed(2)}</td>`;
+        if(k === '__gm') return `<td class="calc${c.gm===null?'':(c.gm<0.2?' bad':' good')}" data-c="${r.id}-gm">${c.gm===null?'—':(c.gm*100).toFixed(1)+'%'}</td>`;
+        if(k === '__total') return `<td class="sc stick ${c.verdict}" data-c="${r.id}-total" style="left:180px">${c.total===null?'—':c.total.toFixed(1)}</td>`;
+        if(k === '__verdict') return `<td class="vd stick ${c.verdict}" data-c="${r.id}-verdict" style="left:242px">${
+          c.total===null?'未完成':(c.verdict==='y'?'进池':c.verdict==='w'?'观察':'放弃')}</td>`;
+        const val = (r[k] === undefined || r[k] === null) ? '' : r[k];
+        return `<td><input data-id="${r.id}" data-f="${k}" inputmode="decimal" value="${esc2(val)}"></td>`;
+      }).join('');
+      return `<tr>${cells}<td><button class="rbtn" data-ins="${r.id}">详情</button>
+        <button class="rdel" data-del="${r.id}">×</button></td></tr>`;
+    }).join('');
+    if(!document.getElementById('pl')){
+      document.body.insertAdjacentHTML('beforeend',
+        `<datalist id="pl">${XP.params.platforms.map(p=>`<option value="${esc2(p.n)}">`).join('')}</datalist>`);
+    }
+    bindBody(v);
+  }
+
+  function refreshRow(v, id){
+    const r = XP.rows.find(x => x.id === id);
+    if(!r) return;
+    const c = calcRow(r, XP.params);
+    const set = (k, html, cls) => {
+      const el = v.querySelector(`[data-c="${id}-${k}"]`);
+      if(el){ el.innerHTML = html; if(cls) el.className = cls; }
+    };
+    set('bill', c.bill ? Math.round(c.bill) : '—', 'calc');
+    set('gross', c.gross === null ? '—' : '$' + c.gross.toFixed(2),
+        'calc' + (c.gross !== null && c.gross < 0 ? ' bad' : ''));
+    set('gm', c.gm === null ? '—' : (c.gm*100).toFixed(1) + '%',
+        'calc' + (c.gm === null ? '' : (c.gm < 0.2 ? ' bad' : ' good')));
+    set('total', c.total === null ? '—' : c.total.toFixed(1), 'sc stick ' + c.verdict);
+    set('verdict', c.total === null ? '未完成'
+      : (c.verdict === 'y' ? '进池' : c.verdict === 'w' ? '观察' : '放弃'),
+      'vd stick ' + c.verdict);
+  }
+
+  function addRows(k, v){
+    for(let i=0;i<k;i++){
+      XP.rows.push(wid({ name:'', plat:'', price:'', wt:'', L:'', W:'', H:'',
+        cost:'', ship:'', comm:'', tax:'0', ret:'5', other:'0',
+        comp:5, dem:5, inno:5, sup:5 }));
+    }
+    save(); renderBody(v); toast('已新增 ' + k + ' 行');
+  }
+
+  /* ---------- 详情卡 ---------- */
+  function detailCard(id){
+    const r = XP.rows.find(x => x.id === id);
+    if(!r) return '';
+    const c = calcRow(r, XP.params), P = XP.params, W = P.w;
+    const volw = c.volw || 0, wt = n(r.wt);
+    const bull = wt > 0 && volw > wt * n(P.bulk);
+    const dims = [
+      ['物流友好度', c.sLogi, W.logi], ['毛利空间', c.sMarg, W.marg], ['退货率', c.sRet, W.ret],
+      ['合规可得性', n(r.comp), W.comp], ['需求持续性', n(r.dem), W.dem],
+      ['微创新度', n(r.inno), W.inno], ['补货能力', n(r.sup), W.sup]
+    ];
+    const weak = dims.filter(d => d[1] !== null)
+      .map(d => ({name:d[0], score:d[1], w:d[2], gain:(10-d[1])*d[2]/10}))
+      .sort((a,b) => b.gain - a.gain)[0];
+    const adv = {
+      '物流友好度':'换更小的包装、压缩空隙，或换材质减重。体积重是按长宽高算的，尺寸压下来就是纯赚。',
+      '毛利空间':'要么换供应商压采购价，要么提售价（配更好的图/包装），要么挑佣金低的渠道。',
+      '退货率':'服装必须给双标尺码表和实拍色号；3C 必须写清兼容型号。',
+      '合规可得性':'资质办不下来就别硬上，上架后也会被下架。换品类比办证快。',
+      '需求持续性':'多看两件事：同类在架商品的上架时间、同款价格带还有多少空间。',
+      '微创新度':'加个盖子、换硅胶、做成套装，改动不大就能跳出比价池。',
+      '补货能力':'先确认工厂日产能，3000 单 3 天能不能补上。补不上就不要冲量。'
+    }[weak ? weak.name : ''] || '';
+    const col = c.verdict === 'y' ? '#047857' : c.verdict === 'w' ? '#A16207' : '#BE123C';
+    return `<div class="card" style="margin-bottom:12px;border-color:rgba(79,70,229,.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px">
+        <div>
+          <h4 style="font-size:15px">${esc2(r.name || '未命名')}
+            <span class="note" style="font-weight:400">　${esc2(r.plat || '未选平台')} · 售价 $${n(r.price)}</span></h4>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-top:8px">
+            <span style="font-size:32px;font-weight:800;color:${col};letter-spacing:-1px">${c.total===null?'—':c.total.toFixed(1)}</span>
+            <span class="note">${c.total===null?'未完成':(c.verdict==='y'?'✅ 进测款池':c.verdict==='w'?'⚠️ 待观察':'❌ 放弃')}　结论线 ≥${P.pass}</span>
+          </div>
+        </div>
+        <button class="btn sm ghost" data-ins="${r.id}">收起</button>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div>
+          <div class="note" style="color:var(--blue);margin-bottom:6px">计费重推导</div>
+          <div class="ptrow"><span>实重</span><span>${wt.toFixed(0)} g</span></div>
+          <div class="ptrow"><span>体积重 = ${n(r.L)}×${n(r.W)}×${n(r.H)} ÷ ${P.vol}</span><span>${volw.toFixed(0)} g</span></div>
+          <div class="ptrow"><span>计费重（取较大）</span><span style="color:var(--gold)">${Math.max(wt,volw).toFixed(0)} g</span></div>
+          ${bull ? `<div class="note" style="color:#BE123C;margin-top:7px">⚠️ 体积重超过实重 ${P.bulk} 倍，判为抛货，物流分扣 ${P.pen} 分。</div>` : ''}
+          <div class="note" style="color:var(--blue);margin:12px 0 6px">毛利拆分</div>
+          <div class="ptrow"><span>售价</span><span>$${n(r.price).toFixed(2)}</span></div>
+          <div class="ptrow"><span>− 采购 / 物流</span><span>−$${(n(r.cost)+n(r.ship)).toFixed(2)}</span></div>
+          <div class="ptrow"><span>− 佣金 / 税</span><span>−$${(n(r.price)*n(r.comm)/100+n(r.price)*n(r.tax)/100).toFixed(2)}</span></div>
+          <div class="ptrow"><span>− 其他 / 退货损耗</span><span>−$${(n(r.other)+n(r.price)*n(r.ret)/100*P.loss).toFixed(2)}</span></div>
+          <div class="ptrow"><span><b>毛利 / 毛利率</b></span><span style="color:${c.gross!==null&&c.gross<0?'#BE123C':'#047857'}">${
+            c.gross===null?'—':'$'+c.gross.toFixed(2)+' / '+(c.gm*100).toFixed(1)+'%'}</span></div>
+        </div>
+        <div>
+          <div class="note" style="color:var(--blue);margin-bottom:6px">七维加权</div>
+          ${dims.map(d => `<div class="dimbar"><span class="dn">${d[0]}</span>
+            <span class="db"><i style="width:${d[1]===null?0:d[1]*10}%"></i></span>
+            <span class="dv">${d[1]===null?'—':d[1]} × ${d[2]}%</span></div>`).join('')}
+          <div class="ptrow" style="margin-top:8px"><span>加权合计 × 10</span>
+            <span style="color:#4F46E5">${c.total===null?'—':c.total.toFixed(1)} 分</span></div>
+          ${weak && weak.gain > 0 ? `<div style="margin-top:12px;padding:11px 13px;border-radius:9px;
+            background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.3)" class="note">
+            <b style="color:#C2410C">最值得改：${weak.name}</b>（现 ${weak.score} 分，权重 ${weak.w}%）。补到 10 分可 <b style="color:#047857">+${weak.gain.toFixed(1)}</b> 分。<br>${adv}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  /* ---------- 模块二：选品分析 ---------- */
+  reg('cross-an', () => {
+    const all = calcAll(), done = all.filter(x => x.c.total !== null);
+    const pool = done.filter(x => x.c.verdict === 'y');
+    const avg = done.length ? done.reduce((s,x)=>s+x.c.total,0)/done.length : 0;
+    const gms = all.filter(x => x.c.gm !== null);
+    const avgGm = gms.length ? gms.reduce((s,x)=>s+x.c.gm,0)/gms.length : 0;
+    return `
+    <h1>选品分析
+      <small>看清楚「哪一批值得压钱」。散点图左上角是甜点区：又轻又赚钱。</small></h1>
+    <div class="kpis" style="margin-top:16px">
+      ${kpi('候选品', all.length, '已算完 ' + done.length)}
+      ${kpi('进测款池', pool.length, done.length ? '占 ' + Math.round(pool.length/done.length*100)+'%' : '—', '#047857')}
+      ${kpi('平均综合分', avg.toFixed(1), '结论线 ' + XP.params.pass)}
+      ${kpi('平均毛利率', (avgGm*100).toFixed(1) + '%', '低于 20% 要警惕')}
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3 style="margin-top:0">综合分分布</h3>${histogram(done)}</div>
+      <div class="card"><h3 style="margin-top:0">计费重 × 毛利率</h3>${scatter(all)}
+        <div class="note" style="margin-top:8px">右下 = 又重又薄，别碰；左上 = 又轻又厚，优先测款。</div></div>
+    </div>
+    <h3>排名</h3>
+    <div class="card">${ranking(done)}</div>
+    <h3>压力测试</h3>
+    <div class="card">
+      <p class="note" style="margin-bottom:12px">真实环境会变。拖一下看你的池子会不会塌。</p>
+      <div class="prow2"><label>物流费上浮 <b id="psL" style="color:var(--gold)">+0%</b></label>
+        <input type="range" id="ps" min="100" max="200" step="5" value="100" style="flex:2"></div>
+      <div class="prow2"><label>售价下调 <b id="ppL" style="color:var(--gold)">0%</b></label>
+        <input type="range" id="pp" min="70" max="100" step="1" value="100" style="flex:2"></div>
+      <div class="prow2"><label>退货率加码 <b id="prL" style="color:var(--gold)">+0pp</b></label>
+        <input type="range" id="pr" min="0" max="20" step="1" value="0" style="flex:2"></div>
+      <div id="ptOut" style="margin-top:14px"></div>
+    </div>`;
+  }, v => {
+    const run = () => {
+      const shipMul = +v.querySelector('#ps').value / 100;
+      const priceMul = +v.querySelector('#pp').value / 100;
+      const retAdd = +v.querySelector('#pr').value;
+      v.querySelector('#psL').textContent = '+' + ((shipMul-1)*100).toFixed(0) + '%';
+      v.querySelector('#ppL').textContent = '-' + ((1-priceMul)*100).toFixed(0) + '%';
+      v.querySelector('#prL').textContent = '+' + retAdd + 'pp';
+      const before = new Set(calcAll().filter(x => x.c.verdict === 'y').map(x => x.row.id));
+      const after = calcAll({ shipMul, priceMul, retAdd })
+        .filter(x => x.c.total !== null && x.c.verdict === 'y');
+      const ids = new Set(after.map(x => x.row.id));
+      const lost = [...before].filter(id => !ids.has(id));
+      const names = lost.map(id => XP.rows.find(r => r.id === id)).filter(Boolean)
+        .map(r => r.name || '未命名').slice(0, 6);
+      v.querySelector('#ptOut').innerHTML = `
+        <div class="kpis" style="margin:0">
+          ${kpi('进池数量', after.length, '原 ' + before.size + '，掉出 ' + lost.length,
+            after.length < before.size ? '#BE123C' : '#047857')}
+        </div>
+        ${names.length ? `<div class="note" style="color:#BE123C">掉出池子：${names.join('、')}${lost.length>6?' 等 '+lost.length+' 个':''}</div>`
+          : `<div class="note" style="color:#047857">这一档冲击下，池子没有塌。</div>`}`;
+    };
+    ['ps','pp','pr'].forEach(id => v.querySelector('#' + id).oninput = run);
+    run();
+  });
+
+  function histogram(done){
+    if(!done.length) return `<div style="padding:26px;text-align:center;color:var(--dim2);font-size:12.5px">还没有算完的品</div>`;
+    const bins = new Array(10).fill(0);
+    done.forEach(x => bins[Math.min(9, Math.max(0, Math.floor(x.c.total/10)))]++);
+    const mx = Math.max(...bins, 1);
+    const W = 500, H = 200, pL = 28, pB = 24, pT = 10;
+    const bw = (W - pL - 8) / 10;
+    const cls = i => i >= Math.floor(XP.params.pass/10) ? '#047857'
+      : i >= Math.floor(XP.params.watch/10) ? '#A16207' : '#BE123C';
+    let bars = '', ticks = '';
+    bins.forEach((val,i) => {
+      const h = (val/mx) * (H-pT-pB), x = pL + i*bw;
+      if(val) bars += `<rect x="${x+2}" y="${H-pB-h}" width="${bw-4}" height="${h}" rx="3" fill="${cls(i)}" opacity=".85"/>`;
+      if(val) bars += `<text x="${x+bw/2}" y="${H-pB-h-5}" text-anchor="middle" font-size="10" fill="#3B3943">${val}</text>`;
+      ticks += `<text x="${x+bw/2}" y="${H-pB+14}" text-anchor="middle" font-size="10" fill="#9A96A1">${i*10}</text>`;
+    });
+    return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">
+      <line x1="${pL}" y1="${H-pB}" x2="${W-4}" y2="${H-pB}" stroke="#D7D2C8"/>
+      ${bars}${ticks}</svg>`;
+  }
+
+  function scatter(all){
+    const pts = all.filter(x => x.c.bill > 0 && x.c.gm !== null);
+    if(!pts.length) return `<div style="padding:26px;text-align:center;color:var(--dim2);font-size:12.5px">还需要计费重和毛利数据</div>`;
+    const W = 520, H = 300, pL = 42, pR = 12, pT = 12, pB = 30;
+    const maxBill = Math.max(1200, ...pts.map(p => p.c.bill));
+    const g = pts.map(p => p.c.gm*100);
+    const hi = Math.max(50, Math.ceil(Math.max(...g)/10)*10), lo = Math.min(0, Math.floor(Math.min(...g)/10)*10);
+    const px = b => pL + (b/maxBill)*(W-pL-pR);
+    const py = v => H-pB - ((v-lo)/(hi-lo))*(H-pT-pB);
+    let grid = '', lab = '';
+    for(let i=0;i<=4;i++){
+      const v = lo + (hi-lo)*i/4;
+      grid += `<line x1="${pL}" y1="${py(v)}" x2="${W-pR}" y2="${py(v)}" stroke="#EDEAE3" stroke-dasharray="3 4"/>`;
+      lab += `<text x="${pL-6}" y="${py(v)+4}" text-anchor="end" font-size="10" fill="#9A96A1">${v.toFixed(0)}%</text>`;
+    }
+    [0,300,500,800,1200].filter(b => b <= maxBill).forEach(b => {
+      lab += `<text x="${px(b)}" y="${H-pB+15}" text-anchor="middle" font-size="10" fill="#9A96A1">${b}</text>`;
+    });
+    const dots = pts.map(p => {
+      const col = p.c.verdict === 'y' ? '#047857' : p.c.verdict === 'w' ? '#A16207' : '#BE123C';
+      return `<circle cx="${px(p.c.bill)}" cy="${py(p.c.gm*100)}" r="5.5" fill="${col}" opacity=".9"
+        stroke="#FFFFFF" stroke-width="1.5"><title>${esc2(p.row.name)} · ${Math.round(p.c.bill)}g · ${(p.c.gm*100).toFixed(1)}% · ${p.c.total}分</title></circle>`;
+    }).join('');
+    return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">
+      <rect x="${pL}" y="${pT}" width="${px(500)-pL}" height="${py(20)-pT}" fill="rgba(4,120,87,.06)" rx="4"/>
+      <text x="${pL+7}" y="${py(20)-6}" font-size="10" fill="#047857">甜点区 · 轻且厚</text>
+      ${grid}${lab}${dots}
+      <line x1="${pL}" y1="${H-pB}" x2="${W-pR}" y2="${H-pB}" stroke="#D7D2C8"/>
+      <line x1="${pL}" y1="${pT}" x2="${pL}" y2="${H-pB}" stroke="#D7D2C8"/>
+      <line x1="${pL}" y1="${py(20)}" x2="${W-pR}" y2="${py(20)}" stroke="#C0563B" stroke-dasharray="4 4"/>
+      <text x="${W-pR}" y="${py(20)-5}" text-anchor="end" font-size="10" fill="#C2410C">毛利 20% 底线</text>
+      <text x="${W-pR}" y="${H-3}" text-anchor="end" font-size="10" fill="#9A96A1">计费重 g</text>
+    </svg>`;
+  }
+
+  function ranking(done){
+    if(!done.length) return `<div style="padding:20px;text-align:center;color:var(--dim2);font-size:12.5px">还没有算完的品</div>`;
+    return [...done].sort((a,b) => b.c.total - a.c.total).map((x,i) => {
+      const col = x.c.verdict === 'y' ? '#047857' : x.c.verdict === 'w' ? '#A16207' : '#BE123C';
+      return `<div style="display:flex;align-items:center;gap:10px;padding:5px 0">
+        <span style="width:20px;color:#9A96A1;font-size:11.5px;text-align:right">${i+1}</span>
+        <span style="flex:0 0 190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px">${esc2(x.row.name||'未命名')}</span>
+        <span class="bar" style="flex:1"><i style="width:${x.c.total}%;background:${col}"></i></span>
+        <span style="width:42px;text-align:right;font-weight:700;font-size:12.5px;color:${col}">${x.c.total.toFixed(1)}</span>
+        <span style="width:52px;text-align:right;font-size:11.5px;color:var(--dim)">${x.c.gm===null?'':(x.c.gm*100).toFixed(0)+'%'}</span>
+      </div>`;
+    }).join('');
+  }
+
+  /* ---------- 模块三：参数表 ---------- */
+  function weightRow(label, k, hint){
+    const val = XP.params.w[k];
+    return `<div class="prow2">
+      <label>${label}<span class="hint">${hint}</span></label>
+      <input type="range" data-pk="w.${k}" min="0" max="50" step="1" value="${val}"
+        oninput="this.nextElementSibling.value=this.value">
+      <input type="number" data-pk="w.${k}" min="0" max="100" step="1" value="${val}">
+      <span class="unit">%</span></div>`;
+  }
+
+  reg('cross-param', () => {
+    const P = XP.params;
+    return `
+    <h1>模型参数
+      <small>这里是唯一的数值来源。改任何一格，全表所有品立刻重算，不用改任何公式。</small></h1>
+    <h3>维度权重</h3>
+    <div class="card">
+      ${weightRow('物流友好度','logi','计费重判分，抛货额外扣分')}
+      ${weightRow('毛利空间','marg','扣完全部成本后的毛利率')}
+      ${weightRow('退货率','ret','按类目基准填预期值')}
+      ${weightRow('合规可得性','comp','手填 0–10')}
+      ${weightRow('需求持续性','dem','手填 0–10')}
+      ${weightRow('微创新度','inno','手填 0–10')}
+      ${weightRow('补货能力','sup','手填 0–10')}
+      <div class="wsum" id="wsum"></div>
+    </div>
+    <h3>结论线与系数</h3>
+    <div class="grid g2">
+      <div class="card">
+        <div class="prow2"><label>综合分 ≥ 进测款池</label>
+          <input type="number" data-pk="pass" value="${P.pass}" min="0" max="100"><span class="unit">分</span></div>
+        <div class="prow2"><label>综合分 ≥ 待观察</label>
+          <input type="number" data-pk="watch" value="${P.watch}" min="0" max="100"><span class="unit">分</span></div>
+      </div>
+      <div class="card">
+        <div class="prow2"><label>退货损耗系数<span class="hint">损失按退货率的这个比例</span></label>
+          <input type="number" data-pk="loss" value="${P.loss}" min="0" max="1" step="0.05"></div>
+        <div class="prow2"><label>体积重系数<span class="hint">长×宽×高 ÷ 这个数</span></label>
+          <input type="number" data-pk="vol" value="${P.vol}" min="1" max="10"></div>
+        <div class="prow2"><label>抛货倍数<span class="hint">体积重 &gt; 实重 × 倍数</span></label>
+          <input type="number" data-pk="bulk" value="${P.bulk}" min="1" max="3" step="0.1"></div>
+        <div class="prow2"><label>抛货扣分</label>
+          <input type="number" data-pk="pen" value="${P.pen}" min="0" max="10"><span class="unit">分</span></div>
+      </div>
+    </div>
+    <h3>分档表</h3>
+    <div class="grid g3">
+      <div class="card"><h4>物流分档（计费重 g）</h4><table class="band"><tbody>
+        ${P.logi.map((t,i) => `<tr><td style="color:var(--dim)">≤ <input type="number" data-band="logi" data-i="${i}" data-k="max" value="${t.max}"> g</td>
+          <td style="text-align:right">得 <input type="number" data-band="logi" data-i="${i}" data-k="s" value="${t.s}"> 分</td></tr>`).join('')}
+        <tr><td style="color:var(--dim)">以上全部</td>
+          <td style="text-align:right">得 <input type="number" data-band="logiFb" data-k="fb" value="${P.logiFb}"> 分</td></tr>
+      </tbody></table></div>
+      <div class="card"><h4>毛利分档（毛利率）</h4><table class="band"><tbody>
+        ${P.marg.map((t,i) => `<tr><td style="color:var(--dim)">≥ <input type="number" data-band="marg" data-i="${i}" data-k="min" value="${t.min}"> %</td>
+          <td style="text-align:right">得 <input type="number" data-band="marg" data-i="${i}" data-k="s" value="${t.s}"> 分</td></tr>`).join('')}
+        <tr><td style="color:var(--dim)">低于最低档</td>
+          <td style="text-align:right">得 <input type="number" data-band="margFb" data-k="fb" value="${P.margFb}"> 分</td></tr>
+      </tbody></table></div>
+      <div class="card"><h4>退货分档（退货率）</h4><table class="band"><tbody>
+        ${P.ret.map((t,i) => `<tr><td style="color:var(--dim)">≤ <input type="number" data-band="ret" data-i="${i}" data-k="max" value="${t.max}"> %</td>
+          <td style="text-align:right">得 <input type="number" data-band="ret" data-i="${i}" data-k="s" value="${t.s}"> 分</td></tr>`).join('')}
+        <tr><td style="color:var(--dim)">以上全部</td>
+          <td style="text-align:right">得 <input type="number" data-band="retFb" data-k="fb" value="${P.retFb}"> 分</td></tr>
+      </tbody></table></div>
+    </div>
+    <h3>平台默认佣金率</h3>
+    <div class="card">
+      <p class="note" style="margin-bottom:10px">打分器里选平台时，佣金率自动填这里的值。拿到特殊费率，直接在打分器覆盖那一格。</p>
+      <div class="tblwrap" style="border:none;background:transparent"><table class="tbl">
+        <thead><tr><th>平台 / 模式</th><th style="width:110px">默认佣金率</th><th style="width:50px"></th></tr></thead><tbody>
+        ${P.platforms.map((p,i) => `<tr>
+          <td><input class="inp" data-plat="${i}" data-k="n" value="${esc2(p.n)}" style="width:100%;text-align:left"></td>
+          <td><input class="inp" type="number" data-plat="${i}" data-k="r" value="${p.r}" style="width:80px;text-align:right"> %</td>
+          <td><button class="rdel" data-platdel="${i}">×</button></td></tr>`).join('')}
+      </tbody></table></div>
+      <div style="margin-top:11px;display:flex;gap:9px;flex-wrap:wrap">
+        <button class="btn sm" id="addPlat">+ 新增平台</button>
+        <button class="btn sm" id="syncRate">按参数表刷新全部佣金率</button>
+      </div>
+    </div>`;
+  }, v => {
+    syncSum(v);
+    v.oninput = e => {
+      const el = e.target;
+      if(el.dataset.pk){
+        const k = el.dataset.pk;
+        if(k.startsWith('w.')){
+          XP.params.w[k.slice(2)] = n(el.value);
+          v.querySelectorAll('[data-pk="' + k + '"]').forEach(x => { if(x !== el) x.value = el.value; });
+          syncSum(v);
+        }else{
+          XP.params[k] = n(el.value);
+        }
+        save();
+      }else if(el.dataset.band){
+        const b = el.dataset.band, k = el.dataset.k;
+        if(k === 'fb') XP.params[b] = n(el.value);
+        else XP.params[b][+el.dataset.i][k] = n(el.value);
+        save();
+      }else if(el.dataset.plat !== undefined){
+        const i = +el.dataset.plat;
+        if(el.dataset.k === 'n') XP.params.platforms[i].n = el.value;
+        else XP.params.platforms[i].r = n(el.value);
+        save();
+      }
+    };
+    v.onclick = e => {
+      const del = e.target.closest('[data-platdel]');
+      if(del){
+        XP.params.platforms.splice(+del.dataset.platdel, 1);
+        save(); route(); return;
+      }
+      if(e.target.id === 'addPlat'){
+        XP.params.platforms.push({ n:'新平台', r:10 });
+        save(); route(); return;
+      }
+      if(e.target.id === 'syncRate'){
+        let c = 0;
+        XP.rows.forEach(r => {
+          const rate = platRate(r.plat);
+          if(rate !== '' && r.comm !== rate){ r.comm = rate; c++; }
+        });
+        save(); toast(c ? '已同步 ' + c + ' 个品的佣金率' : '佣金率已经是最新的');
+      }
+    };
+  });
+
+  function syncSum(v){
+    const el = v.querySelector('#wsum');
+    if(!el) return;
+    const s = wSum(), ok = Math.abs(s-100) < 0.5;
+    el.className = 'wsum' + (ok ? '' : ' bad');
+    el.innerHTML = ok
+      ? `✅ 权重合计 <b style="color:#047857">${s.toFixed(0)}%</b>　权重正常，分数不会失真`
+      : `⚠️ 权重合计 <b style="color:#BE123C">${s.toFixed(0)}%</b>　不是 100%，综合分会失真，请调整`;
+  }
+
+  /* ---------- 对外接口 ---------- */
+  function toCsv(){
+    const head = ['品名','平台','售价$','实重g','长cm','宽cm','高cm','计费重g','采购$','物流$',
+      '佣金%','税%','退货%','其他$','毛利$','毛利率','物流分','毛利分','退货分',
+      '合规','需求','创新','补货','综合分','结论'];
+    const vn = c => c.verdict === 'y' ? '进测款池' : c.verdict === 'w' ? '待观察' : '放弃';
+    const lines = [head.join(',')];
+    XP.rows.forEach(r => {
+      const c = calcRow(r, XP.params);
+      const row = [r.name, r.plat, r.price, r.wt, r.L, r.W, r.H,
+        c.bill ? Math.round(c.bill) : '', r.cost, r.ship, r.comm, r.tax, r.ret, r.other,
+        c.gross === null ? '' : c.gross.toFixed(2),
+        c.gm === null ? '' : (c.gm*100).toFixed(1) + '%',
+        c.sLogi, c.sMarg, c.sRet, r.comp, r.dem, r.inno, r.sup,
+        c.total === null ? '' : c.total, c.total === null ? '未完成' : vn(c)];
+      lines.push(row.map(x => {
+        const s = String(x === undefined || x === null ? '' : x);
+        return /[",\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+      }).join(','));
+    });
+    return lines.join('\n');
+  }
+
+  window.SCORE_API = {
+    count: () => XP.rows.length,
+    getState: () => ({ params: XP.params, rows: XP.rows, weightSum: wSum(), storageOK }),
+    importState: d => {
+      if(!d || !d.params || !Array.isArray(d.rows)) throw new Error('格式不对');
+      XP.params = d.params;
+      XP.rows = d.rows.map(wid);
+      save();
+    },
+    pushRows: list => {
+      if(!Array.isArray(list) || !list.length) return 0;
+      list.forEach(x => {
+        XP.rows.push(wid({
+          name: x.name || '', plat: x.plat || '', price: x.price || '', wt: x.wt || '',
+          L: x.L || '', W: x.W || '', H: x.H || '', cost: x.cost || '', ship: x.ship || '',
+          comm: x.comm === undefined || x.comm === '' ? platRate(x.plat) : x.comm,
+          tax: x.tax === undefined || x.tax === '' ? '0' : x.tax,
+          ret: x.ret === undefined || x.ret === '' ? '5' : x.ret,
+          other: x.other === undefined || x.other === '' ? '0' : x.other,
+          comp: x.comp || 5, dem: x.dem || 5, inno: x.inno || 5, sup: x.sup || 5
+        }));
+      });
+      save();
+      return list.length;
+    },
+    reset: () => { XP.params = P0(); XP.rows = samples(); XP.detail = null; save(); },
+    toCsv, calcRow
+  };
+  window.go = k => { location.hash = '#/' + k; };
+})();
+
+</script>
+<script>
+/* ==================== js/cross.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 跨境电商：选品测试台 + 数据源矩阵
+ *
+ * 现实：主流跨境平台（Temu / Amazon / Ozon / 美客多 / Shopee）都没有
+ * 像 TikHub 那样便宜通用的公开商品 API。这块只能靠账号级授权或付费工具。
+ * 所以这里做的是「桥」：把你从任何渠道拿到的商品数据，一键导进打分器。
+ */
+(function(){
+  const esc = s => String(s === undefined || s === null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const fmtK = v => {
+    if(v === null || v === undefined) return '—';
+    if(v >= 10000) return (v/10000).toFixed(1) + '万';
+    return String(v);
+  };
+
+  const PLATFORMS = [
+    { n:'Temu', api:'❌ 无公开 API', need:'卖家后台只能看自己店铺；选品数据靠妙手/店小秘这类 ERP 的「热销榜」',
+      cost:'ERP 约 20 元/店/月', alt:'妙手ERP Temu 热销榜', ok:false },
+    { n:'美客多', api:'❌ 有 API 但要 token', need:'Mercado Libre 开放平台需注册应用拿 access_token；我这边的网络实测被 WAF 拦（403 PolicyAgent）',
+      cost:'免费但需申请', alt:'官方 /sites/MLB/search（需 token）', ok:false },
+    { n:'Ozon', api:'❌ 需 Seller API Key', need:'Seller API 只给自家店铺数据；竞品选品靠 Ozon 后台「分析」模块或 ERP',
+      cost:'免费但限自家店', alt:'Ozon 卖家后台分析板块', ok:false },
+    { n:'TikTok Shop', api:'⚠️ 需 Partner 资质', need:'TikTok Shop Partner Center 需企业入驻审核；选品榜在 Seller Center',
+      cost:'需企业资质', alt:'TikTok Shop Seller Center 榜单', ok:false },
+    { n:'Shopee', api:'⚠️ 需 Open Platform 审核', need:'Shopee Open Platform 需申请开发者账号，商品搜索接口权限受限',
+      cost:'需审核', alt:'Shopee 卖家中心', ok:false },
+    { n:'Amazon', api:'✅ 可抓（Best Sellers）', need:'公开榜单页，浏览器渲染后解析排名/标题/价格/评分/评论数。已接进「亚马逊选品榜」，见左侧导航',
+      cost:'免费', alt:'已接入；Hot New Releases 同理', ok:true },
+    { n:'抖音 / TikTok（内容侧）', api:'✅ 已接 TikHub', need:'第三方社交数据 API，$0.001/次，$5 起充',
+      cost:'极低', alt:'已接入，见「抖音变现 → 日榜数据」', ok:true }
+  ];
+
+  /* ---------- 解析粘贴的商品数据 ---------- */
+  const KEYMAP = {
+    name: ['名称','商品','品名','标题','name','title','product','商品名称'],
+    plat: ['平台','站点','platform','site'],
+    price: ['价格','售价','单价','price','零售价'],
+    wt: ['重量','实重','克重','weight','g'],
+    L: ['长','长度','length','l'],
+    W: ['宽','宽度','width','w'],
+    H: ['高','高度','height','h'],
+    cost: ['成本','采购','采购价','进价','cost'],
+    ship: ['物流','运费','头程','尾程','ship','shipping'],
+    comm: ['佣金','佣金率','commission'],
+    ret: ['退货','退货率','return'],
+    other: ['其他','其他成本','广告']
+  };
+  const ALIAS = {};
+  for(const k in KEYMAP) KEYMAP[k].forEach(a => ALIAS[a.toLowerCase()] = k);
+
+  function parseTable(text){
+    const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+    if(lines.length < 2) throw new Error('至少要有表头 + 一行数据');
+    const delim = (lines[0].match(/\t/g) || []).length >= (lines[0].match(/,/g) || []).length ? '\t' : ',';
+    const split = l => l.split(delim).map(c => c.trim().replace(/^"|"$/g, ''));
+    const head = split(lines[0]);
+    const idx = {};
+    head.forEach((h, i) => {
+      const key = ALIAS[h.toLowerCase()];
+      if(key && idx[key] === undefined) idx[key] = i;
+    });
+    if(idx.name === undefined) throw new Error('表头里必须有一列能认出「名称/商品/标题」');
+    const out = [];
+    for(let i = 1; i < lines.length; i++){
+      const cells = split(lines[i]);
+      if(!cells.length || !cells[idx.name]) continue;
+      const g = k => idx[k] === undefined ? '' : (cells[idx[k]] || '');
+      out.push({
+        name: g('name'), plat: g('plat'), price: g('price'), wt: g('wt'),
+        L: g('L'), W: g('W'), H: g('H'), cost: g('cost'), ship: g('ship'),
+        comm: g('comm').replace('%',''), ret: g('ret').replace('%',''),
+        other: g('other')
+      });
+    }
+    return out;
+  }
+
+  /* ---------- 模块：选品测试台 ---------- */
+  reg('cross-test', () => `
+    <h1>选品测试台
+      <small>把任何渠道拿到的商品数据倒进来，一键变成打分的候选品。</small></h1>
+
+    <div class="gap" style="margin-top:16px">
+      <b>先说清楚：没有「商品搜索」类的通用 API，但榜单页能抓。</b>
+      <div style="margin-top:9px">我把六家都实测过：<b style="color:#047857">亚马逊 Best Sellers 公开页可以抓</b>，
+      已经在「亚马逊选品榜」里接好了；Temu、美客多、Ozon、Shopee、eBay 全部被反爬拦掉
+      （美客多 403 PolicyAgent、Shopee error 90309999、eBay Error Page、Ozon 无连接页）。
+      所以这一页做两件事：<b>亚马逊自动抓</b>，其他平台靠下面的导入桥。</div>
+    </div>
+
+    <h3>各平台数据通道状态</h3>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>平台</th><th>能否自动抓</th><th>需要什么</th><th>成本</th><th>替代方案</th></tr></thead><tbody>
+      ${PLATFORMS.map(p => `<tr>
+        <td><b>${esc(p.n)}</b></td>
+        <td style="color:${p.ok ? '#047857' : '#BE123C'}">${esc(p.api)}</td>
+        <td>${esc(p.need)}</td>
+        <td style="white-space:nowrap">${esc(p.cost)}</td>
+        <td class="note">${esc(p.alt)}</td>
+      </tr>`).join('')}
+      </tbody></table></div>
+
+    <h3>所以这张台子怎么用</h3>
+    <div class="grid g3">
+      <div class="card"><h4>① 从平台页面复制</h4>
+        <p class="note" style="margin-top:7px">在 Temu / 亚马逊 / Ozon 的搜索结果页，选中商品列表复制，
+        贴到下面的输入框。带表头的制表符格式能自动识别。</p></div>
+      <div class="card"><h4>② 从 ERP 导出</h4>
+        <p class="note" style="margin-top:7px">妙手 / 店小秘的热销榜导出成 CSV，把内容粘进来。
+        支持 12.3万 这类写法和 % 号。</p></div>
+      <div class="card"><h4>③ 手打几行也行</h4>
+        <p class="note" style="margin-top:7px">哪怕只有「名称、售价、采购价」三列也能进打分器，
+        重量和尺寸后面再补——它们决定了分数高低。</p></div>
+    </div>
+
+    <h3>粘贴商品数据</h3>
+    <div class="card">
+      <p class="note" style="margin-bottom:9px">第一行是表头。可识别的列名：
+        <code>名称</code> <code>平台</code> <code>售价</code> <code>重量</code> <code>长</code> <code>宽</code>
+        <code>高</code> <code>成本</code> <code>物流</code> <code>佣金</code> <code>退货率</code> <code>其他</code>
+        （英文 name / price / weight / cost 也行）</p>
+      <textarea id="ctBox" rows="7" placeholder="名称&#9;售价&#9;重量&#9;长&#9;宽&#9;高&#9;采购价
+折叠宠物饮水碗&#9;18&#9;180&#9;20&#9;15&#9;8&#9;5
+桌面收纳盒 4件套&#9;12.5&#9;420&#9;32&#9;24&#9;12&#9;3.2"></textarea>
+      <div style="margin-top:10px;display:flex;gap:9px;flex-wrap:wrap;align-items:center">
+        <button class="btn primary" id="ctParse">解析预览</button>
+        <button class="btn" id="ctImport" disabled>写进打分器</button>
+        <button class="btn ghost" id="ctDemo">填示例</button>
+        <span class="note" id="ctMsg" style="margin:0"></span>
+      </div>
+      <div id="ctPreview" style="margin-top:12px"></div>
+    </div>`, v => {
+    let parsed = [];
+    const msg = t => { v.querySelector('#ctMsg').textContent = t; };
+    const render = () => {
+      const box = v.querySelector('#ctPreview');
+      if(!parsed.length){ box.innerHTML = ''; return; }
+      box.innerHTML = `<div class="note" style="margin-bottom:7px">解析到 <b style="color:#047857">${parsed.length}</b> 条：</div>
+        <div class="tblwrap"><table class="tbl">
+          <thead><tr><th>名称</th><th>售价</th><th>重量g</th><th>尺寸</th><th>采购</th></tr></thead><tbody>
+          ${parsed.slice(0, 12).map(p => `<tr>
+            <td>${esc(p.name)}</td><td class="mono">${esc(p.price || '—')}</td>
+            <td class="mono">${esc(p.wt || '—')}</td>
+            <td class="mono">${p.L || p.W || p.H ? esc(p.L + '×' + p.W + '×' + p.H) : '—'}</td>
+            <td class="mono">${esc(p.cost || '—')}</td></tr>`).join('')}
+          </tbody></table></div>
+        ${parsed.length > 12 ? `<div class="note">只预览前 12 条</div>` : ''}`;
+    };
+    v.querySelector('#ctParse').onclick = () => {
+      try{
+        parsed = parseTable(v.querySelector('#ctBox').value);
+        render();
+        v.querySelector('#ctImport').disabled = false;
+        msg('解析成功，点右边写进去');
+      }catch(e){ parsed = []; render(); msg('❌ ' + e.message); v.querySelector('#ctImport').disabled = true; }
+    };
+    v.querySelector('#ctImport').onclick = () => {
+      if(!parsed.length) return;
+      const n = window.SCORE_API.pushRows(parsed);
+      msg(`✅ 已写入 ${n} 条`);
+      setTimeout(() => { location.hash = '#/cross-score'; }, 700);
+    };
+    v.querySelector('#ctDemo').onclick = () => {
+      v.querySelector('#ctBox').value =
+        '名称\t售价\t重量\t长\t宽\t高\t采购价\n' +
+        '折叠宠物饮水碗\t18\t180\t20\t15\t8\t5\n' +
+        '桌面收纳盒4件套\t12.5\t420\t32\t24\t12\t3.2\n' +
+        '加厚卫衣女款\t26\t520\t30\t25\t6\t9';
+      msg('已填入示例，点「解析预览」');
+    };
+  });
+
+  /* ---------- 模块：数据源矩阵 ---------- */
+  reg('cross-src', () => `
+    <h1>数据源矩阵
+      <small>每个数据源能不能自动抓、要花多少钱、需要你给什么。一眼看清该走哪条路。</small></h1>
+    <div class="tblwrap" style="margin-top:18px"><table class="tbl">
+      <thead><tr><th>想拿什么</th><th>数据源</th><th>状态</th><th>需要你给</th><th>成本</th></tr></thead><tbody>
+      <tr><td rowspan="2"><b>抖音各赛道日榜</b></td>
+        <td>TikHub 抖音视频热榜 API</td><td style="color:#047857">✅ 已接入</td>
+        <td>API Key（已给）</td><td style="white-space:nowrap">$0.001/次，$5 起</td></tr>
+      <tr><td>FunClaw 开放平台</td><td style="color:#A16207">🔶 需注册</td>
+        <td>注册 → 加入组织 → 组织 Admin 分配 API Key</td><td>偏影视短剧，按量计费</td></tr>
+      <tr><td rowspan="2"><b>CSP 前 10</b></td>
+        <td>淘宝联盟 / 京粉 / 精选联盟后台</td><td style="color:#BE123C">❌ 待接入</td>
+        <td>你的联盟账号导出权限</td><td>免费（你自己有）</td></tr>
+      <tr><td>大淘客 / 好单库 API</td><td style="color:#A16207">🔶 需资质</td>
+        <td>联盟备案 + 应用审核</td><td>按量</td></tr>
+      <tr><td rowspan="4"><b>跨境选品数据</b></td>
+        <td>Amazon Best Sellers 公开页</td><td style="color:#047857">✅ 已接入</td>
+        <td>无</td><td>免费（浏览器渲染抓取）</td></tr>
+      <tr><td>平台官方 API（Amazon SP-API / Ozon Seller / 美客多）</td><td style="color:#BE123C">❌ 需账号</td>
+        <td>各平台卖家账号授权</td><td>免费但只限自家店</td></tr>
+      <tr><td>付费选品工具（卖家精灵 / Jungle Scout / Keepa）</td><td style="color:#A16207">🔶 需订阅</td>
+        <td>订阅账号，或导出 CSV</td><td>$49–99/月</td></tr>
+      <tr><td>妙手ERP / 店小秘 热销榜</td><td style="color:#A16207">🔶 需订阅</td>
+        <td>ERP 账号，导出 CSV 粘进「选品测试台」</td><td>约 20 元/店/月</td></tr>
+      <tr><td><b>新闻 / 平台规则</b></td><td>IT之家、淘客Show、妙手博客</td><td style="color:#047857">✅ 已接入</td>
+        <td>无</td><td>免费</td></tr>
+      </tbody></table></div>
+
+    <div class="ok" style="margin-top:16px">
+      <b>一句话总结：</b>社交平台的数据能用便宜 API 拿到（TikHub），电商平台的数据拿不到
+      —— 这是行业结构问题，不是工具没找对。所以「选品测试台」做成导入桥：你用任何方式拿到数据，
+      我负责把它变成分数和结论。
+    </div>
+
+    <h3>开源方案（GitHub 上能直接用的）</h3>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>项目 / 方案</th><th>覆盖</th><th>怎么用</th><th>成本</th></tr></thead><tbody>
+      <tr><td><b>Douyin_TikTok_Download_API</b><br><span class="note">Evil0ctal · 21.3k stars · Apache-2.0 · 昨日仍在更新</span></td>
+        <td>抖音 / TikTok / B站</td>
+        <td>Docker 一键自托管，自带 REST API + <b>MCP server</b>，我可以像调 TikHub 一样调它</td>
+        <td><b>0 API 费</b>（自备机器）</td></tr>
+      <tr><td><b>everyinfra agent-plugins</b><br><span class="note">405 stars · MCP 插件</span></td>
+        <td>Amazon + 抖音 + 小红书 + TikTok 等 106 平台 / 573 接口</td>
+        <td>装 MCP 插件 + 一个 Key，Amazon 和抖音一次覆盖</td>
+        <td>约 $0.56/千次</td></tr>
+      <tr><td><b>GitHub Actions 当免费服务器</b></td>
+        <td>任意公开页</td>
+        <td>fork 采集脚本 + cron，结果 commit 回仓库；我通过 GitHub 连接器读文件</td>
+        <td>免费额度够每天跑</td></tr>
+      </tbody></table></div>
+    <div class="note" style="margin-top:10px;color:var(--dim2)">
+      注意：GitHub 连接器本身只读仓库 / issue / PR，<b>不是数据源</b>。它值钱的地方是「托管开源采集器」和「当免费跑批服务器」。
+    </div>
+
+    <h3>想升级的话，按性价比排序</h3>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>优先级</th><th>做什么</th><th>花多少</th><th>能解锁什么</th></tr></thead><tbody>
+      <tr><td>①</td><td>给联盟后台导出权限</td><td>0</td><td>CSP 各赛道前 10，最有价值的一格</td></tr>
+      <tr><td>②</td><td>TikHub 充 $5</td><td>约 36 元</td><td>抖音日榜全量 + 视频搜索类接口（现在 402 的那些）</td></tr>
+      <tr><td>③</td><td>妙手ERP 会员</td><td>约 20 元/店/月</td><td>Temu / Ozon / TikTok 热销榜，可导出 CSV 进选品测试台</td></tr>
+      <tr><td>④</td><td>卖家精灵 / JS</td><td>$49–99/月</td><td>亚马逊选品数据，确定要做大亚马逊再买</td></tr>
+      </tbody></table></div>`);
+
+  /* ---------- 模块：亚马逊选品榜 ---------- */
+  reg('cross-amz', () => {
+    const A = window.AMZ || { categories: [] };
+    if(!A.categories.length) return `<h1>亚马逊选品榜</h1><div class="gap">还没有数据。</div>`;
+    const rows = cat => cat.items.map(it => `
+      <tr>
+        <td class="mono"><b>${it.rank}</b></td>
+        <td style="max-width:430px">${esc(it.title)}</td>
+        <td class="mono">${it.price != null ? '¥' + it.price.toFixed(2) : '—'}</td>
+        <td class="mono">${it.rating != null ? it.rating : '—'}</td>
+        <td class="mono">${fmtK(it.reviews)}</td>
+        <td class="mono" style="color:#9A96A1">${esc(it.asin)}</td>
+      </tr>`).join('');
+    return `
+    <h1>亚马逊选品榜
+      <small>Amazon Best Sellers 实时榜 · ${A.date} 抓取 · ${A.categories.length} 个类目 · 来源：浏览器渲染解析公开页</small></h1>
+    <div class="warn" style="margin-top:14px">
+      <b>两个口径要说清：</b>价格是按访问 IP 定位后的人民币显示价（不是美国站 $ 售价）；标题是 Amazon 的机翻中文，原名看 ASIN。
+      送进打分器时会按 7.2 粗折成美元，<b>务必用站点实际售价校正</b>。
+    </div>
+    ${A.categories.map(c => `
+      <h3>${esc(c.cat)} <span class="note" style="font-weight:400">（前 ${c.items.length} / 榜单共 50+）</span>
+        <button class="btn sm" style="margin-left:auto" data-amz="${esc(c.cat)}">送前 10 进打分器 →</button></h3>
+      <div class="tblwrap"><table class="tbl">
+        <thead><tr><th>#</th><th>标题</th><th>显示价</th><th>评分</th><th>评论数</th><th>ASIN</th></tr></thead>
+        <tbody>${rows(c)}</tbody></table></div>`).join('')}
+    <div class="ok" style="margin-top:16px">
+      <b>怎么用：</b>点「送进打分器」，榜单前 10 会带着名称和折算价进选品打分器。
+      然后在打分器里补三样：实测重量、长宽高、采购价 —— 补完综合分才有意义。
+    </div>`;
+  }, v => {
+    const A = window.AMZ || { categories: [] };
+    v.querySelectorAll('[data-amz]').forEach(b => b.onclick = () => {
+      const c = A.categories.find(x => x.cat === b.dataset.amz);
+      if(!c) return;
+      const list = c.items.slice(0, 10).map(it => ({
+        name: it.title.slice(0, 40),
+        plat: 'Amazon',
+        price: it.price != null ? (it.price / 7.2).toFixed(2) : '',
+        ret: '8'
+      }));
+      const n = window.SCORE_API.pushRows(list);
+      b.textContent = `已送 ${n} 条 ✓`;
+      setTimeout(() => { location.hash = '#/cross-score'; }, 600);
+    });
+  });
+
+  /* ---------- 更新「前 10 榜单」页里的说明 ---------- */
+})();
+
+</script>
+<script>
+/* ==================== js/rank.js ==================== */
+/* 蓝鲸 · 综合工作台 —— 榜单模块
+ * 读取 data/ranks.js。有数据就渲染真榜单，没有就显示接入说明（不编数字）。
+ */
+(function(){
+  const R = window.RANKS || { empty:true, douyin:{tracks:[]}, csp:{tracks:[]}, imported:[] };
+  const fmtN = v => {
+    if(v === null || v === undefined) return '—';
+    if(v >= 1e8){ const x = v / 1e8; return (x >= 100 ? x.toFixed(0) : x.toFixed(1)) + '亿'; }
+    if(v >= 1e4){ const x = v / 1e4; return (x >= 100 ? x.toFixed(0) : x.toFixed(1)) + '万'; }
+    return String(Math.round(v));
+  };
+
+  const SCHEMA_DY = [
+    ['赛道', 'track', '情感语录 / 不露脸 / 打赏 / 拆书 / 服饰推荐 / 历史类 / 抖音小店'],
+    ['排名', 'rank', '1–5'],
+    ['标题', 'title', '视频标题'],
+    ['作者', 'author', '账号昵称'],
+    ['点赞', 'likes', '支持 12.3万 这种写法'],
+    ['播放', 'plays', '支持 320万 这种写法'],
+    ['涨粉', 'fans_gain', '当日新增粉丝'],
+    ['挂车品类', 'product', '判断这条视频到底赚不赚钱'],
+    ['佣金率', 'commission_pct', '数字，如 18 表示 18%'],
+    ['链接', 'url', '可点击回原视频']
+  ];
+  const SCHEMA_CSP = [
+    ['赛道', 'track', '淘宝联盟 / 京东联盟 / 抖音联盟 / 外卖 / 短剧 / 抖音小店'],
+    ['排名', 'rank', '1–10'],
+    ['名称', 'name', '账号 / 商品 / 达人'],
+    ['类型', 'type', '账号 | 商品 | 达人'],
+    ['GMV', 'gmv', '成交额，元'],
+    ['佣金率', 'commission_pct', '数字，如 6 表示 6%'],
+    ['收入', 'income', '佣金收入，元（不填则按 GMV×佣金率 估算）'],
+    ['备注', 'note', '选填']
+  ];
+
+  function gapBlock(kind){
+    const isDy = kind === 'douyin';
+    const schema = isDy ? SCHEMA_DY : SCHEMA_CSP;
+    return `
+    <div class="gap" style="margin-top:16px">
+      <b>现在是空的，因为这块数据要登录才能拿。</b>
+      <div style="margin-top:9px">抖音的搜索结果直接跳验证码（我实测过），蝉妈妈和抖音指数的榜单都要登录。
+      我不会绕过登录，也不会编排名。</div>
+    </div>
+
+    <h3>三条真能走通的路</h3>
+    <div class="grid g3">
+      <div class="card">
+        <h4>① 你导出 CSV，我解析 <span class="tag" style="background:rgba(4,120,87,.14);color:#047857">今天就能用</span></h4>
+        <p class="note" style="margin-top:7px">把你账号里的榜单导出成 CSV，丢进 <code>data/inbox/</code>，
+        我跑一次脚本就接进工作台。零成本，唯一门槛是你有那个账号。</p>
+        <div class="note" style="margin-top:7px;color:var(--dim2)">支持蝉妈妈 / 飞瓜 / 新抖 / 联盟后台的任何导出格式，我按表头自动认列。</div>
+      </div>
+      <div class="card">
+        <h4>② 接第三方数据 API</h4>
+        <p class="note" style="margin-top:7px">蝉妈妈、飞瓜都有「数据开放平台」，付费后给 API Key。
+        给我 Key，我写成每天自动拉。</p>
+        <div class="note" style="margin-top:7px;color:var(--dim2)">门槛：要买他们企业版，通常年费几万起。</div>
+      </div>
+      <div class="card">
+        <h4>③ 官方开放平台</h4>
+        <p class="note" style="margin-top:7px">抖音开放平台、精选联盟、淘宝联盟、京东联盟都有 API，但都要企业资质 + 权限审批。</p>
+        <div class="note" style="margin-top:7px;color:var(--dim2)">门槛：个人开发者基本拿不到榜单类权限。</div>
+      </div>
+    </div>
+
+    <h3>CSV 需要这些列（列名用中文或英文都行）</h3>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>含义</th><th>列名</th><th>说明</th></tr></thead><tbody>
+      ${schema.map(s => `<tr><td><b>${s[0]}</b></td><td><code>${s[1]}</code></td><td>${s[2]}</td></tr>`).join('')}
+      </tbody></table></div>
+
+    <div class="ok" style="margin-top:14px">
+      <b>格式模板已经放好了：</b><code>data/inbox/_示例_抖音日榜.csv</code> 和 <code>_示例_CSP前10.csv</code>，
+      打开照着填，然后把文件名开头的下划线去掉，放进同目录，我再跑 <code>python tools/import_ranks.py</code>。
+    </div>`;
+  }
+
+  function dyPage(){
+    const d = R.douyin || { tracks:[] };
+    const has = (d.tracks || []).some(t => (t.items || []).length);
+    if(!has) {
+      return `
+      <h1>抖音日榜数据
+        <small>各赛道每日点赞 / 播放前 5 的视频。有数据才显示，没有不编。</small></h1>
+      ${gapBlock('douyin')}
+      ${importedBlock()}`;
+    }
+    return `
+    <h1>抖音日榜数据
+      <small>${esc(d.date || '')} · 来源：${esc(d.source || '手动导入')} · 共 ${d.tracks.length} 个赛道 · 抓取于 ${esc(d.fetchedAt || '—')}</small></h1>
+    ${d.note ? `<div class="note" style="margin-top:8px;color:var(--dim2)">⚠️ ${esc(d.note)}</div>` : ''}
+    ${(d.pending || []).length ? `<div class="warn" style="margin-top:12px">
+      本轮还没跑的赛道：<b>${d.pending.map(esc).join('、')}</b>。每天 08:00 的定时任务会把它们补齐。</div>` : ''}
+    ${d.tracks.map(t => `
+      <h3>${esc(t.track)} <span class="note" style="font-weight:400">（${(t.items||[]).length} 条${t.keyword ? ' · 关键词「' + esc(t.keyword) + '」' : ''}）</span></h3>
+      <div class="tblwrap"><table class="tbl">
+        <thead><tr><th>#</th><th>标题</th><th>作者</th><th>播放</th><th>点赞</th><th>点赞率</th><th>当日涨粉</th></tr></thead>
+        <tbody>${(t.items||[]).map(it => `<tr>
+          <td><b>${it.rank}</b></td>
+          <td style="max-width:420px">${it.url ? `<a href="${esc(it.url)}" target="_blank" rel="noopener" style="text-decoration:none;border-bottom:1px solid #D7D2C8">${esc(it.title)}</a>` : esc(it.title)}</td>
+          <td style="white-space:nowrap">${esc(it.author)}</td>
+          <td class="mono">${fmtN(it.plays)}</td>
+          <td class="mono">${fmtN(it.likes)}</td>
+          <td class="mono" style="color:${it.likeRate >= 5 ? '#047857' : 'inherit'}">${it.likeRate != null ? it.likeRate + '%' : '—'}</td>
+          <td class="mono" style="color:#047857">${fmtN(it.fansGain)}</td>
+        </tr>`).join('')}</tbody></table></div>`).join('')}
+    ${importedBlock()}`;
+  }
+
+  function cspPage(){
+    const d = R.csp || { tracks:[] };
+    const has = (d.tracks || []).some(t => (t.items || []).length);
+    if(!has){
+      return `
+      <h1>CSP 前 10 榜单
+        <small>各赛道排名前 10 的账号 / 商品 / 达人。有数据才显示。</small></h1>
+      ${gapBlock('csp')}
+      ${importedBlock()}`;
+    }
+    return `
+    <h1>CSP 前 10 榜单
+      <small>${esc(d.date || '')} · 来源：${esc(d.source || '手动导入')} · 共 ${d.tracks.length} 个赛道</small></h1>
+    ${d.tracks.map(t => `
+      <h3>${esc(t.track)}</h3>
+      <div class="tblwrap"><table class="tbl">
+        <thead><tr><th>#</th><th>名称</th><th>类型</th><th>GMV</th><th>佣金率</th><th>收入</th><th>备注</th></tr></thead>
+        <tbody>${(t.items||[]).map(it => {
+          const inc = (it.income !== null && it.income !== undefined) ? it.income
+            : (it.gmv && it.commissionPct ? it.gmv * it.commissionPct / 100 : null);
+          return `<tr>
+            <td><b>${it.rank}</b></td>
+            <td>${esc(it.name)}</td>
+            <td>${esc(it.type || '—')}</td>
+            <td class="mono">${it.gmv ? '¥' + fmtN(it.gmv) : '—'}</td>
+            <td class="mono">${it.commissionPct != null ? it.commissionPct + '%' : '—'}</td>
+            <td class="mono" style="color:#047857">${inc ? '¥' + fmtN(inc) : '—'}</td>
+            <td class="note">${esc(it.note || '')}</td>
+          </tr>`;
+        }).join('')}</tbody></table></div>`).join('')}
+    ${importedBlock()}`;
+  }
+
+  function importedBlock(){
+    const list = R.imported || [];
+    if(!list.length) return '';
+    return `<h3>导入记录</h3>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th>时间</th><th>文件</th><th>类型</th><th>行数</th></tr></thead><tbody>
+      ${list.slice().reverse().map(x => `<tr><td class="mono">${esc(x.at)}</td><td>${esc(x.file)}</td>
+        <td>${x.kind === 'douyin' ? '抖音日榜' : 'CSP 榜单'}</td><td class="mono">${x.rows}</td></tr>`).join('')}
+      </tbody></table></div>`;
+  }
+
+  const esc = s => String(s === undefined || s === null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+  reg('dy-rank', dyPage);
+  reg('csp-top10r', cspPage);
+})();
+
+</script>
+<script>boot();</script>
+</body>
+</html>
