@@ -1,10 +1,10 @@
 {
  "version": 1,
- "generatedAt": "2026-11-10 15:44",
- "generatedDate": "2026-11-10",
+ "generatedAt": "2026-11-11 00:38",
+ "generatedDate": "2026-11-11",
  "douyin": {
-  "date": "2026-11-10",
-  "fetchedAt": "2026-11-10 15:44",
+  "date": "2026-11-11",
+  "fetchedAt": "2026-11-11 00:38",
   "source": "TikHub 抖音视频热榜（近 24 小时，按赛道关键词过滤）",
   "note": "排序为平台热度分（综合播放、互动、涨粉），不是单纯按播放量。",
   "tracks": [
@@ -19,7 +19,7 @@
       "plays": 352910,
       "likes": 20105,
       "fansGain": 146,
-      "fans": 21511,
+      "fans": 21557,
       "likeRate": 5.7,
       "awemeId": "7704923145346298491",
       "url": "https://www.douyin.com/video/7704923145346298491"
@@ -55,7 +55,7 @@
       "plays": 85335,
       "likes": 661,
       "fansGain": 84,
-      "fans": 830,
+      "fans": 836,
       "likeRate": 0.77,
       "awemeId": "7705777574392503538",
       "url": "https://www.douyin.com/video/7705777574392503538"
@@ -67,7 +67,7 @@
       "plays": 365290,
       "likes": 27427,
       "fansGain": 296,
-      "fans": 6178,
+      "fans": 6203,
       "likeRate": 7.51,
       "awemeId": "7705108728752667044",
       "url": "https://www.douyin.com/video/7705108728752667044"
@@ -85,7 +85,7 @@
       "plays": 5778915,
       "likes": 232436,
       "fansGain": 995,
-      "fans": 2053,
+      "fans": 2239,
       "likeRate": 4.02,
       "awemeId": "7705777224226335345",
       "url": "https://www.douyin.com/video/7705777224226335345"
@@ -97,7 +97,7 @@
       "plays": 1826188,
       "likes": 85277,
       "fansGain": 2755,
-      "fans": 1889546,
+      "fans": 1889962,
       "likeRate": 4.67,
       "awemeId": "7704879764758220082",
       "url": "https://www.douyin.com/video/7704879764758220082"
@@ -109,7 +109,7 @@
       "plays": 1871635,
       "likes": 44809,
       "fansGain": 188,
-      "fans": 148,
+      "fans": 147,
       "likeRate": 2.39,
       "awemeId": "7705843669799470449",
       "url": "https://www.douyin.com/video/7705843669799470449"
@@ -127,7 +127,7 @@
       "plays": 1302375,
       "likes": 10514,
       "fansGain": 45,
-      "fans": 81,
+      "fans": 84,
       "likeRate": 0.81,
       "awemeId": "7705776475693802737",
       "url": "https://www.douyin.com/video/7705776475693802737"
@@ -139,7 +139,7 @@
       "plays": 4203448,
       "likes": 59157,
       "fansGain": 2611,
-      "fans": 6104,
+      "fans": 6146,
       "likeRate": 1.41,
       "awemeId": "7706017363506047610",
       "url": "https://www.douyin.com/video/7706017363506047610"
@@ -151,7 +151,7 @@
       "plays": 414786,
       "likes": 12881,
       "fansGain": 55,
-      "fans": 226,
+      "fans": 227,
       "likeRate": 3.11,
       "awemeId": "7705429088546312783",
       "url": "https://www.douyin.com/video/7705429088546312783"
@@ -169,7 +169,7 @@
       "plays": 6105417,
       "likes": 151706,
       "fansGain": 1451,
-      "fans": 1746,
+      "fans": 1744,
       "likeRate": 2.48,
       "awemeId": "7705639595413293211",
       "url": "https://www.douyin.com/video/7705639595413293211"
@@ -181,7 +181,7 @@
       "plays": 4041362,
       "likes": 71746,
       "fansGain": 2195,
-      "fans": 83614,
+      "fans": 84122,
       "likeRate": 1.78,
       "awemeId": "7705265087216645861",
       "url": "https://www.douyin.com/video/7705265087216645861"
@@ -193,7 +193,7 @@
       "plays": 1813318,
       "likes": 66027,
       "fansGain": 137,
-      "fans": 416,
+      "fans": 414,
       "likeRate": 3.64,
       "awemeId": "7705088440165424719",
       "url": "https://www.douyin.com/video/7705088440165424719"
@@ -205,7 +205,7 @@
       "plays": 4582206,
       "likes": 64923,
       "fansGain": 6290,
-      "fans": 14523,
+      "fans": 15306,
       "likeRate": 1.42,
       "awemeId": "7705732879791384808",
       "url": "https://www.douyin.com/video/7705732879791384808"
@@ -217,7 +217,7 @@
       "plays": 1901574,
       "likes": 32376,
       "fansGain": 3232,
-      "fans": 20982,
+      "fans": 21707,
       "likeRate": 1.7,
       "awemeId": "7705503228637463219",
       "url": "https://www.douyin.com/video/7705503228637463219"
@@ -235,7 +235,7 @@
       "plays": 11108044,
       "likes": 263756,
       "fansGain": 1351,
-      "fans": 1545,
+      "fans": 1578,
       "likeRate": 2.37,
       "awemeId": "7705302419744179170",
       "url": "https://www.douyin.com/video/7705302419744179170"
@@ -247,7 +247,7 @@
       "plays": 2938907,
       "likes": 73853,
       "fansGain": 226,
-      "fans": 4951,
+      "fans": 4952,
       "likeRate": 2.51,
       "awemeId": "7705341596703295210",
       "url": "https://www.douyin.com/video/7705341596703295210"
@@ -271,7 +271,7 @@
       "plays": 1009688,
       "likes": 65659,
       "fansGain": 49,
-      "fans": 96,
+      "fans": 97,
       "likeRate": 6.5,
       "awemeId": "7698955958965429312",
       "url": "https://www.douyin.com/video/7698955958965429312"
@@ -283,7 +283,7 @@
       "plays": 2499274,
       "likes": 88920,
       "fansGain": 540,
-      "fans": 6964,
+      "fans": 7004,
       "likeRate": 3.56,
       "awemeId": "7702761807978789050",
       "url": "https://www.douyin.com/video/7702761807978789050"
@@ -301,7 +301,7 @@
       "plays": 1055441,
       "likes": 31473,
       "fansGain": 1516,
-      "fans": 527117,
+      "fans": 527305,
       "likeRate": 2.98,
       "awemeId": "7702356377968102656",
       "url": "https://www.douyin.com/video/7702356377968102656"
@@ -325,7 +325,7 @@
       "plays": 851211,
       "likes": 62592,
       "fansGain": 584,
-      "fans": 61696,
+      "fans": 61938,
       "likeRate": 7.35,
       "awemeId": "7706112906190314112",
       "url": "https://www.douyin.com/video/7706112906190314112"
@@ -343,7 +343,7 @@
       "plays": 575575,
       "likes": 27501,
       "fansGain": 269,
-      "fans": 2041387,
+      "fans": 2041913,
       "likeRate": 4.78,
       "awemeId": "7705418960967150409",
       "url": "https://www.douyin.com/video/7705418960967150409"
@@ -355,7 +355,7 @@
       "plays": 2116550,
       "likes": 29615,
       "fansGain": 2623,
-      "fans": 261528,
+      "fans": 262596,
       "likeRate": 1.4,
       "awemeId": "7702687378229653617",
       "url": "https://www.douyin.com/video/7702687378229653617"
@@ -367,7 +367,7 @@
       "plays": 1289147,
       "likes": 39838,
       "fansGain": 899,
-      "fans": 1951776,
+      "fans": 1951759,
       "likeRate": 3.09,
       "awemeId": "7705292598625258806",
       "url": "https://www.douyin.com/video/7705292598625258806"
@@ -379,7 +379,7 @@
       "plays": 299810,
       "likes": 9275,
       "fansGain": 137,
-      "fans": 4563503,
+      "fans": 4563426,
       "likeRate": 3.09,
       "awemeId": "7704263941567940986",
       "url": "https://www.douyin.com/video/7704263941567940986"
@@ -390,8 +390,8 @@
   "pending": []
  },
  "amazon": {
-  "date": "2026-11-10",
-  "fetchedAt": "2026-11-10 15:44",
+  "date": "2026-11-11",
+  "fetchedAt": "2026-11-11 00:38",
   "source": "Amazon Best Sellers（公开页面解析）",
   "note": "Actions 是机房 IP，可能被反爬；失败会沿用上次数据。",
   "categories": [
@@ -405,7 +405,7 @@
       "asin": "B0009X29WK",
       "price": 22.99,
       "rating": 4.3,
-      "reviews": 101437
+      "reviews": 97749
      },
      {
       "rank": 2,
@@ -413,7 +413,7 @@
       "asin": "B005OB3E30",
       "price": 22.86,
       "rating": 4.7,
-      "reviews": 55842
+      "reviews": 55850
      },
      {
       "rank": 3,
@@ -421,7 +421,7 @@
       "asin": "B00MW8G62E",
       "price": 20.99,
       "rating": 4.4,
-      "reviews": 220888
+      "reviews": 220886
      },
      {
       "rank": 4,
@@ -429,15 +429,15 @@
       "asin": "B00BSYR7K8",
       "price": 14.99,
       "rating": 4.8,
-      "reviews": 249947
+      "reviews": 249964
      },
      {
       "rank": 5,
-      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 16 oz | Under 2 ",
-      "asin": "B00IOTB7PG",
-      "price": 7.49,
+      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 30 oz | Under 2 ",
+      "asin": "B01LNB6SA0",
+      "price": 14.94,
       "rating": 4.8,
-      "reviews": 74045
+      "reviews": 74064
      },
      {
       "rank": 6,
@@ -445,7 +445,7 @@
       "asin": "B07D323MFZ",
       "price": 32.96,
       "rating": 4.9,
-      "reviews": 13981
+      "reviews": 13987
      },
      {
       "rank": 7,
@@ -453,7 +453,7 @@
       "asin": "B089LLHMQL",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 42156
+      "reviews": 42163
      },
      {
       "rank": 8,
@@ -461,15 +461,15 @@
       "asin": "B001QCKS4O",
       "price": 74.48,
       "rating": 4.6,
-      "reviews": 16566
+      "reviews": 16569
      },
      {
       "rank": 9,
-      "title": "Earth Rated Dog Wipes for Paws & Butt, Deodorizing, Unscented, 100ct | Hypoaller",
-      "asin": "B07NHL31CC",
-      "price": 9.99,
-      "rating": 4.6,
-      "reviews": 71744
+      "title": "Purina ONE Lamb and Rice Formula Dry Dog Food for Digestive Support | Dog food w",
+      "asin": "B009IOCCD2",
+      "price": 48.98,
+      "rating": 4.7,
+      "reviews": 24040
      },
      {
       "rank": 10,
@@ -477,18 +477,26 @@
       "asin": "B0018CLXTG",
       "price": 14.98,
       "rating": 4.8,
-      "reviews": 83727
+      "reviews": 83751
      },
      {
       "rank": 11,
+      "title": "Earth Rated Dog Wipes for Paws & Butt, Deodorizing, Unscented, 100ct | Hypoaller",
+      "asin": "B07NHL31CC",
+      "price": 9.99,
+      "rating": 4.6,
+      "reviews": 71766
+     },
+     {
+      "rank": 12,
       "title": "Blue Buffalo Health Bars Pumpkin & Cinnamon Dog Biscuits, 16 oz | Oven-Baked, Cr",
       "asin": "B003P9XG68",
       "price": 4.98,
       "rating": 4.7,
-      "reviews": 10285
+      "reviews": 10289
      },
      {
-      "rank": 12,
+      "rank": 13,
       "title": "HONEY CARE All-Absorb A26 Male Dog Wrap, 50 Count, Small",
       "asin": "B07C22NTL4",
       "price": 17.99,
@@ -496,20 +504,12 @@
       "reviews": 49741
      },
      {
-      "rank": 13,
+      "rank": 14,
       "title": "Amazon Basics Dog Poop Leak Proof Bags with Dispenser and Leash Clip, Unscented,",
       "asin": "B00NABTC8M",
       "price": 11.24,
       "rating": 4.8,
-      "reviews": 245968
-     },
-     {
-      "rank": 14,
-      "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
-      "asin": "B09K8YYVWV",
-      "price": 14.97,
-      "rating": 4.7,
-      "reviews": 29868
+      "reviews": 245995
      },
      {
       "rank": 15,
@@ -517,7 +517,7 @@
       "asin": "B072DTFZHL",
       "price": 27.96,
       "rating": 4.7,
-      "reviews": 21256
+      "reviews": 21259
      },
      {
       "rank": 16,
@@ -525,7 +525,7 @@
       "asin": "B001650NNW",
       "price": 30.99,
       "rating": 4.7,
-      "reviews": 50204
+      "reviews": 50210
      },
      {
       "rank": 17,
@@ -537,11 +537,11 @@
      },
      {
       "rank": 18,
-      "title": "Purina ONE Lamb and Rice Formula Dry Dog Food for Digestive Support | Dog food w",
-      "asin": "B009IOCCD2",
-      "price": 48.98,
+      "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
+      "asin": "B09K8YYVWV",
+      "price": 14.97,
       "rating": 4.7,
-      "reviews": 24036
+      "reviews": 29873
      },
      {
       "rank": 19,
@@ -549,7 +549,7 @@
       "asin": "B07S2TDDCK",
       "price": 19.96,
       "rating": 4.8,
-      "reviews": 22945
+      "reviews": 22947
      },
      {
       "rank": 20,
@@ -571,7 +571,7 @@
       "asin": "B0BZYCJK89",
       "price": 29.99,
       "rating": 4.6,
-      "reviews": 145292
+      "reviews": 145348
      },
      {
       "rank": 2,
@@ -579,7 +579,7 @@
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16042
+      "reviews": 16048
      },
      {
       "rank": 3,
@@ -587,23 +587,23 @@
       "asin": "B0CYJBB2JQ",
       "price": 19.99,
       "rating": 4.2,
-      "reviews": 22588
+      "reviews": 22617
      },
      {
       "rank": 4,
-      "title": "Meat Thermometer Digital, 1-2 Sec Instant Read, Stocking Stuffers for Men | Brig",
-      "asin": "B0GVM8N2CK",
-      "price": 9.97,
-      "rating": 4.7,
-      "reviews": 2986
-     },
-     {
-      "rank": 5,
       "title": "Fall Table Runner Terracotta Cheesecloth Boho Wedding Thanksgiving Decor | Frien",
       "asin": "B09WXZWSN3",
       "price": 9.99,
       "rating": 4.7,
-      "reviews": 8122
+      "reviews": 8128
+     },
+     {
+      "rank": 5,
+      "title": "Meat Thermometer Digital, 1-2 Sec Instant Read, Stocking Stuffers for Men | Brig",
+      "asin": "B0GVM8N2CK",
+      "price": 9.97,
+      "rating": 4.7,
+      "reviews": 2998
      },
      {
       "rank": 6,
@@ -611,7 +611,7 @@
       "asin": "B0H2FQ5FV1",
       "price": 39.99,
       "rating": 4.6,
-      "reviews": 21321
+      "reviews": 21338
      },
      {
       "rank": 7,
@@ -619,63 +619,63 @@
       "asin": "B07YP2VH4B",
       "price": 15.99,
       "rating": 4.6,
-      "reviews": 90264
+      "reviews": 90240
      },
      {
       "rank": 8,
-      "title": "Etekcity Food Kitchen Scale, Digital Grams and Ounces, 11lb | Tare function, ide",
-      "asin": "B0113UZJE2",
-      "price": 13.99,
-      "rating": 4.6,
-      "reviews": 178292
-     },
-     {
-      "rank": 9,
       "title": "Alpha Grillers Meat Thermometer Digital, Stocking Stuffers Gifts for Men | 1-2 S",
       "asin": "B00S93EQUK",
       "price": 12.31,
       "rating": 4.8,
-      "reviews": 93313
+      "reviews": 93330
+     },
+     {
+      "rank": 9,
+      "title": "Etekcity Food Kitchen Scale, Digital Grams and Ounces, 11lb | Tare function, ide",
+      "asin": "B0113UZJE2",
+      "price": 13.99,
+      "rating": 4.6,
+      "reviews": 178308
      },
      {
       "rank": 10,
-      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Ash | Handle and Straw | 3-Posi",
-      "asin": "B0CJZW65R3",
-      "price": null,
-      "rating": 4.7,
-      "reviews": 207419
-     },
-     {
-      "rank": 11,
       "title": "Reynolds Kitchens Unbleached Parchment Paper Roll, 45sq ft | Chlorine-Free, Nons",
       "asin": "B07PFYT8MC",
       "price": 3.59,
       "rating": 4.8,
-      "reviews": 23996
+      "reviews": 24006
+     },
+     {
+      "rank": 11,
+      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
+      "asin": "B08J8GZXKZ",
+      "price": 11.49,
+      "rating": 4.7,
+      "reviews": 14431
      },
      {
       "rank": 12,
-      "title": "KitchenAid All Purpose Kitchen Shears with Protective Sheath Durable Stainless S",
-      "asin": "B07PZF3QS3",
-      "price": 9.99,
-      "rating": 4.8,
-      "reviews": 72995
-     },
-     {
-      "rank": 13,
       "title": "125Pcs 8 Inch Square Air Fryer Liners Disposable for 5-8QT, Parchment Paper | No",
       "asin": "B0B6PLG6G2",
       "price": 8.99,
       "rating": 4.6,
-      "reviews": 34195
+      "reviews": 34208
+     },
+     {
+      "rank": 13,
+      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Ash | Handle and Straw | 3-Posi",
+      "asin": "B0CJZW65R3",
+      "price": null,
+      "rating": 4.7,
+      "reviews": 207458
      },
      {
       "rank": 14,
-      "title": "Air Fryer Liners Disposable, Unbleached Parchment Paper Baking Liners | Non-Stic",
-      "asin": "B0C6Y8NYK1",
+      "title": "KitchenAid All Purpose Kitchen Shears with Protective Sheath Durable Stainless S",
+      "asin": "B07PZF3QS3",
       "price": 9.99,
-      "rating": 4.6,
-      "reviews": 29401
+      "rating": 4.8,
+      "reviews": 73004
      },
      {
       "rank": 15,
@@ -683,47 +683,47 @@
       "asin": "B0FK124QCT",
       "price": 34.99,
       "rating": 4.6,
-      "reviews": 14379
+      "reviews": 14395
      },
      {
       "rank": 16,
-      "title": "Ninja Air Fryer Pro, 5 Qt, 4-in-1, Grey, AF141 | Air fry, roast, reheat, dehydra",
-      "asin": "B0CSZ7WBYW",
-      "price": 89.99,
-      "rating": 4.7,
-      "reviews": 10940
+      "title": "Pureegg Plastic Table Cloth Disposable 54x108 Inch 10 Pack, White | Picnic, Wedd",
+      "asin": "B0CBM682SQ",
+      "price": 9.99,
+      "rating": 4.5,
+      "reviews": 7822
      },
      {
       "rank": 17,
+      "title": "Air Fryer Liners Disposable, Unbleached Parchment Paper Baking Liners | Non-Stic",
+      "asin": "B0C6Y8NYK1",
+      "price": 9.99,
+      "rating": 4.6,
+      "reviews": 29424
+     },
+     {
+      "rank": 18,
       "title": "Amazon Basics Digital Kitchen Scale with LCD Display, Tare Function, Multiple Un",
       "asin": "B06X9NQ8GX",
       "price": 11.14,
       "rating": 4.7,
-      "reviews": 120295
+      "reviews": 120306
      },
      {
-      "rank": 18,
+      "rank": 19,
+      "title": "Turelar Immersion Blender Corded 400W, 2 Speed, Emulsifier, Blend, BPA-Free | Ha",
+      "asin": "B0FSZSKB92",
+      "price": 18.88,
+      "rating": 4.6,
+      "reviews": 1747
+     },
+     {
+      "rank": 20,
       "title": "Lifewit Medium Lunch Bag, Insulated Lunch Box, Soft Cooler Cooling Tote for Adul",
       "asin": "B0B56CHMSC",
       "price": 7.99,
       "rating": 4.4,
-      "reviews": 64964
-     },
-     {
-      "rank": 19,
-      "title": "YARRAMATE 16 oz 2-in-1 Glass Olive Oil Sprayer for Cooking, Black | Food-grade d",
-      "asin": "B0CP4XY9QC",
-      "price": 8.99,
-      "rating": 4.4,
-      "reviews": 51307
-     },
-     {
-      "rank": 20,
-      "title": "TrendPlain 16oz Olive Oil Sprayer for Cooking, Silicone Pad, Black | Olive Oil D",
-      "asin": "B0CJF94M8J",
-      "price": 8.99,
-      "rating": 4.6,
-      "reviews": 49830
+      "reviews": 64982
      }
     ]
    },
@@ -903,7 +903,7 @@
       "asin": "B0FJN3BTPV",
       "price": 29.99,
       "rating": 4.6,
-      "reviews": 145292
+      "reviews": 145348
      },
      {
       "rank": 2,
@@ -911,7 +911,7 @@
       "asin": "B09FFQN924",
       "price": 39.99,
       "rating": 4.7,
-      "reviews": 3621
+      "reviews": 3625
      },
      {
       "rank": 3,
@@ -919,7 +919,7 @@
       "asin": "B0HD925Z4R",
       "price": 39.99,
       "rating": 4.6,
-      "reviews": 14379
+      "reviews": 14395
      },
      {
       "rank": 4,
@@ -927,7 +927,7 @@
       "asin": "B01LR5S6HK",
       "price": 26.85,
       "rating": 4.8,
-      "reviews": 15821
+      "reviews": 15822
      },
      {
       "rank": 5,
@@ -935,15 +935,15 @@
       "asin": "B08D66HCXW",
       "price": 19.99,
       "rating": 4.5,
-      "reviews": 37846
+      "reviews": 37858
      },
      {
       "rank": 6,
-      "title": "200 Card Sleeves Hard Plastic, Arjiekwei 3\"X 4\" Trading Card Holder, 35PT | Base",
-      "asin": "B0B7CCHPXK",
-      "price": 13.99,
-      "rating": 4.6,
-      "reviews": 8396
+      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
+      "asin": "B00D7H9LIA",
+      "price": 7.48,
+      "rating": 4.8,
+      "reviews": 20530
      },
      {
       "rank": 7,
@@ -951,39 +951,39 @@
       "asin": "B0007ZF4OA",
       "price": 26.51,
       "rating": 4.8,
-      "reviews": 52780
+      "reviews": 52790
      },
      {
       "rank": 8,
-      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
-      "asin": "B006QF3TW4",
-      "price": 30.99,
-      "rating": 4.8,
-      "reviews": 126203
+      "title": "200 Card Sleeves Hard Plastic, Arjiekwei 3\"X 4\" Trading Card Holder, 35PT | Base",
+      "asin": "B0B7CCHPXK",
+      "price": 13.99,
+      "rating": 4.6,
+      "reviews": 8402
      },
      {
       "rank": 9,
-      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
-      "asin": "B00D7H9LIA",
-      "price": 7.48,
-      "rating": 4.8,
-      "reviews": 20525
-     },
-     {
-      "rank": 10,
       "title": "Headlamp Rechargeable, 230° Wide Beam Head Lamp LED with Motion Sensor for Adult",
       "asin": "B0B4KJ3MWK",
       "price": 13.99,
       "rating": 4.4,
-      "reviews": 17670
+      "reviews": 17675
      },
      {
-      "rank": 11,
+      "rank": 10,
       "title": "WILSON NBA DRV Series Outdoor Basketballs",
       "asin": "B091MMRXCK",
       "price": 9.54,
       "rating": 4.6,
-      "reviews": 11371
+      "reviews": 11377
+     },
+     {
+      "rank": 11,
+      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
+      "asin": "B006QF3TW4",
+      "price": 13.75,
+      "rating": 4.8,
+      "reviews": 126208
      },
      {
       "rank": 12,
@@ -991,18 +991,26 @@
       "asin": "B0DHT5XZR1",
       "price": 24.99,
       "rating": 4.8,
-      "reviews": 8270
+      "reviews": 8274
      },
      {
       "rank": 13,
-      "title": "Fit Simplify Resistance Loop Exercise Bands with Instruction Guide and Carry Bag",
-      "asin": "B01AVDVHTI",
-      "price": 9.98,
+      "title": "HydroJug Sport 32 oz Insulated Stainless Steel Water Bottle, Mocha Tortoise | Ce",
+      "asin": "B0HKYH5TF2",
+      "price": 39.99,
       "rating": 4.5,
-      "reviews": 137540
+      "reviews": 6955
      },
      {
       "rank": 14,
+      "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
+      "asin": "B0CG65PYBV",
+      "price": 17.99,
+      "rating": 4.6,
+      "reviews": 9628
+     },
+     {
+      "rank": 15,
       "title": "Monopoly Deal NFL Edition Game | Officially Licensed NFL Card Game for Families ",
       "asin": "B0DVMHN3YS",
       "price": 3.49,
@@ -1010,28 +1018,20 @@
       "reviews": 652
      },
      {
-      "rank": 15,
-      "title": "Resistance Bands for Working Out, Physical Therapy, Exercise, Pilates, Yoga | La",
-      "asin": "B0C5M1YDKQ",
-      "price": 11.99,
-      "rating": 4.6,
-      "reviews": 8104
-     },
-     {
       "rank": 16,
-      "title": "HydroJug Sport 32 oz Insulated Stainless Steel Water Bottle, Mocha Tortoise | Ce",
-      "asin": "B0HKYH5TF2",
-      "price": 39.99,
+      "title": "Fit Simplify Resistance Loop Exercise Bands with Instruction Guide and Carry Bag",
+      "asin": "B01AVDVHTI",
+      "price": 9.98,
       "rating": 4.5,
-      "reviews": 6951
+      "reviews": 137547
      },
      {
       "rank": 17,
-      "title": "Dragon Shield | Standard Size Card Matte Sleeves | 100 CT - Smooth & Tough Premi",
-      "asin": "B00WX57O7M",
-      "price": 11.28,
-      "rating": 4.8,
-      "reviews": 40497
+      "title": "Large Hand & Body Warmers - Up to 18 Hours of Heat, Super Long Lasting - Easy, A",
+      "asin": "B09CXZSJGV",
+      "price": 29.99,
+      "rating": 4.5,
+      "reviews": 5564
      },
      {
       "rank": 18,
@@ -1039,23 +1039,23 @@
       "asin": "B01AAH8CMA",
       "price": 31.47,
       "rating": 4.8,
-      "reviews": 85510
+      "reviews": 85520
      },
      {
       "rank": 19,
+      "title": "Dragon Shield | Standard Size Card Matte Sleeves | 100 CT - Smooth & Tough Premi",
+      "asin": "B00WX57O7M",
+      "price": 11.28,
+      "rating": 4.8,
+      "reviews": 40499
+     },
+     {
+      "rank": 20,
       "title": "Gaiam Thick Yoga Mat, Exercise & Fitness Mat with Easy-Cinch Carrying Strap | No",
       "asin": "B07H9PZDQW",
       "price": 23.97,
       "rating": 4.6,
-      "reviews": 46925
-     },
-     {
-      "rank": 20,
-      "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
-      "asin": "B0CG65PYBV",
-      "price": 17.99,
-      "rating": 4.6,
-      "reviews": 9626
+      "reviews": 46928
      }
     ]
    }
