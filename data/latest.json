@@ -1,10 +1,10 @@
 {
  "version": 1,
- "generatedAt": "2026-11-12 00:52",
- "generatedDate": "2026-11-12",
+ "generatedAt": "2026-11-13 00:45",
+ "generatedDate": "2026-11-13",
  "douyin": {
-  "date": "2026-11-12",
-  "fetchedAt": "2026-11-12 00:52",
+  "date": "2026-11-13",
+  "fetchedAt": "2026-11-13 00:45",
   "source": "TikHub 抖音视频热榜（近 24 小时，按赛道关键词过滤）",
   "note": "排序为平台热度分（综合播放、互动、涨粉），不是单纯按播放量。",
   "tracks": [
@@ -16,61 +16,37 @@
       "rank": 1,
       "title": "我为你哭干了眼泪，你却始终面无表情。#手机里的告白 #情感语录墙纸",
       "author": "心软买教训",
-      "plays": 218968,
-      "likes": 24355,
-      "fansGain": 47,
-      "fans": 476,
-      "likeRate": 11.12,
+      "plays": 1510659,
+      "likes": 152647,
+      "fansGain": 422,
+      "fans": 475,
+      "likeRate": 10.1,
       "awemeId": "7705446173733154274",
       "url": "https://www.douyin.com/video/7705446173733154274"
      },
      {
       "rank": 2,
-      "title": "什么叫老爷们，雪峰老师给了很好的诠释！ #剪映 #语录 #文案 #情感语录  #人间清醒  @DOU+小助手",
-      "author": "江城波仔",
-      "plays": 604206,
-      "likes": 10778,
-      "fansGain": 59,
-      "fans": 21812,
-      "likeRate": 1.78,
-      "awemeId": "7705972419857544357",
-      "url": "https://www.douyin.com/video/7705972419857544357"
+      "title": "欲买桂花同载酒，终不似少年游#成年人的崩溃是无声的 #愿所有真心不被辜负 #情感共鸣 #情感语录",
+      "author": "烬中暖",
+      "plays": 1595431,
+      "likes": 32360,
+      "fansGain": 2834,
+      "fans": 790893,
+      "likeRate": 2.03,
+      "awemeId": "7706419664025670521",
+      "url": "https://www.douyin.com/video/7706419664025670521"
      },
      {
       "rank": 3,
-      "title": "儿女双全便是人生顶配#靳东 #情感语录 #二创配音",
-      "author": "户申语录",
-      "plays": 1292206,
-      "likes": 12499,
-      "fansGain": 158,
-      "fans": 9549,
-      "likeRate": 0.97,
-      "awemeId": "7705976281607784562",
-      "url": "https://www.douyin.com/video/7705976281607784562"
-     },
-     {
-      "rank": 4,
       "title": "你嫁过去  让他富起来那才算你有本事！ #剪映 #语录 #文案 #情感语录  #人间清醒  @DOU+小助手",
       "author": "江城波仔",
-      "plays": 291254,
-      "likes": 15684,
-      "fansGain": 113,
-      "fans": 21812,
-      "likeRate": 5.38,
+      "plays": 534487,
+      "likes": 27310,
+      "fansGain": 210,
+      "fans": 22011,
+      "likeRate": 5.11,
       "awemeId": "7704923145346298491",
       "url": "https://www.douyin.com/video/7704923145346298491"
-     },
-     {
-      "rank": 5,
-      "title": "欲买桂花同载酒，终不似少年游#成年人的崩溃是无声的 #愿所有真心不被辜负 #情感共鸣 #情感语录",
-      "author": "烬中暖",
-      "plays": 1035812,
-      "likes": 20750,
-      "fansGain": 1729,
-      "fans": 783066,
-      "likeRate": 2.0,
-      "awemeId": "7706419664025670521",
-      "url": "https://www.douyin.com/video/7706419664025670521"
      }
     ]
    },
@@ -82,49 +58,61 @@
       "rank": 1,
       "title": "宿舍进老鼠了，骗出来给它杀了 #宿舍整理日常 #沉浸式收拾房间",
       "author": "擒贼先擒王先生",
-      "plays": 4539211,
-      "likes": 230018,
-      "fansGain": 1068,
-      "fans": 3719,
-      "likeRate": 5.07,
+      "plays": 2708598,
+      "likes": 123551,
+      "fansGain": 1314,
+      "fans": 4428,
+      "likeRate": 4.56,
       "awemeId": "7705777224226335345",
       "url": "https://www.douyin.com/video/7705777224226335345"
      },
      {
       "rank": 2,
-      "title": "#全类目游戏服务平台@凌绝代售App    #沉浸式三角洲 #凌绝代售  #三角洲  #凌绝",
-      "author": "爱跑步的内个",
-      "plays": 2417363,
-      "likes": 141056,
-      "fansGain": 588,
-      "fans": 1422,
-      "likeRate": 5.84,
-      "awemeId": "7706091045527940544",
-      "url": "https://www.douyin.com/video/7706091045527940544"
+      "title": "#沉浸式军事博弈 良民证",
+      "author": "柳贯一",
+      "plays": 1496360,
+      "likes": 67614,
+      "fansGain": 290,
+      "fans": 571,
+      "likeRate": 4.52,
+      "awemeId": "7706455819974561905",
+      "url": "https://www.douyin.com/video/7706455819974561905"
      },
      {
       "rank": 3,
-      "title": "来自蒙古草原的咖啡机 #沉浸式做咖啡#咖啡教学 #搞笑配音 #呼麦",
-      "author": "威士忌冰美式",
-      "plays": 1497958,
-      "likes": 41947,
-      "fansGain": 99,
-      "fans": 180,
-      "likeRate": 2.8,
-      "awemeId": "7706186559250350159",
-      "url": "https://www.douyin.com/video/7706186559250350159"
+      "title": "今日沉浸式做抹茶！树莓！麻薯！巴斯克！梦龙柚子！爆浆！蛋糕！ #沉浸式做蛋糕 #nb蛋糕 #抹茶蛋糕 #蛋糕 #asmr",
+      "author": "来一口Noble",
+      "plays": 888457,
+      "likes": 35241,
+      "fansGain": 1427,
+      "fans": 1896230,
+      "likeRate": 3.97,
+      "awemeId": "7704879764758220082",
+      "url": "https://www.douyin.com/video/7704879764758220082"
      },
      {
       "rank": 4,
-      "title": "今日沉浸式做抹茶！树莓！麻薯！巴斯克！梦龙柚子！爆浆！蛋糕！ #沉浸式做蛋糕 #nb蛋糕 #抹茶蛋糕 #蛋糕 #asmr",
-      "author": "来一口Noble",
-      "plays": 1199563,
-      "likes": 52285,
-      "fansGain": 1800,
-      "fans": 1893653,
-      "likeRate": 4.36,
-      "awemeId": "7704879764758220082",
-      "url": "https://www.douyin.com/video/7704879764758220082"
+      "title": "澳洲高能量打工人沉浸式备餐的周末！ #留学生#备餐#美食vlog#海氏i7风炉烤箱#烤箱选海氏烘焙更省事",
+      "author": "Vickyyy小畅",
+      "plays": 2448946,
+      "likes": 175828,
+      "fansGain": 9006,
+      "fans": 2885543,
+      "likeRate": 7.18,
+      "awemeId": "7706550764746902810",
+      "url": "https://www.douyin.com/video/7706550764746902810"
+     },
+     {
+      "rank": 5,
+      "title": "来自蒙古草原的咖啡机 #沉浸式做咖啡#咖啡教学 #搞笑配音 #呼麦",
+      "author": "威士忌冰美式",
+      "plays": 738858,
+      "likes": 25921,
+      "fansGain": 62,
+      "fans": 203,
+      "likeRate": 3.51,
+      "awemeId": "7706186559250350159",
+      "url": "https://www.douyin.com/video/7706186559250350159"
      }
     ]
    },
@@ -134,51 +122,39 @@
     "items": [
      {
       "rank": 1,
-      "title": "#公牛科技 #公牛直播间",
-      "author": "母牛",
-      "plays": 1082759,
-      "likes": 17323,
-      "fansGain": 51,
-      "fans": 79,
-      "likeRate": 1.6,
-      "awemeId": "7705776475693802737",
-      "url": "https://www.douyin.com/video/7705776475693802737"
+      "title": "我真的特别爱你   2000赞直播 #小浣熊 #小浣熊跳舞",
+      "author": "小浣熊🦝",
+      "plays": 501639,
+      "likes": 39773,
+      "fansGain": 333,
+      "fans": 890,
+      "likeRate": 7.93,
+      "awemeId": "7706447719707124657",
+      "url": "https://www.douyin.com/video/7706447719707124657"
      },
      {
       "rank": 2,
-      "title": "#反差萌主播 #直播爆梗 #直播crush的双向奔赴 #大型嘴瓢现场 #搞笑互动直播间",
-      "author": "💞ℳ红鲤鱼与绿鲤鱼与驴༻ℳ",
-      "plays": 1245005,
-      "likes": 9933,
-      "fansGain": 85,
-      "fans": 619,
-      "likeRate": 0.8,
-      "awemeId": "7706232945870898075",
-      "url": "https://www.douyin.com/video/7706232945870898075"
+      "title": "我还以为真感冒了！ @何秋亊 #何秋亊 #土豆 #咳嗽 #顺拐舞 #直播录屏分享 @土豆🥔、",
+      "author": "菠萝头🍂",
+      "plays": 3172900,
+      "likes": 140200,
+      "fansGain": 217,
+      "fans": 1206,
+      "likeRate": 4.42,
+      "awemeId": "7706474251372993445",
+      "url": "https://www.douyin.com/video/7706474251372993445"
      },
      {
       "rank": 3,
-      "title": "跟这样的老板 大家感觉怎么样#直播名场面 #陈泽直播录屏 #刘回",
-      "author": "榔仕（吉林市珲春街店）",
-      "plays": 478701,
-      "likes": 16379,
-      "fansGain": 103,
-      "fans": 673,
-      "likeRate": 3.42,
-      "awemeId": "7704921508447208122",
-      "url": "https://www.douyin.com/video/7704921508447208122"
-     },
-     {
-      "rank": 4,
-      "title": "大半夜的要笑死在床上，王麻衣 #王麻衣 #王麻衣直播 #王麻衣直播录屏 #搞笑 #搞笑视频",
-      "author": "小红帽的狼外婆",
-      "plays": 695308,
-      "likes": 16482,
-      "fansGain": 229,
-      "fans": 6162,
-      "likeRate": 2.37,
-      "awemeId": "7704710919356483304",
-      "url": "https://www.douyin.com/video/7704710919356483304"
+      "title": "黑白爱豆 #直播名场面 #搞笑直播片段 #主播名场面 #互联网的包容性有多强",
+      "author": "陈泽--",
+      "plays": 1747610,
+      "likes": 54632,
+      "fansGain": 282,
+      "fans": 750,
+      "likeRate": 3.13,
+      "awemeId": "7706327938525835940",
+      "url": "https://www.douyin.com/video/7706327938525835940"
      }
     ]
    },
@@ -190,61 +166,49 @@
       "rank": 1,
       "title": "#读书才会有出路",
       "author": "涛涛",
-      "plays": 397213,
-      "likes": 4858,
-      "fansGain": 41,
-      "fans": 353,
-      "likeRate": 1.22,
+      "plays": 141717,
+      "likes": 1504,
+      "fansGain": 19,
+      "fans": 358,
+      "likeRate": 1.06,
       "awemeId": "7706401589381227513",
       "url": "https://www.douyin.com/video/7706401589381227513"
      },
      {
       "rank": 2,
-      "title": "#读书才会有出路 #教室唱歌",
-      "author": "小阿红",
-      "plays": 3136904,
-      "likes": 60237,
-      "fansGain": 1850,
-      "fans": 86614,
-      "likeRate": 1.92,
-      "awemeId": "7705265087216645861",
-      "url": "https://www.douyin.com/video/7705265087216645861"
+      "title": "艾特出你那个不爱读书的兄弟伙 问他读书还是喂猪",
+      "author": "陈诗思（万马人力）",
+      "plays": 174299,
+      "likes": 3823,
+      "fansGain": 69,
+      "fans": 34300,
+      "likeRate": 2.19,
+      "awemeId": "7706845050113640433",
+      "url": "https://www.douyin.com/video/7706845050113640433"
      },
      {
       "rank": 3,
-      "title": "普通孩子想逆天改命，方式就一个，趁父母还能供养你，沉下心来，全力以赴。读书不用拼人脉，也不用拼家底，父母替你扛起生活重担，留给你安心求学的窗口期。别虚度这珍贵光阴，愿意吃学习的苦，…",
-      "author": "小七育儿",
-      "plays": 1858794,
-      "likes": 10565,
-      "fansGain": 234,
-      "fans": 1694348,
-      "likeRate": 0.57,
-      "awemeId": "7706145951177597861",
-      "url": "https://www.douyin.com/video/7706145951177597861"
+      "title": "多读书增智慧，迷手机伤身体。放下手机关机拿起书#看书vs手机 #书本与手机 #放下手机拿起书 #未来的教科书 #正能量",
+      "author": "画仙赵景伟",
+      "plays": 2269861,
+      "likes": 10880,
+      "fansGain": 619,
+      "fans": 4486,
+      "likeRate": 0.48,
+      "awemeId": "7700107090502057906",
+      "url": "https://www.douyin.com/video/7700107090502057906"
      },
      {
       "rank": 4,
-      "title": "但凡小时候读书有钓鱼课，也不至于现在经常空军😂#钓鱼搞笑 #空军司令 #钓鱼人日常 #野钓",
-      "author": "小哥鱼乐记",
-      "plays": 935739,
-      "likes": 19798,
-      "fansGain": 112,
-      "fans": 32028,
-      "likeRate": 2.12,
-      "awemeId": "7706010658026064115",
-      "url": "https://www.douyin.com/video/7706010658026064115"
-     },
-     {
-      "rank": 5,
-      "title": "音乐一响，烦恼全忘。把课本里的压力，踩进欢快的舞步里，让孩子们身上有汗，眼里有光，脸上有笑，这就是云南孩子独有的大课间，民族打跳，跳的是快乐，传的是文化。#云南大课间打跳  #乡村…",
-      "author": "陇家湾程校长",
-      "plays": 9719477,
-      "likes": 75692,
-      "fansGain": 722,
-      "fans": 96062,
-      "likeRate": 0.78,
-      "awemeId": "7706122564443739200",
-      "url": "https://www.douyin.com/video/7706122564443739200"
+      "title": "#读书才会有出路 #教室唱歌",
+      "author": "小阿红",
+      "plays": 1440455,
+      "likes": 30995,
+      "fansGain": 871,
+      "fans": 88963,
+      "likeRate": 2.15,
+      "awemeId": "7705265087216645861",
+      "url": "https://www.douyin.com/video/7705265087216645861"
      }
     ]
    },
@@ -254,63 +218,51 @@
     "items": [
      {
       "rank": 1,
+      "title": "#男团炸街 #个性穿搭 #冬日街头潮流穿搭 #挑战冬日街头最靓穿搭 #棉服外套",
+      "author": "酷爵士男装",
+      "plays": 2126113,
+      "likes": 7725,
+      "fansGain": 116,
+      "fans": 463355,
+      "likeRate": 0.36,
+      "awemeId": "7705930161887301091",
+      "url": "https://www.douyin.com/video/7705930161887301091"
+     },
+     {
+      "rank": 2,
+      "title": "天冷加衣#超有感觉的穿搭",
+      "author": "借口",
+      "plays": 1537382,
+      "likes": 20989,
+      "fansGain": 71,
+      "fans": 1275,
+      "likeRate": 1.37,
+      "awemeId": "7706451184693717632",
+      "url": "https://www.douyin.com/video/7706451184693717632"
+     },
+     {
+      "rank": 3,
       "title": "#电梯穿搭日常",
       "author": "ㅤ     ㅤㅤ     ㅤ",
-      "plays": 7523138,
-      "likes": 174170,
-      "fansGain": 954,
-      "fans": 1713,
-      "likeRate": 2.32,
+      "plays": 5371739,
+      "likes": 104551,
+      "fansGain": 516,
+      "fans": 1825,
+      "likeRate": 1.95,
       "awemeId": "7705302419744179170",
       "url": "https://www.douyin.com/video/7705302419744179170"
      },
      {
-      "rank": 2,
-      "title": "在也不用担心🥶 #冬季穿搭 #寝室日常 #大学生活",
-      "author": "小黑羊",
-      "plays": 4882355,
-      "likes": 298037,
-      "fansGain": 707,
-      "fans": 854,
-      "likeRate": 6.1,
-      "awemeId": "7705827331379061931",
-      "url": "https://www.douyin.com/video/7705827331379061931"
-     },
-     {
-      "rank": 3,
-      "title": "喜欢哪一套  感觉下单吧#男生穿搭分享 @抖音热点 @抖音小助手",
-      "author": "ㅤㅤ  ㅤㅤㅤ  ︋︋︋︋︋ ㅤ",
-      "plays": 1758537,
-      "likes": 43090,
-      "fansGain": 154,
-      "fans": 178,
-      "likeRate": 2.45,
-      "awemeId": "7705673816148006058",
-      "url": "https://www.douyin.com/video/7705673816148006058"
-     },
-     {
       "rank": 4,
-      "title": "降温了又到了穿大衣的季节#大衣穿搭#穿搭思路分享#marthenaut#秋冬穿搭",
-      "author": "贾贾贾",
-      "plays": 1529501,
-      "likes": 73907,
-      "fansGain": 560,
-      "fans": 7255,
-      "likeRate": 4.83,
-      "awemeId": "7702761807978789050",
-      "url": "https://www.douyin.com/video/7702761807978789050"
-     },
-     {
-      "rank": 5,
-      "title": "#审美提升穿搭",
-      "author": "萌萌灬范儿",
-      "plays": 2193889,
-      "likes": 29903,
-      "fansGain": 160,
-      "fans": 346,
-      "likeRate": 1.36,
-      "awemeId": "7705879693979218875",
-      "url": "https://www.douyin.com/video/7705879693979218875"
+      "title": "@靠谱👟👔找啊木家的鞋工厂💯 #冬季医学生穿搭",
+      "author": "咪宝",
+      "plays": 1379162,
+      "likes": 46454,
+      "fansGain": 135,
+      "fans": 906,
+      "likeRate": 3.37,
+      "awemeId": "7706764943790794944",
+      "url": "https://www.douyin.com/video/7706764943790794944"
      }
     ]
    },
@@ -320,51 +272,63 @@
     "items": [
      {
       "rank": 1,
-      "title": "如果一个人每天都@你？那ta肯定是想让你学-历史越南战争 #高三历史#高中历史#高考历史#情感 #越南战争",
-      "author": "重八",
-      "plays": 2240166,
-      "likes": 65663,
-      "fansGain": 2154,
-      "fans": 528585,
-      "likeRate": 2.93,
-      "awemeId": "7702356377968102656",
-      "url": "https://www.douyin.com/video/7702356377968102656"
+      "title": "我的历史大题 我的历史大题",
+      "author": "黑黑大帅",
+      "plays": 3799092,
+      "likes": 372383,
+      "fansGain": 857,
+      "fans": 172777,
+      "likeRate": 9.8,
+      "awemeId": "7706491309582347365",
+      "url": "https://www.douyin.com/video/7706491309582347365"
      },
      {
       "rank": 2,
-      "title": "高市早苗“黑历史”曝光，曾嫌弃吐槽特朗普周边，日本网友：头号粉丝原来是装的#高市早苗 #特朗普  （编辑：唐港）",
-      "author": "新重庆-重庆日报",
-      "plays": 1054954,
-      "likes": 62765,
-      "fansGain": 264,
-      "fans": 2317887,
-      "likeRate": 5.95,
-      "awemeId": "7705292583156682047",
-      "url": "https://www.douyin.com/video/7705292583156682047"
+      "title": "#历史玩梗 #水浒传 #历史拟人 #野史也是史 #李逵",
+      "author": "O_o",
+      "plays": 1488997,
+      "likes": 54328,
+      "fansGain": 176,
+      "fans": 336,
+      "likeRate": 3.65,
+      "awemeId": "7706506481298228175",
+      "url": "https://www.douyin.com/video/7706506481298228175"
      },
      {
       "rank": 3,
       "title": "当年捞我的可是我亲师傅菩提老祖，监控总不能作假吧？#历史影像记忆 #监控下的一幕 #历史场景还原",
       "author": "踏云归［广西黑悟空]",
-      "plays": 3715071,
-      "likes": 24857,
-      "fansGain": 350,
-      "fans": 1689,
-      "likeRate": 0.67,
+      "plays": 2916972,
+      "likes": 47195,
+      "fansGain": 384,
+      "fans": 1693,
+      "likeRate": 1.62,
       "awemeId": "7706419587038736377",
       "url": "https://www.douyin.com/video/7706419587038736377"
      },
      {
       "rank": 4,
-      "title": "刘关张三兄弟三顾茅庐请丞相 #桃园三结义  #野史 #三顾茅庐  #历史神剧情名场面  #大历史小故事",
-      "author": "在人间凑数.",
-      "plays": 1860793,
-      "likes": 11354,
-      "fansGain": 83,
-      "fans": 205,
-      "likeRate": 0.61,
-      "awemeId": "7706104701234251193",
-      "url": "https://www.douyin.com/video/7706104701234251193"
+      "title": "有的人在笑，有的人在回忆#火箭浣熊 #二战历史 #灭建国 #漫威大学 #校园生活记录",
+      "author": "阿正不歪",
+      "plays": 3434078,
+      "likes": 100104,
+      "fansGain": 793,
+      "fans": 1504,
+      "likeRate": 2.92,
+      "awemeId": "7706627539264154745",
+      "url": "https://www.douyin.com/video/7706627539264154745"
+     },
+     {
+      "rank": 5,
+      "title": "#铭记历史珍爱和平 #树立正确历史观 #国家重大纪念日 #爱国精神传承 #11月11日",
+      "author": "天地",
+      "plays": 1812143,
+      "likes": 89198,
+      "fansGain": 129,
+      "fans": 172,
+      "likeRate": 4.92,
+      "awemeId": "7706667531004594506",
+      "url": "https://www.douyin.com/video/7706667531004594506"
      }
     ]
    },
@@ -374,51 +338,63 @@
     "items": [
      {
       "rank": 1,
+      "title": "我再最后问你100遍， 这更安全、更经济、更绿色、更易运维的核反应堆，你是不是诚心想要？#核反应堆 #核电 #带货 #",
+      "author": "中广核研究院",
+      "plays": 532604,
+      "likes": 32513,
+      "fansGain": 2914,
+      "fans": 59673,
+      "likeRate": 6.1,
+      "awemeId": "7706459692435836186",
+      "url": "https://www.douyin.com/video/7706459692435836186"
+     },
+     {
+      "rank": 2,
       "title": "用这方法可以作出真人感带货视频 #真人感skill#服装带货 #Ai真人 #libtv",
       "author": "剪片小瓜",
-      "plays": 1147674,
-      "likes": 16224,
-      "fansGain": 1486,
-      "fans": 264413,
-      "likeRate": 1.41,
+      "plays": 1042387,
+      "likes": 15728,
+      "fansGain": 1743,
+      "fans": 265962,
+      "likeRate": 1.51,
       "awemeId": "7702687378229653617",
       "url": "https://www.douyin.com/video/7702687378229653617"
      },
      {
-      "rank": 2,
-      "title": "反向直播带货 自己品牌都不放过#陈泽 #mevsme",
-      "author": "陈泽-",
-      "plays": 311204,
-      "likes": 11599,
-      "fansGain": 100,
-      "fans": 2043127,
-      "likeRate": 3.73,
-      "awemeId": "7705418960967150409",
-      "url": "https://www.douyin.com/video/7705418960967150409"
-     },
-     {
       "rank": 3,
-      "title": "700万元的地毯你见过吗？进博会伊朗馆展出一条黄金地毯，用了2.5公斤黄金，制作花了3年，伊朗小姐姐用流利中文现场带货#媒体原创 #媒体精选计划 #黄金（编辑：田园）",
-      "author": "潇湘晨报·晨视频",
-      "plays": 2927193,
-      "likes": 11842,
-      "fansGain": 228,
-      "fans": 19068270,
-      "likeRate": 0.4,
-      "awemeId": "7705088904902233353",
-      "url": "https://www.douyin.com/video/7705088904902233353"
+      "title": "这是不是你和闺蜜爱看的带货视频 快艾特闺蜜来看#慧慧饱饱#内容过于真实 #模仿",
+      "author": "慧慧饱饱",
+      "plays": 267739,
+      "likes": 6737,
+      "fansGain": 109,
+      "fans": 4563857,
+      "likeRate": 2.52,
+      "awemeId": "7704263941567940986",
+      "url": "https://www.douyin.com/video/7704263941567940986"
      },
      {
       "rank": 4,
-      "title": "这是不是你和闺蜜爱看的带货视频 快艾特闺蜜来看#慧慧饱饱#内容过于真实 #模仿",
+      "title": "这是不是你和闺蜜爱看的带货视频#慧慧饱饱 #模仿 #带货视频 #成功女人",
       "author": "慧慧饱饱",
-      "plays": 156519,
-      "likes": 4532,
-      "fansGain": 58,
-      "fans": 4563787,
-      "likeRate": 2.9,
-      "awemeId": "7704263941567940986",
-      "url": "https://www.douyin.com/video/7704263941567940986"
+      "plays": 131618,
+      "likes": 3638,
+      "fansGain": 60,
+      "fans": 4563857,
+      "likeRate": 2.76,
+      "awemeId": "7697958901018414377",
+      "url": "https://www.douyin.com/video/7697958901018414377"
+     },
+     {
+      "rank": 5,
+      "title": "《反向带货》@孙恩盛 #孙恩盛 #直播录屏分享 #搞笑 #盛放高光剪辑大赛",
+      "author": "咪兔🌱",
+      "plays": 67578,
+      "likes": 3755,
+      "fansGain": 7,
+      "fans": 2603,
+      "likeRate": 5.56,
+      "awemeId": "7705289054149432226",
+      "url": "https://www.douyin.com/video/7705289054149432226"
      }
     ]
    }
@@ -426,8 +402,8 @@
   "pending": []
  },
  "amazon": {
-  "date": "2026-11-12",
-  "fetchedAt": "2026-11-12 00:52",
+  "date": "2026-11-13",
+  "fetchedAt": "2026-11-13 00:45",
   "source": "Amazon Best Sellers（公开页面解析）",
   "note": "Actions 是机房 IP，可能被反爬；失败会沿用上次数据。",
   "categories": [
@@ -441,23 +417,23 @@
       "asin": "B005OB3E30",
       "price": 22.86,
       "rating": 4.7,
-      "reviews": 55854
+      "reviews": 55865
      },
      {
       "rank": 2,
-      "title": "Dr. Elsey's Ultra UnScented Clumping Clay Cat Litter 40 lb. Bag",
-      "asin": "B0009X29WK",
-      "price": 22.99,
-      "rating": 4.3,
-      "reviews": 97766
-     },
-     {
-      "rank": 3,
       "title": "Amazon Basics Leak-Proof Dog and Puppy Potty Training Pee Pads with Quick-Dry 5-",
       "asin": "B00MW8G62E",
       "price": 20.99,
       "rating": 4.4,
-      "reviews": 220877
+      "reviews": 220879
+     },
+     {
+      "rank": 3,
+      "title": "Dr. Elsey's Ultra UnScented Clumping Clay Cat Litter 40 lb. Bag",
+      "asin": "B0009X29WK",
+      "price": 22.99,
+      "rating": 4.3,
+      "reviews": 97784
      },
      {
       "rank": 4,
@@ -465,7 +441,7 @@
       "asin": "B00BSYR7K8",
       "price": 14.99,
       "rating": 4.8,
-      "reviews": 250000
+      "reviews": 250039
      },
      {
       "rank": 5,
@@ -473,7 +449,7 @@
       "asin": "B01LNB6SA0",
       "price": 14.94,
       "rating": 4.8,
-      "reviews": 74065
+      "reviews": 74079
      },
      {
       "rank": 6,
@@ -481,7 +457,7 @@
       "asin": "B07D323MFZ",
       "price": 32.96,
       "rating": 4.9,
-      "reviews": 13994
+      "reviews": 14009
      },
      {
       "rank": 7,
@@ -489,18 +465,26 @@
       "asin": "B089LLHMQL",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 42176
+      "reviews": 42200
      },
      {
       "rank": 8,
+      "title": "Blue Buffalo Health Bars Pumpkin & Cinnamon Dog Biscuits, 16 oz | Oven-Baked, Cr",
+      "asin": "B003P9XG68",
+      "price": 4.98,
+      "rating": 4.7,
+      "reviews": 10301
+     },
+     {
+      "rank": 9,
       "title": "Purina Pro Plan Complete Essentials Chicken & Rice Dry Dog Food, 35 lb Bag | Shr",
       "asin": "B001QCKS4O",
       "price": 74.48,
       "rating": 4.6,
-      "reviews": 16570
+      "reviews": 16571
      },
      {
-      "rank": 9,
+      "rank": 10,
       "title": "Purina ONE Lamb and Rice Formula Dry Dog Food for Digestive Support | Dog food w",
       "asin": "B009IOCCD2",
       "price": 48.98,
@@ -508,20 +492,12 @@
       "reviews": 24045
      },
      {
-      "rank": 10,
+      "rank": 11,
       "title": "Milk-Bone Original Biscuits Large Dog Treats, 10 Lb.",
       "asin": "B0018CLXTG",
       "price": 14.98,
       "rating": 4.8,
-      "reviews": 83765
-     },
-     {
-      "rank": 11,
-      "title": "Blue Buffalo Health Bars Pumpkin & Cinnamon Dog Biscuits, 16 oz | Oven-Baked, Cr",
-      "asin": "B003P9XG68",
-      "price": 4.98,
-      "rating": 4.7,
-      "reviews": 10296
+      "reviews": 83778
      },
      {
       "rank": 12,
@@ -529,7 +505,7 @@
       "asin": "B07NHL31CC",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 71568
+      "reviews": 71608
      },
      {
       "rank": 13,
@@ -537,47 +513,47 @@
       "asin": "B07C22NTL4",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 49742
+      "reviews": 49740
      },
      {
       "rank": 14,
-      "title": "Sheba Perfect Portions Cuts Wet Cat Food, Multipack, 2.6 oz, 24 ct | Chicken, Sa",
-      "asin": "B072DTFZHL",
-      "price": 27.96,
-      "rating": 4.7,
-      "reviews": 21259
-     },
-     {
-      "rank": 15,
       "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
       "asin": "B09K8YYVWV",
       "price": 14.97,
       "rating": 4.7,
-      "reviews": 29878
+      "reviews": 29883
+     },
+     {
+      "rank": 15,
+      "title": "Sheba Perfect Portions Cuts Wet Cat Food, Multipack, 2.6 oz, 24 ct | Chicken, Sa",
+      "asin": "B072DTFZHL",
+      "price": 27.96,
+      "rating": 4.7,
+      "reviews": 21264
      },
      {
       "rank": 16,
-      "title": "Purina Pro Plan Sensitive Skin & Stomach Dry Dog Food, Salmon, 30 lb Bag | Real ",
-      "asin": "B01EY9KQ2Y",
-      "price": 77.48,
-      "rating": 4.5,
-      "reviews": 23919
-     },
-     {
-      "rank": 17,
-      "title": "Purina Pro Plan Veterinary Supplements FortiFlora Dog Probiotic Supplement | For",
-      "asin": "B001650NNW",
-      "price": 30.99,
-      "rating": 4.7,
-      "reviews": 50221
-     },
-     {
-      "rank": 18,
       "title": "Amazon Basics Dog Poop Leak Proof Bags with Dispenser and Leash Clip, Unscented,",
       "asin": "B00NABTC8M",
       "price": 11.24,
       "rating": 4.8,
-      "reviews": 246045
+      "reviews": 246097
+     },
+     {
+      "rank": 17,
+      "title": "Purina Pro Plan Sensitive Skin & Stomach Dry Dog Food, Salmon, 30 lb Bag | Real ",
+      "asin": "B01EY9KQ2Y",
+      "price": 77.48,
+      "rating": 4.5,
+      "reviews": 23924
+     },
+     {
+      "rank": 18,
+      "title": "Purina Pro Plan Veterinary Supplements FortiFlora Dog Probiotic Supplement | For",
+      "asin": "B001650NNW",
+      "price": 30.99,
+      "rating": 4.7,
+      "reviews": 50228
      },
      {
       "rank": 19,
@@ -585,15 +561,15 @@
       "asin": "B07S2TDDCK",
       "price": 19.96,
       "rating": 4.8,
-      "reviews": 22947
+      "reviews": 22952
      },
      {
       "rank": 20,
-      "title": "Greenies Teenie Original Natural Dental Dog Treats, Chicken, 130 Count | Veterin",
-      "asin": "B006W6YHYQ",
-      "price": 36.99,
-      "rating": 4.8,
-      "reviews": 76030
+      "title": "Purina ONE Tender Selects Dry Cat Food, Salmon, 7 lb Bag | Real salmon is the #1",
+      "asin": "B000R4H2MI",
+      "price": 17.46,
+      "rating": 4.7,
+      "reviews": 27494
      }
     ]
    },
@@ -603,11 +579,11 @@
     "items": [
      {
       "rank": 1,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Shy Marshmallow",
-      "asin": "B085DV8T75",
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Denim | 2-in-1 Sip or Swig Spou",
+      "asin": "B0BZYCJK89",
       "price": 29.99,
       "rating": 4.6,
-      "reviews": 145489
+      "reviews": 145588
      },
      {
       "rank": 2,
@@ -615,7 +591,7 @@
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16068
+      "reviews": 16102
      },
      {
       "rank": 3,
@@ -623,7 +599,7 @@
       "asin": "B0CYJBB2JQ",
       "price": 19.99,
       "rating": 4.2,
-      "reviews": 22652
+      "reviews": 22695
      },
      {
       "rank": 4,
@@ -631,14 +607,14 @@
       "asin": "B09WXZWSN3",
       "price": 9.99,
       "rating": 4.7,
-      "reviews": 8132
+      "reviews": 8134
      },
      {
       "rank": 5,
       "title": "Meat Thermometer Digital, 1-2 Sec Instant Read, Stocking Stuffers for Men | Brig",
       "asin": "B0GVM8N2CK",
       "price": 9.97,
-      "rating": 4.7,
+      "rating": 4.8,
       "reviews": 3097
      },
      {
@@ -647,15 +623,15 @@
       "asin": "B0H2FQ5FV1",
       "price": 39.99,
       "rating": 4.6,
-      "reviews": 21358
+      "reviews": 21391
      },
      {
       "rank": 7,
-      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
-      "asin": "B07YP2VH4B",
-      "price": 15.99,
-      "rating": 4.6,
-      "reviews": 90254
+      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
+      "asin": "B08J8GZXKZ",
+      "price": 11.49,
+      "rating": 4.7,
+      "reviews": 14445
      },
      {
       "rank": 8,
@@ -663,15 +639,15 @@
       "asin": "B00S93EQUK",
       "price": 12.31,
       "rating": 4.8,
-      "reviews": 93339
+      "reviews": 94593
      },
      {
       "rank": 9,
-      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
-      "asin": "B08J8GZXKZ",
-      "price": 11.49,
-      "rating": 4.7,
-      "reviews": 14440
+      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
+      "asin": "B07YP2VH4B",
+      "price": 15.99,
+      "rating": 4.6,
+      "reviews": 90270
      },
      {
       "rank": 10,
@@ -679,7 +655,7 @@
       "asin": "B0113UZJE2",
       "price": 13.99,
       "rating": 4.6,
-      "reviews": 178337
+      "reviews": 178355
      },
      {
       "rank": 11,
@@ -687,7 +663,7 @@
       "asin": "B0B6PLG6G2",
       "price": 8.99,
       "rating": 4.6,
-      "reviews": 34212
+      "reviews": 34222
      },
      {
       "rank": 12,
@@ -695,7 +671,7 @@
       "asin": "B0CJZW65R3",
       "price": null,
       "rating": 4.7,
-      "reviews": 207518
+      "reviews": 207566
      },
      {
       "rank": 13,
@@ -703,7 +679,7 @@
       "asin": "B07PFYT8MC",
       "price": 3.59,
       "rating": 4.8,
-      "reviews": 24015
+      "reviews": 24025
      },
      {
       "rank": 14,
@@ -711,47 +687,47 @@
       "asin": "B07PZF3QS3",
       "price": 9.99,
       "rating": 4.8,
-      "reviews": 73023
+      "reviews": 73029
      },
      {
       "rank": 15,
+      "title": "Owala FreeSip Sway Stainless Steel Water Bottle 30 oz Black Cherry | 2-in-1 Sip ",
+      "asin": "B0FK124QCT",
+      "price": 34.99,
+      "rating": 4.6,
+      "reviews": 14465
+     },
+     {
+      "rank": 16,
       "title": "Pureegg Plastic Table Cloth Disposable 54x108 Inch 10 Pack, White | Picnic, Wedd",
       "asin": "B0CBM682SQ",
       "price": 9.99,
       "rating": 4.5,
-      "reviews": 7831
-     },
-     {
-      "rank": 16,
-      "title": "Owala FreeSip Sway Stainless Steel Water Bottle 30 oz Black Cherry",
-      "asin": "B0FK124QCT",
-      "price": 34.99,
-      "rating": 4.6,
-      "reviews": 14430
+      "reviews": 7840
      },
      {
       "rank": 17,
+      "title": "Fall Thanksgiving Decorations Terracotta Cheesecloth Table Runner 120 Inch | For",
+      "asin": "B0C7KSGVRM",
+      "price": 9.99,
+      "rating": 4.7,
+      "reviews": 4510
+     },
+     {
+      "rank": 18,
       "title": "Air Fryer Liners Disposable, Unbleached Parchment Paper Baking Liners | Non-Stic",
       "asin": "B0C6Y8NYK1",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 29459
-     },
-     {
-      "rank": 18,
-      "title": "Turelar Immersion Blender Handheld Corded, 1100W 5 in 1 Hand Blender Set | Trigg",
-      "asin": "B0CPLVLFK2",
-      "price": 39.99,
-      "rating": 4.5,
-      "reviews": 8464
+      "reviews": 29489
      },
      {
       "rank": 19,
-      "title": "Amazon Basics Digital Kitchen Scale with LCD Display, Tare Function, Multiple Un",
-      "asin": "B06X9NQ8GX",
-      "price": 11.14,
-      "rating": 4.7,
-      "reviews": 120340
+      "title": "Turelar Immersion Blender Corded 400W, 2 Speed, Emulsifier, Blend, BPA-Free | Ha",
+      "asin": "B0FSZSKB92",
+      "price": 18.88,
+      "rating": 4.6,
+      "reviews": 1757
      },
      {
       "rank": 20,
@@ -759,7 +735,7 @@
       "asin": "B073WJMKHN",
       "price": 35.0,
       "rating": 4.8,
-      "reviews": 155916
+      "reviews": 155931
      }
     ]
    },
@@ -769,19 +745,19 @@
     "items": [
      {
       "rank": 1,
-      "title": "Amazon Basics Slim Velvet Non-Slip Space Saving Suit Clothes Hangers, Closet Org",
-      "asin": "B00FXNAAW2",
-      "price": 17.99,
-      "rating": 4.8,
-      "reviews": 239109
-     },
-     {
-      "rank": 2,
       "title": "Amazon Basics Lightweight Super Soft Easy Care Wrinkle Free Microfiber 3 Piece B",
       "asin": "B00Q7OAW1U",
       "price": 11.29,
       "rating": 4.5,
-      "reviews": 482156
+      "reviews": 482326
+     },
+     {
+      "rank": 2,
+      "title": "Amazon Basics Slim Velvet Non-Slip Space Saving Suit Clothes Hangers, Closet Org",
+      "asin": "B00FXNAAW2",
+      "price": 17.99,
+      "rating": 4.8,
+      "reviews": 239258
      },
      {
       "rank": 3,
@@ -789,23 +765,23 @@
       "asin": "B08QRFZ6TH",
       "price": 8.95,
       "rating": 4.5,
-      "reviews": 102745
+      "reviews": 102861
      },
      {
       "rank": 4,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Denim",
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Denim | 2-in-1 Sip or Swig Spou",
       "asin": "B0BZYCJK89",
       "price": 29.99,
       "rating": 4.6,
-      "reviews": 145292
+      "reviews": 145588
      },
      {
       "rank": 5,
-      "title": "Queen Size 4 Piece Sheet Set - Comfy Breathable & Cooling Sheets - White | Hotel",
+      "title": "Queen Size 4 Piece Sheet Set - Warm, Cozy & Breathable Sheets - White | Hotel Lu",
       "asin": "B01M16WBW1",
       "price": 24.99,
       "rating": 4.5,
-      "reviews": 466589
+      "reviews": 464211
      },
      {
       "rank": 6,
@@ -813,79 +789,79 @@
       "asin": "B0BQR2BQYZ",
       "price": 6.99,
       "rating": 4.4,
-      "reviews": 45094
+      "reviews": 45162
      },
      {
       "rank": 7,
-      "title": "BigFoot Clear Shower Curtain - 72x72 Odorless Plastic with Magnets, Washable Lon",
-      "asin": "B08CRPWQHB",
-      "price": 9.98,
-      "rating": 4.5,
-      "reviews": 60146
-     },
-     {
-      "rank": 8,
-      "title": "Zevo Flying Insect Trap Refill Cartridges for Fruit Flies & Gnats, 6 Count | Fit",
-      "asin": "B0CTQDTF1V",
-      "price": 21.97,
-      "rating": 4.8,
-      "reviews": 10357
-     },
-     {
-      "rank": 9,
       "title": "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless | Deep ",
       "asin": "B0C1NM42PN",
       "price": 26.99,
       "rating": 4.6,
-      "reviews": 29342
+      "reviews": 29474
+     },
+     {
+      "rank": 8,
+      "title": "Zevo Flying Insect Trap Refill Cartridges for Fruit Flies & Gnats, 4 Count | Fit",
+      "asin": "B0C3FTCYZL",
+      "price": 14.97,
+      "rating": 4.8,
+      "reviews": 38899
+     },
+     {
+      "rank": 9,
+      "title": "Yankee Candle Spiced Pumpkin Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
+      "asin": "B0F3DRTCB2",
+      "price": 33.99,
+      "rating": 4.2,
+      "reviews": 1910
      },
      {
       "rank": 10,
-      "title": "Yankee Candle Spiced Pumpkin Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
-      "asin": "B0F3DRTCB2",
-      "price": 13.49,
-      "rating": 4.2,
-      "reviews": 1890
+      "title": "BigFoot Clear Shower Curtain - 72x72 Odorless Plastic with Magnets, Washable Lon",
+      "asin": "B08CRPWQHB",
+      "price": 11.99,
+      "rating": 4.5,
+      "reviews": 60200
      },
      {
       "rank": 11,
+      "title": "Yankee Candle Balsam & Cedar Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
+      "asin": "B0F3DPXQP1",
+      "price": 14.99,
+      "rating": 4.6,
+      "reviews": 2887
+     },
+     {
+      "rank": 12,
       "title": "Owala SmoothSip Slider Insulated Stainless Steel Coffee Tumbler, Reusable Iced C",
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16042
-     },
-     {
-      "rank": 12,
-      "title": "Levoit Top Fill Humidifiers for Bedroom, 2.5L Tank for Large Room, 25dB | Easy t",
-      "asin": "B0C2C9NHZW",
-      "price": 39.99,
-      "rating": 4.4,
-      "reviews": 64332
+      "reviews": 16102
      },
      {
       "rank": 13,
-      "title": "Niagara Sleep Solution Queen Ultra Soft Mattress Topper — Back Pain Relief | Ray",
-      "asin": "B0FVYBPSWY",
-      "price": 39.99,
-      "rating": 4.3,
-      "reviews": 63306
+      "title": "MIULEE 18x18 Throw Pillows Inserts 2 Pack, Decorative Pillows for Couch Bed | 10",
+      "asin": "B0DXKC5G3H",
+      "price": 13.99,
+      "rating": 4.4,
+      "reviews": 5781
      },
      {
       "rank": 14,
-      "title": "GODONLIF Candle Warmer Lamp with Timer, Birthday Gifts for Women Home Decor | 24",
-      "asin": "B0CTJGJL2T",
-      "price": 17.99,
-      "rating": 4.6,
-      "reviews": 11972
-     },
-     {
-      "rank": 15,
       "title": "Bedsure GentleSoft White Throw Blanket for Couch - Christmas Thanksgiving Decora",
       "asin": "B0BPLB81LX",
       "price": 13.49,
       "rating": 4.6,
-      "reviews": 28869
+      "reviews": 28962
+     },
+     {
+      "rank": 15,
+      "title": "GODONLIF Candle Warmer Lamp with Timer, Birthday Gifts for Women Home Decor | 24",
+      "asin": "B0CTJGJL2T",
+      "price": 17.99,
+      "rating": 4.6,
+      "reviews": 12044
      },
      {
       "rank": 16,
@@ -893,39 +869,39 @@
       "asin": "B0CYJBB2JQ",
       "price": 19.99,
       "rating": 4.2,
-      "reviews": 22588
+      "reviews": 22695
      },
      {
       "rank": 17,
-      "title": "MIULEE 18x18 Throw Pillows Inserts 2 Pack, Decorative Pillows for Couch Bed | 10",
-      "asin": "B0DXKC5G3H",
-      "price": 13.99,
-      "rating": 4.4,
-      "reviews": 5741
-     },
-     {
-      "rank": 18,
       "title": "Zevo Flying Insect Trap for Fruit Flies & Gnats, 1 Plug-In Base & 3 Refills | Ca",
       "asin": "B0CKY689WQ",
       "price": 25.96,
       "rating": 4.2,
-      "reviews": 92355
+      "reviews": 92491
+     },
+     {
+      "rank": 18,
+      "title": "Keurig K-Express Single Serve K-Cup Pod Coffee Maker, Black | 3 Brew Sizes, 42oz",
+      "asin": "B09715G57M",
+      "price": 59.99,
+      "rating": 4.3,
+      "reviews": 52989
      },
      {
       "rank": 19,
-      "title": "Yankee Candle Balsam & Cedar Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
-      "asin": "B0F3DPXQP1",
-      "price": 14.99,
-      "rating": 4.6,
-      "reviews": 2861
+      "title": "Fall Table Runner Terracotta Cheesecloth Boho Wedding Thanksgiving Decor | Frien",
+      "asin": "B09WXZWSN3",
+      "price": 9.99,
+      "rating": 4.7,
+      "reviews": 8134
      },
      {
       "rank": 20,
-      "title": "Amazon Basics 20x20x1 Air Filter 6-Pack, MERV 11 AC Furnace Filters, Dust, Pet, ",
-      "asin": "B088BWBD95",
-      "price": 36.42,
-      "rating": 4.7,
-      "reviews": 7784
+      "title": "Niagara Sleep Solution Queen Ultra Soft Mattress Topper — Back Pain Relief | Ray",
+      "asin": "B0FVYBPSWY",
+      "price": 39.99,
+      "rating": 4.3,
+      "reviews": 63507
      }
     ]
    },
@@ -935,43 +911,43 @@
     "items": [
      {
       "rank": 1,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Punch Line | Triple-Layer Insul",
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Punch Line | 2-in-1 Sip or Swig",
       "asin": "B0HD9DDVKS",
-      "price": 29.74,
+      "price": 34.99,
       "rating": 4.6,
-      "reviews": 145489
+      "reviews": 145588
      },
      {
       "rank": 2,
+      "title": "Owala FreeSip Sway Stainless Steel Water Bottle 30 oz Sweet Talk | 2-in-1 Sip or",
+      "asin": "B0HD925Z4R",
+      "price": 39.99,
+      "rating": 4.6,
+      "reviews": 14465
+     },
+     {
+      "rank": 3,
       "title": "Aquatabs Water Purification Tablets, 397mg 100 Pack, Camping & Emergency | Water",
       "asin": "B09FFQN924",
       "price": 39.99,
       "rating": 4.7,
-      "reviews": 3632
-     },
-     {
-      "rank": 3,
-      "title": "Owala FreeSip Sway Stainless Steel Water Bottle 30 oz Sweet Talk",
-      "asin": "B0HD925Z4R",
-      "price": 39.99,
-      "rating": 4.6,
-      "reviews": 14430
+      "reviews": 3633
      },
      {
       "rank": 4,
-      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
-      "asin": "B01LR5S6HK",
-      "price": 26.85,
-      "rating": 4.8,
-      "reviews": 15830
-     },
-     {
-      "rank": 5,
       "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
       "asin": "B00D7H9LIA",
       "price": 7.48,
       "rating": 4.8,
-      "reviews": 20535
+      "reviews": 20546
+     },
+     {
+      "rank": 5,
+      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
+      "asin": "B01LR5RG08",
+      "price": 9.91,
+      "rating": 4.8,
+      "reviews": 13411
      },
      {
       "rank": 6,
@@ -979,31 +955,31 @@
       "asin": "B08D66HCXW",
       "price": 19.99,
       "rating": 4.5,
-      "reviews": 37877
+      "reviews": 37900
      },
      {
       "rank": 7,
       "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
       "asin": "B0007ZF4OA",
-      "price": 25.91,
+      "price": 25.6,
       "rating": 4.8,
-      "reviews": 52800
+      "reviews": 52803
      },
      {
       "rank": 8,
+      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
+      "asin": "B006QF3TW4",
+      "price": 16.69,
+      "rating": 4.8,
+      "reviews": 126229
+     },
+     {
+      "rank": 9,
       "title": "200 Card Sleeves Hard Plastic, Arjiekwei 3\"X 4\" Trading Card Holder, 35PT | Base",
       "asin": "B0B7CCHPXK",
       "price": 13.99,
       "rating": 4.6,
-      "reviews": 8427
-     },
-     {
-      "rank": 9,
-      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
-      "asin": "B006QF3TW4",
-      "price": 17.97,
-      "rating": 4.8,
-      "reviews": 126220
+      "reviews": 8440
      },
      {
       "rank": 10,
@@ -1011,7 +987,7 @@
       "asin": "B0B4KJ3MWK",
       "price": 13.99,
       "rating": 4.4,
-      "reviews": 17697
+      "reviews": 17722
      },
      {
       "rank": 11,
@@ -1019,7 +995,7 @@
       "asin": "B0DHT5XZR1",
       "price": 24.99,
       "rating": 4.8,
-      "reviews": 8281
+      "reviews": 8286
      },
      {
       "rank": 12,
@@ -1027,31 +1003,31 @@
       "asin": "B091MMRXCK",
       "price": 9.54,
       "rating": 4.6,
-      "reviews": 11386
+      "reviews": 11393
      },
      {
       "rank": 13,
-      "title": "HydroJug Sport 32 oz Insulated Stainless Steel Water Bottle, Mocha Tortoise | Ce",
-      "asin": "B0HKYH5TF2",
-      "price": 39.99,
-      "rating": 4.5,
-      "reviews": 6966
-     },
-     {
-      "rank": 14,
       "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
       "asin": "B0CG65PYBV",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 9637
+      "reviews": 9645
+     },
+     {
+      "rank": 14,
+      "title": "HydroJug Sport 32 oz Insulated Stainless Steel Water Bottle, Mocha Tortoise | Ce",
+      "asin": "B0HKYH5TF2",
+      "price": 39.99,
+      "rating": 4.5,
+      "reviews": 6971
      },
      {
       "rank": 15,
-      "title": "HotHands Variety Pack - America's Favorite Warmer | Air-Activated, Long-Lasting,",
-      "asin": "B004R1J464",
-      "price": 11.99,
-      "rating": 4.8,
-      "reviews": 12638
+      "title": "Gaiam Thick Yoga Mat, Exercise & Fitness Mat with Easy-Cinch Carrying Strap | No",
+      "asin": "B07H9PDL2Y",
+      "price": 21.23,
+      "rating": 4.6,
+      "reviews": 46939
      },
      {
       "rank": 16,
@@ -1059,39 +1035,39 @@
       "asin": "B01AAH8CMA",
       "price": 31.47,
       "rating": 4.8,
-      "reviews": 85535
+      "reviews": 85555
      },
      {
       "rank": 17,
-      "title": "Dragon Shield | Standard Size Card Matte Sleeves | 100 CT - Smooth & Tough Premi",
-      "asin": "B00WX57O7M",
-      "price": 11.0,
+      "title": "HotHands Variety Pack - America's Favorite Warmer | Air-Activated, Long-Lasting,",
+      "asin": "B004R1J464",
+      "price": 11.99,
       "rating": 4.8,
-      "reviews": 40510
+      "reviews": 12640
      },
      {
       "rank": 18,
-      "title": "Gaiam Thick Yoga Mat, Exercise & Fitness Mat with Easy-Cinch Carrying Strap | No",
-      "asin": "B07H9PDL2Y",
-      "price": 21.23,
-      "rating": 4.6,
-      "reviews": 46932
-     },
-     {
-      "rank": 19,
-      "title": "Cool Coolers by Fit & Fresh 4 Pack XL Slim Ice Packs, Quick Freeze Space Saving ",
-      "asin": "B07CTXRKH8",
-      "price": 6.97,
-      "rating": 4.6,
-      "reviews": 50932
-     },
-     {
-      "rank": 20,
       "title": "INTEX 22in Queen Dura-Beam Comfort Plush Air Mattress with Built in Pump | 64417",
       "asin": "B0869HGSVL",
       "price": 59.99,
       "rating": 4.3,
-      "reviews": 67705
+      "reviews": 67722
+     },
+     {
+      "rank": 19,
+      "title": "Dragon Shield | Standard Size Card Matte Sleeves | 100 CT - Smooth & Tough Premi",
+      "asin": "B0B337ZY41",
+      "price": 11.37,
+      "rating": 4.8,
+      "reviews": 40517
+     },
+     {
+      "rank": 20,
+      "title": "Cool Coolers by Fit & Fresh 4 Pack XL Slim Ice Packs, Quick Freeze Space Saving ",
+      "asin": "B07CTXRKH8",
+      "price": 6.97,
+      "rating": 4.6,
+      "reviews": 50947
      }
     ]
    }
