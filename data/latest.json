@@ -1,11 +1,11 @@
 {
  "version": 1,
- "generatedAt": "2026-11-18 00:51",
- "generatedDate": "2026-11-18",
+ "generatedAt": "2026-11-19 00:52",
+ "generatedDate": "2026-11-19",
  "douyin": null,
  "amazon": {
-  "date": "2026-11-18",
-  "fetchedAt": "2026-11-18 00:51",
+  "date": "2026-11-19",
+  "fetchedAt": "2026-11-19 00:52",
   "source": "Amazon Best Sellers（公开页面解析）",
   "note": "Actions 是机房 IP，可能被反爬；失败会沿用上次数据。",
   "categories": [
@@ -27,7 +27,7 @@
       "asin": "B005OB3E30",
       "price": 22.86,
       "rating": 4.7,
-      "reviews": 55903
+      "reviews": 55918
      },
      {
       "rank": 3,
@@ -35,7 +35,7 @@
       "asin": "B00BSYR7K8",
       "price": 14.99,
       "rating": 4.8,
-      "reviews": 250194
+      "reviews": 250222
      },
      {
       "rank": 4,
@@ -43,7 +43,7 @@
       "asin": "B00NABTC8M",
       "price": 7.83,
       "rating": 4.8,
-      "reviews": 246352
+      "reviews": 246395
      },
      {
       "rank": 5,
@@ -51,23 +51,23 @@
       "asin": "B07D323MFZ",
       "price": 32.96,
       "rating": 4.9,
-      "reviews": 14034
+      "reviews": 14041
      },
      {
       "rank": 6,
-      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 30 oz | Under 2 ",
-      "asin": "B01LNB6SA0",
-      "price": 14.94,
-      "rating": 4.8,
-      "reviews": 74166
-     },
-     {
-      "rank": 7,
       "title": "Dr. Elsey's Ultra UnScented Clumping Clay Cat Litter 40 lb. Bag",
       "asin": "B0009X29WK",
       "price": 22.99,
       "rating": 4.3,
-      "reviews": 97861
+      "reviews": 97886
+     },
+     {
+      "rank": 7,
+      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 30 oz | Under 2 ",
+      "asin": "B01LNB6SA0",
+      "price": 14.94,
+      "rating": 4.8,
+      "reviews": 74185
      },
      {
       "rank": 8,
@@ -75,7 +75,7 @@
       "asin": "B089LLHMQL",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 42274
+      "reviews": 42287
      },
      {
       "rank": 9,
@@ -83,7 +83,7 @@
       "asin": "B07NHL31CC",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 71809
+      "reviews": 71843
      },
      {
       "rank": 10,
@@ -91,23 +91,23 @@
       "asin": "B001QCKS4O",
       "price": 74.48,
       "rating": 4.6,
-      "reviews": 16581
+      "reviews": 16586
      },
      {
       "rank": 11,
-      "title": "Purina Pro Plan Veterinary Supplements FortiFlora Dog Probiotic Supplement | For",
-      "asin": "B001650NNW",
-      "price": 30.99,
-      "rating": 4.7,
-      "reviews": 50275
-     },
-     {
-      "rank": 12,
       "title": "Milk-Bone Original Biscuits Large Dog Treats, 10 Lb.",
       "asin": "B0018CLXTG",
       "price": 14.98,
       "rating": 4.8,
-      "reviews": 83861
+      "reviews": 83873
+     },
+     {
+      "rank": 12,
+      "title": "Purina Pro Plan Veterinary Supplements FortiFlora Dog Probiotic Supplement | For",
+      "asin": "B001650NNW",
+      "price": 30.99,
+      "rating": 4.7,
+      "reviews": 50283
      },
      {
       "rank": 13,
@@ -115,7 +115,7 @@
       "asin": "B009IOCCD2",
       "price": 48.98,
       "rating": 4.7,
-      "reviews": 24065
+      "reviews": 24071
      },
      {
       "rank": 14,
@@ -123,7 +123,7 @@
       "asin": "B003P9XG68",
       "price": 4.98,
       "rating": 4.7,
-      "reviews": 10374
+      "reviews": 10382
      },
      {
       "rank": 15,
@@ -131,7 +131,7 @@
       "asin": "B07C22NTL4",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 49746
+      "reviews": 49743
      },
      {
       "rank": 16,
@@ -139,23 +139,23 @@
       "asin": "B072DTFZHL",
       "price": 27.96,
       "rating": 4.7,
-      "reviews": 21274
+      "reviews": 21275
      },
      {
       "rank": 17,
-      "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
-      "asin": "B09K8YYVWV",
-      "price": 14.97,
-      "rating": 4.7,
-      "reviews": 29907
-     },
-     {
-      "rank": 18,
       "title": "Greenies Pill Pockets Large Size Dog Treats, Peanut Butter, 15.8 oz | Vet-recomm",
       "asin": "B07S2TDDCK",
       "price": 19.96,
       "rating": 4.8,
-      "reviews": 22968
+      "reviews": 22969
+     },
+     {
+      "rank": 18,
+      "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
+      "asin": "B09K8YYVWV",
+      "price": 14.97,
+      "rating": 4.7,
+      "reviews": 29912
      },
      {
       "rank": 19,
@@ -171,7 +171,7 @@
       "asin": "B07NJLMDNQ",
       "price": 16.98,
       "rating": 4.8,
-      "reviews": 22335
+      "reviews": 22336
      }
     ]
    },
@@ -351,7 +351,7 @@
       "asin": "B0CRMP3RQT",
       "price": 22.5,
       "rating": 4.7,
-      "reviews": 207847
+      "reviews": 207914
      },
      {
       "rank": 2,
@@ -359,7 +359,7 @@
       "asin": "B00FXNAAW2",
       "price": 17.99,
       "rating": 4.8,
-      "reviews": 239533
+      "reviews": 239600
      },
      {
       "rank": 3,
@@ -367,7 +367,7 @@
       "asin": "B00Q7OAW1U",
       "price": 11.26,
       "rating": 4.5,
-      "reviews": 482590
+      "reviews": 482673
      },
      {
       "rank": 4,
@@ -375,7 +375,7 @@
       "asin": "B0F3DPXQP1",
       "price": 14.99,
       "rating": 4.6,
-      "reviews": 2923
+      "reviews": 2933
      },
      {
       "rank": 5,
@@ -383,7 +383,7 @@
       "asin": "B08QRFZ6TH",
       "price": 8.95,
       "rating": 4.5,
-      "reviews": 103051
+      "reviews": 103088
      },
      {
       "rank": 6,
@@ -391,7 +391,7 @@
       "asin": "B0FK1LF5PM",
       "price": 34.99,
       "rating": 4.6,
-      "reviews": 146132
+      "reviews": 146268
      },
      {
       "rank": 7,
@@ -399,7 +399,7 @@
       "asin": "B01M16WBW1",
       "price": 24.99,
       "rating": 4.5,
-      "reviews": 464856
+      "reviews": 464974
      },
      {
       "rank": 8,
@@ -407,7 +407,7 @@
       "asin": "B0C6FCKQML",
       "price": 39.99,
       "rating": 4.6,
-      "reviews": 22112
+      "reviews": 22139
      },
      {
       "rank": 9,
@@ -415,7 +415,7 @@
       "asin": "B0BQR2BQYZ",
       "price": 6.99,
       "rating": 4.4,
-      "reviews": 45288
+      "reviews": 45321
      },
      {
       "rank": 10,
@@ -423,79 +423,79 @@
       "asin": "B0F3DQZ193",
       "price": 14.99,
       "rating": 4.6,
-      "reviews": 1411
+      "reviews": 1415
      },
      {
       "rank": 11,
       "title": "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless | Deep ",
       "asin": "B0C1NM42PN",
-      "price": 26.99,
+      "price": 29.99,
       "rating": 4.6,
-      "reviews": 29738
+      "reviews": 29783
      },
      {
       "rank": 12,
-      "title": "Keurig K-Express Single Serve K-Cup Pod Coffee Maker, Black | 3 Brew Sizes, 42oz",
-      "asin": "B09715G57M",
-      "price": 59.99,
-      "rating": 4.3,
-      "reviews": 53124
-     },
-     {
-      "rank": 13,
       "title": "Levoit Top Fill Humidifiers for Bedroom, 2.5L Tank for Large Room, 25dB | Easy t",
       "asin": "B0C2C9NHZW",
       "price": 29.77,
       "rating": 4.4,
-      "reviews": 64503
+      "reviews": 64537
+     },
+     {
+      "rank": 13,
+      "title": "Keurig K-Express Single Serve K-Cup Pod Coffee Maker, Black | 3 Brew Sizes, 42oz",
+      "asin": "B09715G57M",
+      "price": 59.99,
+      "rating": 4.3,
+      "reviews": 53158
      },
      {
       "rank": 14,
-      "title": "Bedsure GentleSoft White Throw Blanket for Couch - Christmas Thanksgiving Decora",
-      "asin": "B0BPLB81LX",
-      "price": 13.49,
-      "rating": 4.6,
-      "reviews": 29222
-     },
-     {
-      "rank": 15,
-      "title": "bella Fits-Anywhere™ 2-Slice Slim Toaster, Long Slot & Extra Wide, Oatmilk",
-      "asin": "B0CYJBB2JQ",
-      "price": 18.74,
-      "rating": 4.2,
-      "reviews": 22984
-     },
-     {
-      "rank": 16,
-      "title": "BigFoot Clear Shower Curtain - 72x72 Odorless Plastic with Magnets, Washable Lon",
-      "asin": "B08CRPWQHB",
-      "price": 9.99,
-      "rating": 4.5,
-      "reviews": 60276
-     },
-     {
-      "rank": 17,
       "title": "Zevo Flying Insect Trap Refill Cartridges for Fruit Flies & Gnats, 4 Count | Fit",
       "asin": "B0C3FTCYZL",
       "price": 14.97,
       "rating": 4.8,
-      "reviews": 39015
+      "reviews": 39050
+     },
+     {
+      "rank": 15,
+      "title": "Bedsure GentleSoft White Throw Blanket for Couch - Christmas Thanksgiving Decora",
+      "asin": "B0BPLB81LX",
+      "price": 13.49,
+      "rating": 4.6,
+      "reviews": 29260
+     },
+     {
+      "rank": 16,
+      "title": "bella Fits-Anywhere™ 2-Slice Slim Toaster, Long Slot & Extra Wide, Oatmilk",
+      "asin": "B0CYJBB2JQ",
+      "price": 18.74,
+      "rating": 4.2,
+      "reviews": 23034
+     },
+     {
+      "rank": 17,
+      "title": "BigFoot Clear Shower Curtain - 72x72 Odorless Plastic with Magnets, Washable Lon",
+      "asin": "B08CRPWQHB",
+      "price": 11.99,
+      "rating": 4.5,
+      "reviews": 60301
      },
      {
       "rank": 18,
-      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
-      "asin": "B08J8GZXKZ",
-      "price": 11.49,
-      "rating": 4.7,
-      "reviews": 14507
-     },
-     {
-      "rank": 19,
       "title": "Owala SmoothSip Slider Insulated Stainless Steel Coffee Tumbler, Reusable Iced C",
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16200
+      "reviews": 16240
+     },
+     {
+      "rank": 19,
+      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
+      "asin": "B08J8GZXKZ",
+      "price": 11.49,
+      "rating": 4.7,
+      "reviews": 14521
      },
      {
       "rank": 20,
@@ -503,7 +503,7 @@
       "asin": "B09WXZWSN3",
       "price": 13.99,
       "rating": 4.7,
-      "reviews": 8168
+      "reviews": 8180
      }
     ]
    },
@@ -517,23 +517,23 @@
       "asin": "B0FJN3BTPV",
       "price": 29.99,
       "rating": 4.6,
-      "reviews": 146132
+      "reviews": 146268
      },
      {
       "rank": 2,
       "title": "Aquatabs Water Purification Tablets, 397mg 100 Pack, Camping & Emergency | Water",
       "asin": "B09FFQN924",
-      "price": 39.99,
+      "price": 42.99,
       "rating": 4.7,
-      "reviews": 3650
+      "reviews": 3653
      },
      {
       "rank": 3,
       "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
       "asin": "B006QF3TW4",
-      "price": 34.63,
+      "price": 34.53,
       "rating": 4.8,
-      "reviews": 126261
+      "reviews": 126268
      },
      {
       "rank": 4,
@@ -541,7 +541,7 @@
       "asin": "B0FK1C3GDW",
       "price": 36.0,
       "rating": 4.6,
-      "reviews": 14644
+      "reviews": 14668
      },
      {
       "rank": 5,
@@ -549,23 +549,23 @@
       "asin": "B01LR5S6HK",
       "price": 26.85,
       "rating": 4.8,
-      "reviews": 15873
+      "reviews": 15882
      },
      {
       "rank": 6,
       "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
       "asin": "B0007ZF4OA",
-      "price": 27.13,
+      "price": 27.4,
       "rating": 4.8,
-      "reviews": 52830
+      "reviews": 52834
      },
      {
       "rank": 7,
       "title": "LHKNL Headlamp Flashlight, Lumen Bright Head Lamps LED Rechargeable Camping | Ul",
       "asin": "B08D66HCXW",
-      "price": 19.99,
+      "price": 20.99,
       "rating": 4.5,
-      "reviews": 38000
+      "reviews": 38029
      },
      {
       "rank": 8,
@@ -573,7 +573,7 @@
       "asin": "B00D7H9LIA",
       "price": 8.97,
       "rating": 4.8,
-      "reviews": 20575
+      "reviews": 20584
      },
      {
       "rank": 9,
@@ -589,10 +589,18 @@
       "asin": "B005FEGYCO",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 51621
+      "reviews": 51639
      },
      {
       "rank": 11,
+      "title": "Owala Tumbler Stainless Steel Water Bottle 24 oz - Diet Coke Classic | 2-in-1 Si",
+      "asin": "B0HHJYF7SS",
+      "price": 34.99,
+      "rating": null,
+      "reviews": null
+     },
+     {
+      "rank": 12,
       "title": "NBA 2K27 - PlayStation 5",
       "asin": "B0H9Z71PJK",
       "price": 29.99,
@@ -600,36 +608,28 @@
       "reviews": 2
      },
      {
-      "rank": 12,
+      "rank": 13,
       "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
       "asin": "B0CG65PYBV",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 9673
+      "reviews": 9678
      },
      {
-      "rank": 13,
+      "rank": 14,
       "title": "Headlamp Rechargeable, 230° Wide Beam Head Lamp LED with Motion Sensor for Adult",
       "asin": "B0B4KJ3MWK",
       "price": 13.99,
       "rating": 4.4,
-      "reviews": 17841
+      "reviews": 17868
      },
      {
-      "rank": 14,
+      "rank": 15,
       "title": "Hand Warmers - Up to 11 Hours of Heat, Super Long Lasting - Easy, All Natural - ",
       "asin": "B0HFY3CR3P",
       "price": 9.99,
       "rating": 4.5,
-      "reviews": 5132
-     },
-     {
-      "rank": 15,
-      "title": "EA SPORTS College Football 27 - Standard Edition PS5 |Disc I VideoGame",
-      "asin": "B0H2K6W7P9",
-      "price": 34.97,
-      "rating": 4.6,
-      "reviews": null
+      "reviews": 5135
      },
      {
       "rank": 16,
@@ -637,31 +637,31 @@
       "asin": "B0869D5PZP",
       "price": 45.56,
       "rating": 4.3,
-      "reviews": 67769
+      "reviews": 67790
      },
      {
       "rank": 17,
+      "title": "EA SPORTS College Football 27 - Standard Edition PS5 |Disc I VideoGame",
+      "asin": "B0H2K6W7P9",
+      "price": 34.97,
+      "rating": 4.6,
+      "reviews": null
+     },
+     {
+      "rank": 18,
       "title": "Callaway Golf Supersoft Golf Balls",
       "asin": "B0DHT5XZR1",
       "price": 24.99,
       "rating": 4.8,
-      "reviews": 8332
+      "reviews": 8341
      },
      {
-      "rank": 18,
+      "rank": 19,
       "title": "Practical Survival Reusable Emergency Water Filter Straws, 2-Pack | Lightweight,",
       "asin": "B0B72JVNFC",
       "price": 39.98,
       "rating": 4.7,
-      "reviews": 3892
-     },
-     {
-      "rank": 19,
-      "title": "QIO CHUANG Emergency Mylar Thermal Blankets 4 Packs Survival Kit 84''x55'' | Spa",
-      "asin": "B07GLCYR5S",
-      "price": 17.95,
-      "rating": 4.7,
-      "reviews": 8592
+      "reviews": 3898
      },
      {
       "rank": 20,
@@ -669,7 +669,7 @@
       "asin": "B098KJMMGC",
       "price": 13.99,
       "rating": 4.7,
-      "reviews": 5671
+      "reviews": 5680
      }
     ]
    }
