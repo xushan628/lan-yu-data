@@ -1,11 +1,11 @@
 {
  "version": 1,
- "generatedAt": "2026-11-20 00:44",
- "generatedDate": "2026-11-20",
+ "generatedAt": "2026-11-21 00:47",
+ "generatedDate": "2026-11-21",
  "douyin": null,
  "amazon": {
-  "date": "2026-11-20",
-  "fetchedAt": "2026-11-20 00:44",
+  "date": "2026-11-21",
+  "fetchedAt": "2026-11-21 00:47",
   "source": "Amazon Best Sellers（公开页面解析）",
   "note": "Actions 是机房 IP，可能被反爬；失败会沿用上次数据。",
   "categories": [
@@ -181,19 +181,19 @@
     "items": [
      {
       "rank": 1,
-      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Black 2.0 | Handle and Straw | ",
-      "asin": "B0CP9Z1S51",
+      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Rose Quartz 2.0 | Handle and St",
+      "asin": "B0CP9Z56SW",
       "price": 22.5,
       "rating": 4.7,
-      "reviews": 207976
+      "reviews": 208034
      },
      {
       "rank": 2,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Very, Very Dark | 2-in-1 Sip or",
-      "asin": "B085DTZQNZ",
-      "price": 29.97,
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Shy Marshmallow",
+      "asin": "B085DV8T75",
+      "price": 22.79,
       "rating": 4.6,
-      "reviews": 146399
+      "reviews": 146530
      },
      {
       "rank": 3,
@@ -201,7 +201,7 @@
       "asin": "B08J8GZXKZ",
       "price": 11.49,
       "rating": 4.7,
-      "reviews": 14534
+      "reviews": 14552
      },
      {
       "rank": 4,
@@ -209,47 +209,47 @@
       "asin": "B0CYJBB2JQ",
       "price": 18.74,
       "rating": 4.2,
-      "reviews": 23084
+      "reviews": 23132
      },
      {
       "rank": 5,
-      "title": "Fall Table Runner Terracotta Cheesecloth Boho Wedding Thanksgiving Decor | Frien",
-      "asin": "B09WXZWSN3",
-      "price": 13.99,
-      "rating": 4.7,
-      "reviews": 8186
-     },
-     {
-      "rank": 6,
       "title": "Alpha Grillers Meat Thermometer Digital, Stocking Stuffers Gifts for Men | 1-2 S",
       "asin": "B00S93EQUK",
       "price": 11.69,
       "rating": 4.8,
-      "reviews": 93505
+      "reviews": 93531
      },
      {
-      "rank": 7,
+      "rank": 6,
       "title": "Owala SmoothSip Slider Insulated Stainless Steel Coffee Tumbler, Reusable Iced C",
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16275
+      "reviews": 16299
+     },
+     {
+      "rank": 7,
+      "title": "Fall Table Runner Terracotta Cheesecloth Boho Wedding Thanksgiving Decor | Frien",
+      "asin": "B09WXZWSN3",
+      "price": 13.99,
+      "rating": 4.7,
+      "reviews": 8201
      },
      {
       "rank": 8,
-      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
-      "asin": "B07YP2VH4B",
-      "price": 11.99,
-      "rating": 4.6,
-      "reviews": 92746
-     },
-     {
-      "rank": 9,
       "title": "STANLEY IceFlow 2.0 Flip Straw Tumbler, 30 oz, Black 2.0 | Easy Carry Handle | T",
       "asin": "B0DR9PMK1W",
       "price": 26.25,
       "rating": 4.7,
-      "reviews": 76156
+      "reviews": 76185
+     },
+     {
+      "rank": 9,
+      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
+      "asin": "B07YP2VH4B",
+      "price": 11.99,
+      "rating": 4.6,
+      "reviews": 92763
      },
      {
       "rank": 10,
@@ -257,7 +257,7 @@
       "asin": "B0H2FQ5FV1",
       "price": 39.99,
       "rating": 4.6,
-      "reviews": 21576
+      "reviews": 21592
      },
      {
       "rank": 11,
@@ -265,7 +265,7 @@
       "asin": "B00MUEHPGQ",
       "price": 27.99,
       "rating": 4.6,
-      "reviews": 15086
+      "reviews": 15090
      },
      {
       "rank": 12,
@@ -273,23 +273,23 @@
       "asin": "B08BR9HBZ3",
       "price": 49.99,
       "rating": 4.6,
-      "reviews": 14846
+      "reviews": 14852
      },
      {
       "rank": 13,
-      "title": "STANLEY Quencher ProTour Flipstraw Tumbler, 40 oz, Black | Built-In Straw & Hand",
-      "asin": "B0DCDF6HKT",
-      "price": 33.75,
-      "rating": 4.7,
-      "reviews": 22362
+      "title": "YETI Rambler 12 oz Travel Bottle - Stainless Steel, Stag Red | Double-Wall Vacuu",
+      "asin": "B0H9ML1BGS",
+      "price": 16.8,
+      "rating": 4.6,
+      "reviews": 3101
      },
      {
       "rank": 14,
       "title": "Crockpot® Programmable 7-Quart Cook and Carry Slow Cooker, Grey | Cook & Carry L",
       "asin": "B0FBT84P65",
-      "price": 47.49,
+      "price": 69.87,
       "rating": 4.5,
-      "reviews": 35462
+      "reviews": 35472
      },
      {
       "rank": 15,
@@ -297,47 +297,47 @@
       "asin": "B0GVM8N2CK",
       "price": 9.47,
       "rating": 4.7,
-      "reviews": 3192
+      "reviews": 3266
      },
      {
       "rank": 16,
-      "title": "Fall Thanksgiving Decorations Terracotta Cheesecloth Table Runner 120 Inch | For",
-      "asin": "B0C7KSGVRM",
-      "price": 13.99,
+      "title": "STANLEY Quencher ProTour Flipstraw Tumbler, 40 oz, Black | Built-In Straw & Hand",
+      "asin": "B0DCDF6HKT",
+      "price": 33.75,
       "rating": 4.7,
-      "reviews": 4569
+      "reviews": 22382
      },
      {
       "rank": 17,
+      "title": "KitchenAid All Purpose Kitchen Shears with Protective Sheath Durable Stainless S",
+      "asin": "B07PZF3QS3",
+      "price": 6.99,
+      "rating": 4.8,
+      "reviews": 73142
+     },
+     {
+      "rank": 18,
       "title": "Etekcity Food Kitchen Scale, Digital Grams and Ounces, 11lb | Tare function, ide",
       "asin": "B0113UZJE2",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 178506
-     },
-     {
-      "rank": 18,
-      "title": "Crock-Pot Oval Manual Slow Cooker, Stainless Steel, 7-Quart | 7-Quart Capacity, ",
-      "asin": "B003OAJGJO",
-      "price": 31.99,
-      "rating": 4.6,
-      "reviews": 63226
+      "reviews": 178529
      },
      {
       "rank": 19,
-      "title": "LNNIW Warming Mat for Food, 26x15 Inch, Off White, Fast Heat, Child Lock | Inclu",
-      "asin": "B0FG7RQXJ9",
-      "price": 32.48,
-      "rating": 4.7,
-      "reviews": 1100
+      "title": "YETI Rambler 20 oz Stainless Steel Vacuum Insulated Tumbler w/MagSlider Lid",
+      "asin": "B0G67239QQ",
+      "price": 22.75,
+      "rating": 4.8,
+      "reviews": 184339
      },
      {
       "rank": 20,
-      "title": "0.5 Sec Instant Read Meat Thermometer Digital for Cooking, Red | NIST ±0.5℉ Prec",
-      "asin": "B0F5X4FM3Q",
-      "price": 15.99,
-      "rating": 4.8,
-      "reviews": 8835
+      "title": "Fall Thanksgiving Decorations Terracotta Cheesecloth Table Runner 120 Inch | For",
+      "asin": "B0C7KSGVRM",
+      "price": 13.99,
+      "rating": 4.7,
+      "reviews": 4573
      }
     ]
    },
@@ -513,70 +513,30 @@
     "items": [
      {
       "rank": 1,
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Daybreak | 2-in-1 Sip or Swig S",
+      "asin": "B0FFTLNC5S",
+      "price": 22.79,
+      "rating": 4.6,
+      "reviews": 146530
+     },
+     {
+      "rank": 2,
       "title": "Aquatabs Water Purification Tablets, 397mg 100 Pack, Camping & Emergency | Water",
       "asin": "B09FFQN924",
       "price": 42.99,
       "rating": 4.7,
-      "reviews": 3664
-     },
-     {
-      "rank": 2,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Black Cherry | 2-in-1 Sip or Sw",
-      "asin": "B0FJN3BTPV",
-      "price": 29.99,
-      "rating": 4.6,
-      "reviews": 146399
+      "reviews": 3671
      },
      {
       "rank": 3,
-      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
-      "asin": "B006QF3TW4",
-      "price": 34.44,
-      "rating": 4.8,
-      "reviews": 126284
-     },
-     {
-      "rank": 4,
       "title": "Owala FreeSip Sway Stainless Steel Water Bottle 40 oz Foggy Tide | 2-in-1 Sip or",
       "asin": "B0FK1C3GDW",
       "price": 36.0,
       "rating": 4.6,
-      "reviews": 14700
+      "reviews": 14733
      },
      {
-      "rank": 5,
-      "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
-      "asin": "B0007ZF4OA",
-      "price": 22.0,
-      "rating": 4.8,
-      "reviews": 52840
-     },
-     {
-      "rank": 6,
-      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
-      "asin": "B01LR5S6HK",
-      "price": 26.85,
-      "rating": 4.8,
-      "reviews": 15888
-     },
-     {
-      "rank": 7,
-      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
-      "asin": "B00D7H9LIA",
-      "price": 8.97,
-      "rating": 4.8,
-      "reviews": 20594
-     },
-     {
-      "rank": 8,
-      "title": "LHKNL Headlamp Flashlight, Lumen Bright Head Lamps LED Rechargeable Camping | Ul",
-      "asin": "B08D66HCXW",
-      "price": 15.19,
-      "rating": 4.5,
-      "reviews": 38049
-     },
-     {
-      "rank": 9,
+      "rank": 4,
       "title": "EA SPORTS FC 27 Standard Edition PlayStation5 |Physical Disc I VideoGame |Englis",
       "asin": "B0H9SYK5Q7",
       "price": 29.99,
@@ -584,7 +544,15 @@
       "reviews": null
      },
      {
-      "rank": 10,
+      "rank": 5,
+      "title": "YETI Rambler 16 oz Travel Bottle - Stainless Steel, Black | Double-Wall Vacuum I",
+      "asin": "B0F9ZWXM26",
+      "price": 20.8,
+      "rating": 4.6,
+      "reviews": 3101
+     },
+     {
+      "rank": 6,
       "title": "NBA 2K27 - PlayStation 5",
       "asin": "B0H9Z71PJK",
       "price": 29.99,
@@ -592,63 +560,79 @@
       "reviews": 2
      },
      {
+      "rank": 7,
+      "title": "LHKNL Headlamp Flashlight, Lumen Bright Head Lamps LED Rechargeable Camping | Ul",
+      "asin": "B08D66HCXW",
+      "price": 15.19,
+      "rating": 4.5,
+      "reviews": 38072
+     },
+     {
+      "rank": 8,
+      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
+      "asin": "B006QF3TW4",
+      "price": 33.82,
+      "rating": 4.8,
+      "reviews": 126312
+     },
+     {
+      "rank": 9,
+      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
+      "asin": "B01LR5S6HK",
+      "price": 26.85,
+      "rating": 4.8,
+      "reviews": 15890
+     },
+     {
+      "rank": 10,
+      "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
+      "asin": "B0007ZF4OA",
+      "price": 21.7,
+      "rating": 4.8,
+      "reviews": 52850
+     },
+     {
       "rank": 11,
-      "title": "Lepro LED White Light Flashlight, High Lumens Waterproof Adjustable Focus | Smal",
-      "asin": "B005FEGYCO",
-      "price": 7.99,
-      "rating": 4.6,
-      "reviews": 51664
+      "title": "Headlamp Rechargeable 2PCS, 230° Wide Beam Head Lamp LED with Motion Sensor for ",
+      "asin": "B0B4KK73NB",
+      "price": 19.99,
+      "rating": 4.4,
+      "reviews": 17927
      },
      {
       "rank": 12,
+      "title": "CAP Rubber Coated Dumbbell Weights, Free Weights for Home Gym Strength Training,",
+      "asin": "B0D8RTHJDX",
+      "price": 28.98,
+      "rating": 4.6,
+      "reviews": 7549
+     },
+     {
+      "rank": 13,
+      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
+      "asin": "B00D7H9LIA",
+      "price": 8.97,
+      "rating": 4.8,
+      "reviews": 20602
+     },
+     {
+      "rank": 14,
       "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
       "asin": "B0CG65PYBV",
       "price": 16.99,
       "rating": 4.6,
-      "reviews": 9689
-     },
-     {
-      "rank": 13,
-      "title": "INTEX Dura-Beam Deluxe 18\" Queen Size Air Mattress with Built-in Pump | 64413ED ",
-      "asin": "B0869D5PZP",
-      "price": 45.56,
-      "rating": 4.3,
-      "reviews": 67798
-     },
-     {
-      "rank": 14,
-      "title": "Practical Survival Reusable Emergency Water Filter Straws, 5-Pack | Lightweight,",
-      "asin": "B09LDFR8HX",
-      "price": 79.98,
-      "rating": 4.7,
-      "reviews": 3902
+      "reviews": 9701
      },
      {
       "rank": 15,
-      "title": "Headlamp Rechargeable, 230° Wide Beam Head Lamp LED with Motion Sensor for Adult",
-      "asin": "B0B4KJ3MWK",
-      "price": 11.19,
-      "rating": 4.4,
-      "reviews": 17895
+      "title": "Lepro LED White Light Flashlight, High Lumens Waterproof Adjustable Focus | Smal",
+      "asin": "B005FEGYCO",
+      "price": 7.99,
+      "rating": 4.6,
+      "reviews": 51682
      },
      {
       "rank": 16,
-      "title": "Emergency Blanket Mylar Thermal Space Survival Gear & Supplies 4-Pack Foil | Col",
-      "asin": "B098KJMMGC",
-      "price": 13.99,
-      "rating": 4.7,
-      "reviews": 5686
-     },
-     {
-      "rank": 17,
-      "title": "Owala Tumbler Stainless Steel Water Bottle 24 oz - Diet Coke Classic | 2-in-1 Si",
-      "asin": "B0HHJYF7SS",
-      "price": 34.99,
-      "rating": 5.0,
-      "reviews": 1
-     },
-     {
-      "rank": 18,
       "title": "EA SPORTS College Football 27 - Standard Edition PS5 |Disc I VideoGame",
       "asin": "B0H2K6W7P9",
       "price": 29.99,
@@ -656,20 +640,36 @@
       "reviews": null
      },
      {
+      "rank": 17,
+      "title": "INTEX Dura-Beam Deluxe 18\" Queen Size Air Mattress with Built-in Pump | 64413ED ",
+      "asin": "B0869D5PZP",
+      "price": 45.56,
+      "rating": 4.3,
+      "reviews": 67812
+     },
+     {
+      "rank": 18,
+      "title": "Frost Buddy 24 oz Kids Insulated Water Bottle with Straw (Baseball Drip) | Sip o",
+      "asin": "B0GVPG93SH",
+      "price": 23.99,
+      "rating": 4.5,
+      "reviews": 2229
+     },
+     {
       "rank": 19,
-      "title": "Callaway Golf Supersoft Golf Balls",
-      "asin": "B0DHT5XZR1",
-      "price": 24.99,
-      "rating": 4.8,
-      "reviews": 8349
+      "title": "Lerat Hand Warmers Rechargeable 2 Pack, Portable Electric Hand Warmer Max 131℉, ",
+      "asin": "B0FNQLTK83",
+      "price": 9.99,
+      "rating": 4.4,
+      "reviews": 4662
      },
      {
       "rank": 20,
-      "title": "STANLEY Flowstate Spring Bottle, 20 oz, Moab Pinstripe | Leakproof Water Bottle ",
-      "asin": "B0HF2YQSR8",
-      "price": null,
-      "rating": 4.3,
-      "reviews": 1191
+      "title": "adidas Starlancer Club Soccer Ball | Sizes 3, 4, 5, Requires Inflation, 100% TPU",
+      "asin": "B0C1XPCM9M",
+      "price": 11.7,
+      "rating": 4.5,
+      "reviews": 17377
      }
     ]
    }
