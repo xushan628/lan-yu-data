@@ -1,11 +1,11 @@
 {
  "version": 1,
- "generatedAt": "2026-11-21 00:47",
- "generatedDate": "2026-11-21",
+ "generatedAt": "2026-11-22 00:39",
+ "generatedDate": "2026-11-22",
  "douyin": null,
  "amazon": {
-  "date": "2026-11-21",
-  "fetchedAt": "2026-11-21 00:47",
+  "date": "2026-11-22",
+  "fetchedAt": "2026-11-22 00:39",
   "source": "Amazon Best Sellers（公开页面解析）",
   "note": "Actions 是机房 IP，可能被反爬；失败会沿用上次数据。",
   "categories": [
@@ -19,7 +19,7 @@
       "asin": "B00MW8G62E",
       "price": 16.3,
       "rating": 4.4,
-      "reviews": 220872
+      "reviews": 220883
      },
      {
       "rank": 2,
@@ -27,7 +27,7 @@
       "asin": "B0009X29WK",
       "price": 22.99,
       "rating": 4.3,
-      "reviews": 97908
+      "reviews": 97950
      },
      {
       "rank": 3,
@@ -35,31 +35,31 @@
       "asin": "B005OB3E30",
       "price": 22.86,
       "rating": 4.7,
-      "reviews": 55935
+      "reviews": 55956
      },
      {
       "rank": 4,
-      "title": "Amazon Basics Dog Poop Leak Proof Bags with Dispenser and Leash Clip, Unscented,",
-      "asin": "B00NABTC8M",
-      "price": 7.83,
-      "rating": 4.8,
-      "reviews": 246457
-     },
-     {
-      "rank": 5,
       "title": "Earth Rated Dog Poop Bags on Refill Rolls, 270 Bags, Lavender | Guaranteed Leak ",
       "asin": "B00BSYR7K8",
       "price": 12.74,
       "rating": 4.8,
-      "reviews": 249139
+      "reviews": 249204
+     },
+     {
+      "rank": 5,
+      "title": "Amazon Echo Show 5 (newest model), Smart display, Designed for Alexa+, 2x the ba",
+      "asin": "B09B2SBHQK",
+      "price": 54.99,
+      "rating": 4.2,
+      "reviews": 74357
      },
      {
       "rank": 6,
-      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 30 oz | Under 2 ",
-      "asin": "B01LNB6SA0",
-      "price": 14.94,
+      "title": "Amazon Basics Dog Poop Leak Proof Bags with Dispenser and Leash Clip, Unscented,",
+      "asin": "B00NABTC8M",
+      "price": 7.83,
       "rating": 4.8,
-      "reviews": 74198
+      "reviews": 246581
      },
      {
       "rank": 7,
@@ -67,111 +67,111 @@
       "asin": "B07D323MFZ",
       "price": 32.96,
       "rating": 4.9,
-      "reviews": 14049
+      "reviews": 14063
      },
      {
       "rank": 8,
-      "title": "ARM & HAMMER Slide Platinum Easy Clean-Up Clumping Cat Litter, 18 lbs | 24/7 Odo",
-      "asin": "B089LLHMQL",
-      "price": 17.99,
-      "rating": 4.6,
-      "reviews": 42295
-     },
-     {
-      "rank": 9,
-      "title": "Milk-Bone Original Biscuits Large Dog Treats, 10 Lb.",
-      "asin": "B0018CLXTG",
-      "price": 14.98,
-      "rating": 4.8,
-      "reviews": 83902
-     },
-     {
-      "rank": 10,
       "title": "Blue Buffalo Health Bars Pumpkin & Cinnamon Dog Biscuits, 16 oz | Oven-Baked, Cr",
       "asin": "B003P9XG68",
       "price": 4.98,
       "rating": 4.7,
-      "reviews": 10393
+      "reviews": 10416
      },
      {
-      "rank": 11,
+      "rank": 9,
+      "title": "Temptations Classic Crunchy and Soft Cat Treats, Tasty Chicken, 30 oz | Under 2 ",
+      "asin": "B01LNB6SA0",
+      "price": 14.94,
+      "rating": 4.8,
+      "reviews": 74235
+     },
+     {
+      "rank": 10,
       "title": "Earth Rated Dog Wipes for Paws & Butt, Deodorizing, Unscented, 100ct | Hypoaller",
       "asin": "B07NHL31CC",
       "price": 9.99,
       "rating": 4.6,
-      "reviews": 71877
+      "reviews": 71966
+     },
+     {
+      "rank": 11,
+      "title": "Milk-Bone Original Biscuits Large Dog Treats, 10 Lb.",
+      "asin": "B0018CLXTG",
+      "price": 14.98,
+      "rating": 4.8,
+      "reviews": 83950
      },
      {
       "rank": 12,
-      "title": "Purina Pro Plan Complete Essentials Chicken & Rice Dry Dog Food, 35 lb Bag | Shr",
-      "asin": "B001QCKS4O",
-      "price": 74.48,
+      "title": "ARM & HAMMER Slide Platinum Easy Clean-Up Clumping Cat Litter, 18 lbs | 24/7 Odo",
+      "asin": "B089LLHMQL",
+      "price": 17.99,
       "rating": 4.6,
-      "reviews": 16587
+      "reviews": 42323
      },
      {
       "rank": 13,
-      "title": "Purina ONE Lamb and Rice Formula Dry Dog Food for Digestive Support | Dog food w",
-      "asin": "B009IOCCD2",
-      "price": 48.98,
-      "rating": 4.7,
-      "reviews": 24075
-     },
-     {
-      "rank": 14,
       "title": "Blue Buffalo Life Protection Formula Chicken Adult Dry Dog Food, 5 lb | Real Chi",
       "asin": "B09K8YYVWV",
       "price": 14.97,
       "rating": 4.7,
-      "reviews": 29918
+      "reviews": 29932
      },
      {
-      "rank": 15,
+      "rank": 14,
       "title": "HONEY CARE All-Absorb A26 Male Dog Wrap, 50 Count, Small",
       "asin": "B07C22NTL4",
       "price": 17.99,
       "rating": 4.6,
-      "reviews": 49744
+      "reviews": 49742
+     },
+     {
+      "rank": 15,
+      "title": "Amazon Echo Show 11 (newest model), Vibrant Full-HD 11\" display with more viewin",
+      "asin": "B0DC91H3JK",
+      "price": 154.99,
+      "rating": 4.2,
+      "reviews": 9472
      },
      {
       "rank": 16,
+      "title": "Purina Pro Plan Complete Essentials Chicken & Rice Dry Dog Food, 35 lb Bag | Shr",
+      "asin": "B001QCKS4O",
+      "price": 74.48,
+      "rating": 4.6,
+      "reviews": 16593
+     },
+     {
+      "rank": 17,
+      "title": "Purina ONE Lamb and Rice Formula Dry Dog Food for Digestive Support | Dog food w",
+      "asin": "B009IOCCD2",
+      "price": 48.98,
+      "rating": 4.7,
+      "reviews": 24088
+     },
+     {
+      "rank": 18,
       "title": "Purina Pro Plan Veterinary Supplements FortiFlora Dog Probiotic Supplement | For",
       "asin": "B001650NNW",
       "price": 30.99,
       "rating": 4.7,
-      "reviews": 50294
+      "reviews": 50310
      },
      {
-      "rank": 17,
-      "title": "Sheba Perfect Portions Cuts Wet Cat Food, Multipack, 2.6 oz, 24 ct | Chicken, Sa",
-      "asin": "B072DTFZHL",
-      "price": 27.96,
-      "rating": 4.7,
-      "reviews": 21278
-     },
-     {
-      "rank": 18,
+      "rank": 19,
       "title": "Greenies Pill Pockets Large Size Dog Treats, Peanut Butter, 15.8 oz | Vet-recomm",
       "asin": "B07S2TDDCK",
       "price": 19.96,
       "rating": 4.8,
-      "reviews": 22975
-     },
-     {
-      "rank": 19,
-      "title": "Fresh Step Odor Shield Multi Cat Clumping Cat Litter, 14 lb. | Febreze Freshness",
-      "asin": "B000VDR8LA",
-      "price": 11.16,
-      "rating": 4.6,
-      "reviews": 44770
+      "reviews": 22983
      },
      {
       "rank": 20,
-      "title": "Purina Pro Plan Sensitive Skin & Stomach Dry Dog Food, Salmon, 30 lb Bag | Real ",
-      "asin": "B01EY9KQ2Y",
-      "price": 77.48,
-      "rating": 4.5,
-      "reviews": 23959
+      "title": "Sheba Perfect Portions Cuts Wet Cat Food, Multipack, 2.6 oz, 24 ct | Chicken, Sa",
+      "asin": "B072DTFZHL",
+      "price": 27.96,
+      "rating": 4.7,
+      "reviews": 21284
      }
     ]
    },
@@ -185,7 +185,7 @@
       "asin": "B0CP9Z56SW",
       "price": 22.5,
       "rating": 4.7,
-      "reviews": 208034
+      "reviews": 208081
      },
      {
       "rank": 2,
@@ -193,39 +193,39 @@
       "asin": "B085DV8T75",
       "price": 22.79,
       "rating": 4.6,
-      "reviews": 146530
+      "reviews": 146716
      },
      {
       "rank": 3,
-      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
-      "asin": "B08J8GZXKZ",
-      "price": 11.49,
-      "rating": 4.7,
-      "reviews": 14552
-     },
-     {
-      "rank": 4,
       "title": "bella Fits-Anywhere™ 2-Slice Slim Toaster, Long Slot & Extra Wide, Oatmilk",
       "asin": "B0CYJBB2JQ",
       "price": 18.74,
       "rating": 4.2,
-      "reviews": 23132
+      "reviews": 23166
      },
      {
-      "rank": 5,
+      "rank": 4,
       "title": "Alpha Grillers Meat Thermometer Digital, Stocking Stuffers Gifts for Men | 1-2 S",
       "asin": "B00S93EQUK",
       "price": 11.69,
       "rating": 4.8,
-      "reviews": 93531
+      "reviews": 93543
      },
      {
-      "rank": 6,
+      "rank": 5,
       "title": "Owala SmoothSip Slider Insulated Stainless Steel Coffee Tumbler, Reusable Iced C",
       "asin": "B0DF472VMZ",
       "price": 24.98,
       "rating": 4.6,
-      "reviews": 16299
+      "reviews": 16331
+     },
+     {
+      "rank": 6,
+      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
+      "asin": "B08J8GZXKZ",
+      "price": 11.49,
+      "rating": 4.7,
+      "reviews": 14568
      },
      {
       "rank": 7,
@@ -233,71 +233,71 @@
       "asin": "B09WXZWSN3",
       "price": 13.99,
       "rating": 4.7,
-      "reviews": 8201
+      "reviews": 8206
      },
      {
       "rank": 8,
-      "title": "STANLEY IceFlow 2.0 Flip Straw Tumbler, 30 oz, Black 2.0 | Easy Carry Handle | T",
-      "asin": "B0DR9PMK1W",
-      "price": 26.25,
-      "rating": 4.7,
-      "reviews": 76185
-     },
-     {
-      "rank": 9,
-      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
-      "asin": "B07YP2VH4B",
-      "price": 11.99,
-      "rating": 4.6,
-      "reviews": 92763
-     },
-     {
-      "rank": 10,
-      "title": "HydroJug Traveler 32oz, Insulated Water Bottle with Handle, French Vanilla | Tri",
-      "asin": "B0H2FQ5FV1",
-      "price": 39.99,
-      "rating": 4.6,
-      "reviews": 21592
-     },
-     {
-      "rank": 11,
       "title": "PriorityChef Large 15oz Potato Ricer, Heavy Duty Stainless Steel Potato Masher a",
       "asin": "B00MUEHPGQ",
       "price": 27.99,
       "rating": 4.6,
-      "reviews": 15090
+      "reviews": 15097
+     },
+     {
+      "rank": 9,
+      "title": "HydroJug Traveler 32oz, Insulated Water Bottle with Handle, French Vanilla | Tri",
+      "asin": "B0H2FQ5FV1",
+      "price": 39.99,
+      "rating": 4.6,
+      "reviews": 21611
+     },
+     {
+      "rank": 10,
+      "title": "STANLEY IceFlow 2.0 Flip Straw Tumbler, 30 oz, Black 2.0 | Easy Carry Handle | T",
+      "asin": "B0DR9PMK1W",
+      "price": 26.25,
+      "rating": 4.7,
+      "reviews": 76229
+     },
+     {
+      "rank": 11,
+      "title": "KitchenAid Classic Multifunction Can Opener and Bottle Opener Easy to Use, Razor",
+      "asin": "B07YP2VH4B",
+      "price": 11.99,
+      "rating": 4.6,
+      "reviews": 92774
      },
      {
       "rank": 12,
+      "title": "YETI Rambler 16 oz Travel Bottle - Stainless Steel, Riverhead Green | Double-Wal",
+      "asin": "B0HC429YGR",
+      "price": 22.2,
+      "rating": 4.6,
+      "reviews": 3111
+     },
+     {
+      "rank": 13,
       "title": "Rubbermaid Brilliance Glass Food Storage Containers, Clear, 9-Count | Airtight a",
       "asin": "B08BR9HBZ3",
       "price": 49.99,
       "rating": 4.6,
-      "reviews": 14852
-     },
-     {
-      "rank": 13,
-      "title": "YETI Rambler 12 oz Travel Bottle - Stainless Steel, Stag Red | Double-Wall Vacuu",
-      "asin": "B0H9ML1BGS",
-      "price": 16.8,
-      "rating": 4.6,
-      "reviews": 3101
+      "reviews": 14857
      },
      {
       "rank": 14,
-      "title": "Crockpot® Programmable 7-Quart Cook and Carry Slow Cooker, Grey | Cook & Carry L",
-      "asin": "B0FBT84P65",
-      "price": 69.87,
-      "rating": 4.5,
-      "reviews": 35472
-     },
-     {
-      "rank": 15,
       "title": "Meat Thermometer Digital, 1-2 Sec Instant Read, Stocking Stuffers for Men | Brig",
       "asin": "B0GVM8N2CK",
       "price": 9.47,
       "rating": 4.7,
-      "reviews": 3266
+      "reviews": 3324
+     },
+     {
+      "rank": 15,
+      "title": "KitchenAid All Purpose Kitchen Shears with Protective Sheath Durable Stainless S",
+      "asin": "B07PZF3QS3",
+      "price": 6.99,
+      "rating": 4.8,
+      "reviews": 73153
      },
      {
       "rank": 16,
@@ -305,31 +305,31 @@
       "asin": "B0DCDF6HKT",
       "price": 33.75,
       "rating": 4.7,
-      "reviews": 22382
+      "reviews": 22404
      },
      {
       "rank": 17,
-      "title": "KitchenAid All Purpose Kitchen Shears with Protective Sheath Durable Stainless S",
-      "asin": "B07PZF3QS3",
-      "price": 6.99,
-      "rating": 4.8,
-      "reviews": 73142
-     },
-     {
-      "rank": 18,
-      "title": "Etekcity Food Kitchen Scale, Digital Grams and Ounces, 11lb | Tare function, ide",
-      "asin": "B0113UZJE2",
-      "price": 9.99,
-      "rating": 4.6,
-      "reviews": 178529
-     },
-     {
-      "rank": 19,
       "title": "YETI Rambler 20 oz Stainless Steel Vacuum Insulated Tumbler w/MagSlider Lid",
       "asin": "B0G67239QQ",
       "price": 22.75,
       "rating": 4.8,
-      "reviews": 184339
+      "reviews": 184360
+     },
+     {
+      "rank": 18,
+      "title": "Crock-Pot Programmable Slow Cooker, Stainless Steel, Locking Lid, 7-Quart | MyTi",
+      "asin": "B097F4QKVY",
+      "price": 59.99,
+      "rating": 4.5,
+      "reviews": 35481
+     },
+     {
+      "rank": 19,
+      "title": "Etekcity Food Kitchen Scale, Digital Grams and Ounces, 11lb | Tare function, ide",
+      "asin": "B0113UZJE2",
+      "price": 9.99,
+      "rating": 4.6,
+      "reviews": 178554
      },
      {
       "rank": 20,
@@ -337,7 +337,7 @@
       "asin": "B0C7KSGVRM",
       "price": 13.99,
       "rating": 4.7,
-      "reviews": 4573
+      "reviews": 4583
      }
     ]
    },
@@ -347,163 +347,163 @@
     "items": [
      {
       "rank": 1,
-      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Black 2.0 | Handle and Straw | ",
-      "asin": "B0CP9Z1S51",
+      "title": "STANLEY Quencher H2.0 Flow State Tumbler, 40 oz, Rose Quartz 2.0 | Handle and St",
+      "asin": "B0CP9Z56SW",
       "price": 22.5,
       "rating": 4.7,
-      "reviews": 207976
+      "reviews": 208081
      },
      {
       "rank": 2,
-      "title": "Amazon Basics Lightweight Super Soft Easy Care Wrinkle Free Microfiber 3 Piece B",
-      "asin": "B00Q7OAW1U",
-      "price": 11.26,
-      "rating": 4.5,
-      "reviews": 482754
-     },
-     {
-      "rank": 3,
-      "title": "Amazon Basics Slim Velvet Non-Slip Space Saving Suit Clothes Hangers, Closet Org",
-      "asin": "B00FXNAAW2",
-      "price": 17.99,
-      "rating": 4.8,
-      "reviews": 239666
-     },
-     {
-      "rank": 4,
-      "title": "Yankee Candle Balsam & Cedar Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
-      "asin": "B0F3DPXQP1",
-      "price": 14.99,
-      "rating": 4.6,
-      "reviews": 2943
-     },
-     {
-      "rank": 5,
-      "title": "Barossa Design Oeko-tex Certified Shower Curtain Liner Standard Size, Clear | Wa",
-      "asin": "B08QRFZ6TH",
-      "price": 8.49,
-      "rating": 4.5,
-      "reviews": 103125
-     },
-     {
-      "rank": 6,
       "title": "Queen Size 4 Piece Sheet Set - Comfy Breathable & Cooling Sheets - White | Hotel",
       "asin": "B01M16WBW1",
       "price": 17.49,
       "rating": 4.5,
-      "reviews": 465085
+      "reviews": 465306
      },
      {
-      "rank": 7,
-      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Very, Very Dark | 2-in-1 Sip or",
-      "asin": "B085DTZQNZ",
-      "price": 29.97,
+      "rank": 3,
+      "title": "Owala FreeSip Stainless Steel Water Bottle 24 oz Shy Marshmallow",
+      "asin": "B085DV8T75",
+      "price": 22.79,
       "rating": 4.6,
-      "reviews": 146399
+      "reviews": 146716
      },
      {
-      "rank": 8,
-      "title": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat | 20",
-      "asin": "B0C6FCKQML",
-      "price": 33.36,
-      "rating": 4.6,
-      "reviews": 22162
+      "rank": 4,
+      "title": "Amazon Basics Lightweight Super Soft Breathable Wrinkle-Resistant Microfiber 4-P",
+      "asin": "B0154ASID6",
+      "price": 12.0,
+      "rating": 4.5,
+      "reviews": 482947
      },
      {
-      "rank": 9,
-      "title": "Yankee Candle Christmas Cookie Scented Candle, 22oz Large Jar | Up to 150 Hour B",
-      "asin": "B0F3DQZ193",
-      "price": 14.99,
-      "rating": 4.6,
-      "reviews": 1418
+      "rank": 5,
+      "title": "Amazon Echo Show 5 (newest model), Smart display, Designed for Alexa+, 2x the ba",
+      "asin": "B09B2SBHQK",
+      "price": 54.99,
+      "rating": 4.2,
+      "reviews": 74357
      },
      {
-      "rank": 10,
-      "title": "upsimples 11x14 Picture Frame, Wall Decor Photo Frames, Black 1 Pack | 11 x 14 F",
-      "asin": "B0BQR2BQYZ",
-      "price": 5.94,
-      "rating": 4.4,
-      "reviews": 45349
-     },
-     {
-      "rank": 11,
-      "title": "Keurig K-Express Single Serve K-Cup Pod Coffee Maker, Black | 3 Brew Sizes, 42oz",
-      "asin": "B09715G57M",
-      "price": 59.99,
-      "rating": 4.3,
-      "reviews": 53197
-     },
-     {
-      "rank": 12,
-      "title": "KITCHENAID Ribbed Soft Silicone Oven Mitt 2-Pack Set, 7.5\"x13\", Milkshake Tan",
-      "asin": "B08J8GZXKZ",
-      "price": 11.49,
-      "rating": 4.7,
-      "reviews": 14534
-     },
-     {
-      "rank": 13,
-      "title": "Levoit Top Fill Humidifiers for Bedroom, 2.5L Tank for Large Room, 25dB | Easy t",
-      "asin": "B0C2C9NHZW",
-      "price": 29.77,
-      "rating": 4.4,
-      "reviews": 64571
-     },
-     {
-      "rank": 14,
-      "title": "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless | Deep ",
-      "asin": "B0C1NM42PN",
-      "price": 22.78,
-      "rating": 4.6,
-      "reviews": 29840
-     },
-     {
-      "rank": 15,
+      "rank": 6,
       "title": "Bedsure GentleSoft White Throw Blanket for Couch - Christmas Thanksgiving Decora",
       "asin": "B0BPLB81LX",
       "price": 12.81,
       "rating": 4.6,
-      "reviews": 29300
+      "reviews": 29378
      },
      {
-      "rank": 16,
+      "rank": 7,
+      "title": "Yankee Candle Balsam & Cedar Scented Candle, 22oz Large Jar | Up to 150 Hour Bur",
+      "asin": "B0F3DPXQP1",
+      "price": 14.99,
+      "rating": 4.6,
+      "reviews": 2979
+     },
+     {
+      "rank": 8,
+      "title": "Barossa Design Oeko-tex Certified Shower Curtain Liner Standard Size, Clear | Wa",
+      "asin": "B08QRFZ6TH",
+      "price": 8.49,
+      "rating": 4.5,
+      "reviews": 103206
+     },
+     {
+      "rank": 9,
+      "title": "Beckham Hotel Collection Bed Pillows Queen Size Set of 2 | Down Alternative Pill",
+      "asin": "B01LYNW421",
+      "price": 37.87,
+      "rating": 4.3,
+      "reviews": 265874
+     },
+     {
+      "rank": 10,
+      "title": "Amazon Basics Slim Velvet Non-Slip Space Saving Suit Clothes Hangers for Closet ",
+      "asin": "B00FXNABPI",
+      "price": 12.88,
+      "rating": 4.8,
+      "reviews": 239778
+     },
+     {
+      "rank": 11,
+      "title": "Bedsure Satin Pillowcases Queen Set of 2, Similar to Silk Pillow Cases Grey | Si",
+      "asin": "B0725WFLMB",
+      "price": 5.69,
+      "rating": 4.5,
+      "reviews": 323801
+     },
+     {
+      "rank": 12,
+      "title": "upsimples 11x14 Picture Frame, Wall Decor Photo Frames, Black 1 Pack | 11 x 14 F",
+      "asin": "B0BQR2BQYZ",
+      "price": 5.94,
+      "rating": 4.4,
+      "reviews": 45419
+     },
+     {
+      "rank": 13,
+      "title": "BEDLORE Waterproof Mattress Protector, Queen Size Mattress Pad Noiseless | Deep ",
+      "asin": "B0C1NM42PN",
+      "price": 22.78,
+      "rating": 4.6,
+      "reviews": 29954
+     },
+     {
+      "rank": 14,
+      "title": "Keurig K-Express Single Serve K-Cup Pod Coffee Maker, Black | 3 Brew Sizes, 42oz",
+      "asin": "B09715G57M",
+      "price": 59.99,
+      "rating": 4.3,
+      "reviews": 53258
+     },
+     {
+      "rank": 15,
       "title": "bella Fits-Anywhere™ 2-Slice Slim Toaster, Long Slot & Extra Wide, Oatmilk",
       "asin": "B0CYJBB2JQ",
       "price": 18.74,
       "rating": 4.2,
-      "reviews": 23084
+      "reviews": 23166
+     },
+     {
+      "rank": 16,
+      "title": "DREO Space Heater, Portable Electric Heaters for Indoor Use with Thermostat | 20",
+      "asin": "B0C6FCKQML",
+      "price": 33.36,
+      "rating": 4.6,
+      "reviews": 22215
      },
      {
       "rank": 17,
-      "title": "Fall Table Runner Terracotta Cheesecloth Boho Wedding Thanksgiving Decor | Frien",
-      "asin": "B09WXZWSN3",
-      "price": 13.99,
-      "rating": 4.7,
-      "reviews": 8186
+      "title": "Niagara Sleep Solution Queen Ultra Soft Mattress Topper — Back Pain Relief | Ray",
+      "asin": "B0FVYBPSWY",
+      "price": 34.19,
+      "rating": 4.3,
+      "reviews": 64153
      },
      {
       "rank": 18,
+      "title": "Levoit Top Fill Humidifiers for Bedroom, 2.5L Tank for Large Room, 25dB | Easy t",
+      "asin": "B0C2C9NHZW",
+      "price": 29.77,
+      "rating": 4.4,
+      "reviews": 64624
+     },
+     {
+      "rank": 19,
+      "title": "Yankee Candle Christmas Cookie Scented Candle, 22oz Large Jar | Up to 150 Hour B",
+      "asin": "B0F3DQZ193",
+      "price": 14.99,
+      "rating": 4.6,
+      "reviews": 1431
+     },
+     {
+      "rank": 20,
       "title": "Alpha Grillers Meat Thermometer Digital, Stocking Stuffers Gifts for Men | 1-2 S",
       "asin": "B00S93EQUK",
       "price": 11.69,
       "rating": 4.8,
-      "reviews": 93505
-     },
-     {
-      "rank": 19,
-      "title": "Owala SmoothSip Slider Insulated Stainless Steel Coffee Tumbler, Reusable Iced C",
-      "asin": "B0DF472VMZ",
-      "price": 24.98,
-      "rating": 4.6,
-      "reviews": 16275
-     },
-     {
-      "rank": 20,
-      "title": "Zevo Flying Insect Trap Refill Cartridges for Fruit Flies & Gnats, 4 Count | Fit",
-      "asin": "B0C3FTCYZL",
-      "price": 14.97,
-      "rating": 4.8,
-      "reviews": 39077
+      "reviews": 93543
      }
     ]
    },
@@ -517,7 +517,7 @@
       "asin": "B0FFTLNC5S",
       "price": 22.79,
       "rating": 4.6,
-      "reviews": 146530
+      "reviews": 146716
      },
      {
       "rank": 2,
@@ -525,7 +525,7 @@
       "asin": "B09FFQN924",
       "price": 42.99,
       "rating": 4.7,
-      "reviews": 3671
+      "reviews": 3677
      },
      {
       "rank": 3,
@@ -533,26 +533,50 @@
       "asin": "B0FK1C3GDW",
       "price": 36.0,
       "rating": 4.6,
-      "reviews": 14733
+      "reviews": 14781
      },
      {
       "rank": 4,
       "title": "EA SPORTS FC 27 Standard Edition PlayStation5 |Physical Disc I VideoGame |Englis",
       "asin": "B0H9SYK5Q7",
       "price": 29.99,
-      "rating": 4.5,
+      "rating": 4.6,
       "reviews": null
      },
      {
       "rank": 5,
+      "title": "Fun Boomerang for Kids - Stocking Stuffers for Boys and Girls - Soft & Easy Use ",
+      "asin": "B08HN2V7GY",
+      "price": 13.77,
+      "rating": 4.2,
+      "reviews": 5743
+     },
+     {
+      "rank": 6,
       "title": "YETI Rambler 16 oz Travel Bottle - Stainless Steel, Black | Double-Wall Vacuum I",
       "asin": "B0F9ZWXM26",
       "price": 20.8,
       "rating": 4.6,
-      "reviews": 3101
+      "reviews": 3111
      },
      {
-      "rank": 6,
+      "rank": 7,
+      "title": "Headlamp Rechargeable 2PCS, 230° Wide Beam Head Lamp LED with Motion Sensor for ",
+      "asin": "B0B4KK73NB",
+      "price": 19.99,
+      "rating": 4.4,
+      "reviews": 17946
+     },
+     {
+      "rank": 8,
+      "title": "LHKNL Headlamp Flashlight, Lumen Bright Head Lamps LED Rechargeable Camping | Ul",
+      "asin": "B08D66HCXW",
+      "price": 15.19,
+      "rating": 4.5,
+      "reviews": 38095
+     },
+     {
+      "rank": 9,
       "title": "NBA 2K27 - PlayStation 5",
       "asin": "B0H9Z71PJK",
       "price": 29.99,
@@ -560,84 +584,60 @@
       "reviews": 2
      },
      {
-      "rank": 7,
-      "title": "LHKNL Headlamp Flashlight, Lumen Bright Head Lamps LED Rechargeable Camping | Ul",
-      "asin": "B08D66HCXW",
-      "price": 15.19,
-      "rating": 4.5,
-      "reviews": 38072
-     },
-     {
-      "rank": 8,
-      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
-      "asin": "B006QF3TW4",
-      "price": 33.82,
-      "rating": 4.8,
-      "reviews": 126312
-     },
-     {
-      "rank": 9,
-      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
-      "asin": "B01LR5S6HK",
-      "price": 26.85,
-      "rating": 4.8,
-      "reviews": 15890
-     },
-     {
       "rank": 10,
-      "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
-      "asin": "B0007ZF4OA",
-      "price": 21.7,
-      "rating": 4.8,
-      "reviews": 52850
-     },
-     {
-      "rank": 11,
-      "title": "Headlamp Rechargeable 2PCS, 230° Wide Beam Head Lamp LED with Motion Sensor for ",
-      "asin": "B0B4KK73NB",
-      "price": 19.99,
-      "rating": 4.4,
-      "reviews": 17927
-     },
-     {
-      "rank": 12,
       "title": "CAP Rubber Coated Dumbbell Weights, Free Weights for Home Gym Strength Training,",
       "asin": "B0D8RTHJDX",
       "price": 28.98,
       "rating": 4.6,
-      "reviews": 7549
+      "reviews": 7557
+     },
+     {
+      "rank": 11,
+      "title": "Amazon Basics Neoprene Dumbbell Hand Weights for Exercise and Muscle Toning",
+      "asin": "B01LR5SM74",
+      "price": 34.69,
+      "rating": 4.7,
+      "reviews": 14338
+     },
+     {
+      "rank": 12,
+      "title": "HotHands Hand Warmers Bulk Pack, 40 Pairs - America's Favorite Warmer",
+      "asin": "B0007ZF4OA",
+      "price": 21.7,
+      "rating": 4.8,
+      "reviews": 52858
      },
      {
       "rank": 13,
-      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
-      "asin": "B00D7H9LIA",
-      "price": 8.97,
+      "title": "LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK | Wa",
+      "asin": "B006QF3TW4",
+      "price": 38.07,
       "rating": 4.8,
-      "reviews": 20602
+      "reviews": 126322
      },
      {
       "rank": 14,
+      "title": "OLIGHT IMINI 2 Rechargeable EDC Keychain Mini Flashlight Black | 50LM and 21M Th",
+      "asin": "B0C54ZH8WW",
+      "price": 11.99,
+      "rating": 4.7,
+      "reviews": 10070
+     },
+     {
+      "rank": 15,
+      "title": "Frost Buddy 24oz Insulated Water Bottle - Straw & Chug Lid - Leak-Proof | Insula",
+      "asin": "B0H45QFSFL",
+      "price": 23.99,
+      "rating": 4.5,
+      "reviews": 2230
+     },
+     {
+      "rank": 16,
       "title": "AI Hand Warmers Rechargeable 2 Pack, AI Smart Chips Electric Hand Warmers, 20Hrs",
       "asin": "B0CG65PYBV",
       "price": 16.99,
       "rating": 4.6,
-      "reviews": 9701
-     },
-     {
-      "rank": 15,
-      "title": "Lepro LED White Light Flashlight, High Lumens Waterproof Adjustable Focus | Smal",
-      "asin": "B005FEGYCO",
-      "price": 7.99,
-      "rating": 4.6,
-      "reviews": 51682
-     },
-     {
-      "rank": 16,
-      "title": "EA SPORTS College Football 27 - Standard Edition PS5 |Disc I VideoGame",
-      "asin": "B0H2K6W7P9",
-      "price": 29.99,
-      "rating": 4.6,
-      "reviews": null
+      "reviews": 9711
      },
      {
       "rank": 17,
@@ -645,31 +645,31 @@
       "asin": "B0869D5PZP",
       "price": 45.56,
       "rating": 4.3,
-      "reviews": 67812
+      "reviews": 67818
      },
      {
       "rank": 18,
-      "title": "Frost Buddy 24 oz Kids Insulated Water Bottle with Straw (Baseball Drip) | Sip o",
-      "asin": "B0GVPG93SH",
-      "price": 23.99,
-      "rating": 4.5,
-      "reviews": 2229
+      "title": "EA SPORTS College Football 27 - Standard Edition PS5 |Disc I VideoGame",
+      "asin": "B0H2K6W7P9",
+      "price": 29.99,
+      "rating": 4.6,
+      "reviews": null
      },
      {
       "rank": 19,
-      "title": "Lerat Hand Warmers Rechargeable 2 Pack, Portable Electric Hand Warmer Max 131℉, ",
-      "asin": "B0FNQLTK83",
-      "price": 9.99,
-      "rating": 4.4,
-      "reviews": 4662
+      "title": "HotHands Super Warmers Bulk Pack, 40 Warmers - America's Favorite Warmer | Econo",
+      "asin": "B0007ZF4Q8",
+      "price": 18.7,
+      "rating": 4.8,
+      "reviews": 18645
      },
      {
       "rank": 20,
-      "title": "adidas Starlancer Club Soccer Ball | Sizes 3, 4, 5, Requires Inflation, 100% TPU",
-      "asin": "B0C1XPCM9M",
-      "price": 11.7,
-      "rating": 4.5,
-      "reviews": 17377
+      "title": "HotHands Hand Warmers Value Pack, 10 Pairs - America's Favorite Warmer",
+      "asin": "B00D7H9LIA",
+      "price": 8.97,
+      "rating": 4.8,
+      "reviews": 20605
      }
     ]
    }
